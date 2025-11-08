@@ -1,1 +1,41 @@
 
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>جيولوجيا بلس</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌋 جيولوجيا بلس</h1>
+            <p>اختر قسم للبدء في التدريب</p>
+        </div>
+
+        <div class="categories-grid" id="categoriesContainer">
+            <!-- الأقسام تظهر هنا تلقائياً -->
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        function displayCategories() {
+            const container = document.getElementById('categoriesContainer');
+            const language = CONFIG.settings.default_language;
+            
+            CONFIG.categories.forEach(category => {
+                const card = document.createElement('div');
+                card.className = 'category-card';
+                card.innerHTML = `
+                    <h3>${category[`name_${language}`]}</h3>
+                    <p>${category.name_en}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        displayCategories();
+    </script>
+</body>
+</html>
