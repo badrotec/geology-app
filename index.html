@@ -10,39 +10,114 @@
     <div class="app">
         <!-- الهيدر -->
         <div class="header">
-            <button class="menu-btn">☰</button>
+            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
             <div class="online-indicator">
                 <div class="online-dot"></div>
                 <span id="onlineCount">18 متصل</span>
             </div>
-            <button class="settings-btn">⚙️</button>
+            <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+        </div>
+
+        <!-- القائمة الجانبية -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="close-btn" onclick="toggleSidebar()">✕</button>
+                <h3>القائمة الرئيسية</h3>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item active" onclick="showPage('home')">
+                    <span>🏠</span> الرئيسية
+                </div>
+                <div class="menu-item" onclick="showPage('categories')">
+                    <span>📚</span> جميع الأقسام
+                </div>
+                <div class="menu-item" onclick="showPage('topics')">
+                    <span>🗂️</span> المواضيع
+                </div>
+                <div class="menu-item" onclick="showPage('lessons')">
+                    <span>🎓</span> الدروس
+                </div>
+                <div class="menu-item" onclick="showPage('companies')">
+                    <span>🏢</span> الشركات
+                </div>
+                <div class="menu-item" onclick="showPage('leaderboard')">
+                    <span>🏆</span> المتصدرين
+                </div>
+                <div class="menu-divider"></div>
+                <div class="menu-item" onclick="toggleSettings()">
+                    <span>⚙️</span> الإعدادات
+                </div>
+            </div>
+        </div>
+
+        <!-- الإعدادات -->
+        <div class="settings-modal" id="settingsModal">
+            <div class="settings-header">
+                <h3>الإعدادات</h3>
+                <button class="close-btn" onclick="toggleSettings()">✕</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label>🔊 الصوت</label>
+                    <label class="switch">
+                        <input type="checkbox" id="soundToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>🌐 اللغة</label>
+                    <select id="languageSelect">
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="ru">Русский</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+                <button class="save-btn" onclick="saveSettings()">💾 حفظ الإعدادات</button>
+            </div>
         </div>
 
         <!-- المحتوى الرئيسي -->
-        <div class="main-content">
-            <h1 class="app-title">🌋 جيولوجيا بلس</h1>
-            <p class="app-subtitle">اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية</p>
-            
-            <button class="start-btn">🚀 ابدأ رحلتي</button>
-            
-            <!-- الإحصائيات -->
-            <div class="stats">
-                <div class="stat-item">
-                    <div>🗂️ 12 قسم</div>
-                    <div>❓ 500+ سؤال</div>
+        <div class="main-content" id="mainContent">
+            <div class="page active" id="homePage">
+                <h1 class="app-title">🌋 جيولوجيا بلس</h1>
+                <p class="app-subtitle">اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية وتدريبات عملية</p>
+                
+                <button class="start-btn" onclick="showPage('categories')">🚀 ابدأ رحلتي</button>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">قسم تدريبي</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">سؤال تدريبي</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label">تقييم</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1,000+</div>
+                        <div class="stat-label">متدرب</div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div>⭐ 4.8/5</div>
-                    <div>👥 1,000+ متدرب</div>
+
+                <div class="progress-section">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0% إكمال - ابدأ الآن لتحقيق التقدم!</div>
                 </div>
             </div>
 
-            <!-- شريط التقدم -->
-            <div class="progress-section">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-text">0% إكمال - ابدأ الآن لتحقيق التقدم!</div>
+            <!-- صفحة الأقسام -->
+            <div class="page" id="categoriesPage">
+                <h2>📚 جميع الأقسام</h2>
+                <div class="categories-grid" id="categoriesGrid"></div>
             </div>
         </div>
 
@@ -53,24 +128,6 @@
     </div>
 
     <script src="config.js"></script>
-    <script>
-        // تحديث عدد المتصلين عشوائياً
-        function updateOnlineCount() {
-            const count = Math.floor(Math.random() * 21) + 10; // بين 10 و 30
-            document.getElementById('onlineCount').textContent = count + ' متصل';
-        }
-
-        // تحديث شريط التقدم
-        document.getElementById('progressFill').style.width = '0%';
-
-        // تحديث عدد المتصلين كل 10 ثواني
-        updateOnlineCount();
-        setInterval(updateOnlineCount, 10000);
-
-        // نقر زر البدء
-        document.querySelector('.start-btn').addEventListener('click', function() {
-            alert('سيتم فتح صفحة الأقسام!');
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
