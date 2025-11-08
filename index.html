@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,157 +9,169 @@
 <body>
     <div class="app">
         <!-- الهيدر -->
-        <div class="header">
-            <button class="menu-btn" onclick="App.toggleSidebar()">☰</button>
+        <header class="header">
+            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
             <div class="online-indicator">
                 <div class="online-dot"></div>
                 <span id="onlineCount">18 متصل</span>
             </div>
-            <button class="settings-btn" onclick="App.toggleSettings()">⚙️</button>
-        </div>
+            <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+        </header>
 
         <!-- القائمة الجانبية -->
-        <div class="sidebar" id="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <button class="close-btn" onclick="App.toggleSidebar()">✕</button>
+                <button class="close-btn" onclick="toggleSidebar()">✕</button>
                 <h3>القائمة الرئيسية</h3>
             </div>
             <div class="menu-items">
-                <div class="menu-item active" onclick="App.showPage('home')">
+                <div class="menu-item active" onclick="showPage('home')">
                     <span>🏠</span> الرئيسية
                 </div>
-                <div class="menu-item" onclick="App.showPage('categories')">
+                <div class="menu-item" onclick="showPage('categories')">
                     <span>📚</span> جميع الأقسام
                 </div>
-                <div class="menu-item" onclick="App.showPage('topics')">
+                <div class="menu-item" onclick="showPage('topics')">
                     <span>🗂️</span> المواضيع
                 </div>
-                <div class="menu-item" onclick="App.showPage('lessons')">
+                <div class="menu-item" onclick="showPage('lessons')">
                     <span>🎓</span> الدروس
                 </div>
-                <div class="menu-item" onclick="App.showPage('applications')">
+                <div class="menu-item" onclick="showPage('applications')">
                     <span>⚡</span> التطبيقات
                 </div>
-                <div class="menu-item" onclick="App.showPage('leaderboard')">
+                <div class="menu-item" onclick="showPage('leaderboard')">
                     <span>🏆</span> المتصدرين
                 </div>
                 <div class="menu-divider"></div>
-                <div class="menu-item" onclick="App.toggleSettings()">
+                <div class="menu-item" onclick="toggleSettings()">
                     <span>⚙️</span> الإعدادات
                 </div>
             </div>
-        </div>
+        </nav>
 
         <!-- الإعدادات -->
         <div class="settings-modal" id="settingsModal">
-            <div class="settings-header">
-                <h3>الإعدادات</h3>
-                <button class="close-btn" onclick="App.toggleSettings()">✕</button>
-            </div>
             <div class="settings-content">
-                <div class="setting-item">
-                    <label>🔊 الصوت</label>
-                    <label class="switch">
-                        <input type="checkbox" id="soundToggle" checked>
-                        <span class="slider"></span>
-                    </label>
+                <div class="settings-header">
+                    <h3>الإعدادات</h3>
+                    <button class="close-btn" onclick="toggleSettings()">✕</button>
                 </div>
-                <div class="setting-item">
-                    <label>🌐 اللغة</label>
-                    <select id="languageSelect">
-                        <option value="ar">العربية</option>
-                        <option value="en">English</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="ru">Русский</option>
-                        <option value="es">Español</option>
-                    </select>
+                <div class="settings-body">
+                    <div class="setting-item">
+                        <label>🔊 الصوت</label>
+                        <label class="switch">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>🌐 اللغة</label>
+                        <select id="languageSelect">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <button class="save-btn" onclick="saveSettings()">💾 حفظ الإعدادات</button>
                 </div>
-                <button class="save-btn" onclick="App.saveSettings()">💾 حفظ الإعدادات</button>
             </div>
         </div>
 
         <!-- المحتوى الرئيسي -->
-        <div class="main-content" id="mainContent">
+        <main class="main-content">
             <!-- الصفحة الرئيسية -->
-            <div class="page active" id="homePage">
-                <h1 class="app-title">🌋 جيولوجيا بلس</h1>
-                <p class="app-subtitle">اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية وتدريبات عملية</p>
-                
-                <button class="start-btn" onclick="App.showPage('categories')">🚀 ابدأ رحلتي</button>
-                
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">قسم تدريبي</div>
+            <section class="page active" id="homePage">
+                <div class="hero-section">
+                    <h1 class="app-title">🌋 جيولوجيا بلس</h1>
+                    <p class="app-subtitle">اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية وتدريبات عملية</p>
+                    
+                    <button class="start-btn" onclick="showPage('categories')">
+                        🚀 ابدأ رحلتي
+                    </button>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">قسم تدريبي</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">سؤال تدريبي</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.8</div>
+                            <div class="stat-label">تقييم</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1,000+</div>
+                            <div class="stat-label">متدرب</div>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">سؤال تدريبي</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4.8</div>
-                        <div class="stat-label">تقييم</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1,000+</div>
-                        <div class="stat-label">متدرب</div>
-                    </div>
-                </div>
 
-                <div class="progress-section">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">0% إكمال - ابدأ الآن لتحقيق التقدم!</div>
                     </div>
-                    <div class="progress-text" id="progressText">0% إكمال - ابدأ الآن لتحقيق التقدم!</div>
                 </div>
-            </div>
+            </section>
 
             <!-- صفحة جميع الأقسام -->
-            <div class="page" id="categoriesPage">
+            <section class="page" id="categoriesPage">
                 <h2>📚 جميع الأقسام</h2>
-                <div class="categories-grid" id="categoriesGrid"></div>
-            </div>
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </section>
 
-            <!-- صفحة المواضيع العلمية -->
-            <div class="page" id="topicsPage">
+            <!-- صفحة المواضيع -->
+            <section class="page" id="topicsPage">
                 <h2>🗂️ المواضيع العلمية</h2>
-                <div class="categories-grid" id="topicsGrid"></div>
-            </div>
+                <div class="categories-grid" id="topicsGrid">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </section>
 
-            <!-- صفحة الدروس العملية -->
-            <div class="page" id="lessonsPage">
+            <!-- صفحة الدروس -->
+            <section class="page" id="lessonsPage">
                 <h2>🎓 الدروس العملية</h2>
-                <div class="categories-grid" id="lessonsGrid"></div>
-            </div>
+                <div class="categories-grid" id="lessonsGrid">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </section>
 
-            <!-- صفحة التطبيقات العملية -->
-            <div class="page" id="applicationsPage">
+            <!-- صفحة التطبيقات -->
+            <section class="page" id="applicationsPage">
                 <h2>⚡ التطبيقات العملية</h2>
-                <div class="categories-grid" id="applicationsGrid"></div>
-            </div>
+                <div class="categories-grid" id="applicationsGrid">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </section>
 
             <!-- صفحة المتصدرين -->
-            <div class="page" id="leaderboardPage">
+            <section class="page" id="leaderboardPage">
                 <h2>🏆 لوحة المتصدرين</h2>
-                <div class="leaderboard" id="leaderboardGrid"></div>
-            </div>
-        </div>
+                <div class="leaderboard" id="leaderboardGrid">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </section>
+        </main>
 
         <!-- الفوتر -->
-        <div class="footer">
+        <footer class="footer">
             © 2024 جيولوجيا بلس - جميع الحقوق محفوظة
-        </div>
+        </footer>
     </div>
 
-    <!-- النوافذ المنبثقة للاختبارات -->
-    <div class="quiz-modal" id="quizModal" style="display: none;">
-        <div class="quiz-content">
+    <!-- نافذة بدء الاختبار -->
+    <div class="modal" id="quizModal">
+        <div class="modal-content">
             <h3 id="quizTitle">بدء الاختبار</h3>
             <p id="quizMessage">سيبدأ الاختبار قريباً...</p>
-            <div class="quiz-actions">
-                <button class="btn secondary" onclick="App.closeQuizModal()">إلغاء</button>
-                <button class="btn primary" onclick="App.startSelectedQuiz()">بدء الاختبار</button>
+            <div class="modal-actions">
+                <button class="btn secondary" onclick="closeQuizModal()">إلغاء</button>
+                <button class="btn primary" onclick="startQuiz()">بدء الاختبار</button>
             </div>
         </div>
     </div>
