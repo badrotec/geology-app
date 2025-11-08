@@ -1,7 +1,13 @@
+const CONFIG = {
+    // الإعدادات العامة
+    settings: {
+        app_name_ar: "جيولوجيا بلس",
+        app_name_en: "Geology Plus", 
+        default_language: "ar",
+        sound_enabled: true
+    },
 
-// 📁 js/config.js
-const APP_CONFIG = {
-    // 🔥 اللغات المدعومة
+    // 🌍 اللغات المدعومة
     languages: {
         ar: "العربية",
         en: "English", 
@@ -11,116 +17,126 @@ const APP_CONFIG = {
         es: "Español"
     },
 
-    // 🔥 الأقسام العلمية الأساسية
+    // 📚 جميع الأقسام بكل اللغات
     categories: [
-        // ١. الأقسام الأساسية
         {
-            id: "basic_geology",
+            id: "basic_geo",
             name_ar: "الجيولوجيا الأساسية",
             name_en: "Basic Geology",
-            type: "theory"
+            name_fr: "Géologie de base",
+            name_de: "Allgemeine Geologie", 
+            name_ru: "Основы геологии",
+            name_es: "Geología Básica",
+            image: "basic_geo.jpg",
+            quiz: "basic_geo.json"
         },
         {
-            id: "mineralogy",
-            name_ar: "علم المعادن", 
+            id: "mineralogy", 
+            name_ar: "علم المعادن",
             name_en: "Mineralogy",
-            type: "theory"
+            name_fr: "Minéralogie",
+            name_de: "Mineralogie",
+            name_ru: "Минералогия",
+            name_es: "Mineralogía",
+            image: "mineralogy.jpg",
+            quiz: "mineralogy.json"
         },
         {
             id: "petrology",
-            name_ar: "علم الصخور",
-            name_en: "Petrology", 
-            type: "theory"
+            name_ar: "علم الصخور", 
+            name_en: "Petrology",
+            name_fr: "Pétrologie",
+            name_de: "Petrologie",
+            name_ru: "Петрология",
+            name_es: "Petrología",
+            image: "petrology.jpg",
+            quiz: "petrology.json"
         },
-
-        // ٢. الجيولوجيا التطبيقية
+        {
+            id: "structural_geo",
+            name_ar: "الجيولوجيا التركيبية",
+            name_en: "Structural Geology",
+            name_fr: "Géologie structurale",
+            name_de: "Strukturgeologie",
+            name_ru: "Структурная геология",
+            name_es: "Geología Estructural",
+            image: "structural_geo.jpg",
+            quiz: "structural_geo.json"
+        },
         {
             id: "engineering_geo",
             name_ar: "الجيولوجيا الهندسية",
-            name_en: "Engineering Geology", 
-            type: "applied"
+            name_en: "Engineering Geology",
+            name_fr: "Géologie de l'ingénieur",
+            name_de: "Ingenieurgeologie",
+            name_ru: "Инженерная геология",
+            name_es: "Geología Ingenieril",
+            image: "engineering_geo.jpg",
+            quiz: "engineering_geo.json"
         },
         {
-            id: "mining_geology",
-            name_ar: "جيولوجيا التعدين",
-            name_en: "Mining Geology",
-            type: "applied"
-        },
-        {
-            id: "hydrogeology", 
-            name_ar: "هيدروجيولوجيا",
+            id: "hydrogeology",
+            name_ar: "الهيدروجيولوجيا",
             name_en: "Hydrogeology",
-            type: "applied"
+            name_fr: "Hydrogéologie",
+            name_de: "Hydrogeologie",
+            name_ru: "Гидрогеология",
+            name_es: "Hidrogeología",
+            image: "hydrogeology.jpg",
+            quiz: "hydrogeology.json"
         },
-
-        // ٣. الجيوفيزياء والتحاليل
         {
             id: "geophysics",
             name_ar: "الجيوفيزياء",
             name_en: "Geophysics",
-            type: "analysis" 
+            name_fr: "Géophysique",
+            name_de: "Geophysik",
+            name_ru: "Геофизика",
+            name_es: "Geofísica",
+            image: "geophysics.jpg",
+            quiz: "geophysics.json"
         },
-        {
-            id: "geochemistry",
-            name_ar: "الجيوكيمياء",
-            name_en: "Geochemistry",
-            type: "analysis"
-        },
-
-        // ٤. 🔥 الأقسام العملية الجديدة
         {
             id: "field_work",
             name_ar: "العمل الميداني",
-            name_en: "Field Work",
-            type: "practical"
+            name_en: "Field Work", 
+            name_fr: "Travail sur le terrain",
+            name_de: "Feldarbeit",
+            name_ru: "Полевая работа",
+            name_es: "Trabajo de Campo",
+            image: "field_work.jpg",
+            quiz: "field_work.json"
         },
         {
             id: "topographic_maps",
-            name_ar: "الخرائط الطبوغرافية", 
+            name_ar: "الخرائط الطبوغرافية",
             name_en: "Topographic Maps",
-            type: "practical"
+            name_fr: "Cartes topographiques",
+            name_de: "Topografische Karten",
+            name_ru: "Топографические карты",
+            name_es: "Mapas Topográficos",
+            image: "topographic_maps.jpg",
+            quiz: "topographic_maps.json"
         },
         {
             id: "field_calculations",
             name_ar: "الحسابات الميدانية",
             name_en: "Field Calculations",
-            type: "practical" 
-        },
-        {
-            id: "geophysical_calculations",
-            name_ar: "الحسابات الجيوفيزيائية",
-            name_en: "Geophysical Calculations",
-            type: "practical"
-        },
-        {
-            id: "hydro_calculations",
-            name_ar: "حسابات الهيدروجيولوجيا",
-            name_en: "Hydrogeological Calculations", 
-            type: "practical"
+            name_fr: "Calculs sur le terrain",
+            name_de: "Feldberechnungen",
+            name_ru: "Полевые расчеты",
+            name_es: "Cálculos de Campo",
+            image: "field_calculations.jpg",
+            quiz: "field_calculations.json"
         }
     ],
 
-    // 🔥 أنواع المحتوى
-    content_types: {
-        theory: {
-            name_ar: "نظري",
-            name_en: "Theory",
-            color: "#3498db"
-        },
-        applied: {
-            name_ar: "تطبيقي", 
-            name_en: "Applied",
-            color: "#e74c3c"
-        },
-        analysis: {
-            name_ar: "تحليلي",
-            name_en: "Analysis",
-            color: "#9b59b6"
-        },
-        practical: {
-            name_ar: "عملي",
-            name_en: "Practical", 
-            color: "#2ecc71"
-        }
+    // 🔊 الأصوات
+    sounds: {
+        correct: "correct.mp3",
+        wrong: "wrong.mp3", 
+        click: "click.mp3", 
+        timer: "timer.mp3",
+        success: "success.mp3"
     }
 };
