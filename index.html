@@ -10,41 +10,41 @@
     <div class="app">
         <!-- الهيدر -->
         <div class="header">
-            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+            <button class="menu-btn" onclick="App.toggleSidebar()">☰</button>
             <div class="online-indicator">
                 <div class="online-dot"></div>
                 <span id="onlineCount">18 متصل</span>
             </div>
-            <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+            <button class="settings-btn" onclick="App.toggleSettings()">⚙️</button>
         </div>
 
         <!-- القائمة الجانبية -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <button class="close-btn" onclick="toggleSidebar()">✕</button>
+                <button class="close-btn" onclick="App.toggleSidebar()">✕</button>
                 <h3>القائمة الرئيسية</h3>
             </div>
             <div class="menu-items">
-                <div class="menu-item active" onclick="showPage('home')">
+                <div class="menu-item active" onclick="App.showPage('home')">
                     <span>🏠</span> الرئيسية
                 </div>
-                <div class="menu-item" onclick="showPage('categories')">
+                <div class="menu-item" onclick="App.showPage('categories')">
                     <span>📚</span> جميع الأقسام
                 </div>
-                <div class="menu-item" onclick="showPage('topics')">
+                <div class="menu-item" onclick="App.showPage('topics')">
                     <span>🗂️</span> المواضيع
                 </div>
-                <div class="menu-item" onclick="showPage('lessons')">
+                <div class="menu-item" onclick="App.showPage('lessons')">
                     <span>🎓</span> الدروس
                 </div>
-                <div class="menu-item" onclick="showPage('applications')">
+                <div class="menu-item" onclick="App.showPage('applications')">
                     <span>⚡</span> التطبيقات
                 </div>
-                <div class="menu-item" onclick="showPage('leaderboard')">
+                <div class="menu-item" onclick="App.showPage('leaderboard')">
                     <span>🏆</span> المتصدرين
                 </div>
                 <div class="menu-divider"></div>
-                <div class="menu-item" onclick="toggleSettings()">
+                <div class="menu-item" onclick="App.toggleSettings()">
                     <span>⚙️</span> الإعدادات
                 </div>
             </div>
@@ -54,7 +54,7 @@
         <div class="settings-modal" id="settingsModal">
             <div class="settings-header">
                 <h3>الإعدادات</h3>
-                <button class="close-btn" onclick="toggleSettings()">✕</button>
+                <button class="close-btn" onclick="App.toggleSettings()">✕</button>
             </div>
             <div class="settings-content">
                 <div class="setting-item">
@@ -75,7 +75,7 @@
                         <option value="es">Español</option>
                     </select>
                 </div>
-                <button class="save-btn" onclick="saveSettings()">💾 حفظ الإعدادات</button>
+                <button class="save-btn" onclick="App.saveSettings()">💾 حفظ الإعدادات</button>
             </div>
         </div>
 
@@ -86,7 +86,7 @@
                 <h1 class="app-title">🌋 جيولوجيا بلس</h1>
                 <p class="app-subtitle">اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية وتدريبات عملية</p>
                 
-                <button class="start-btn" onclick="showPage('categories')">🚀 ابدأ رحلتي</button>
+                <button class="start-btn" onclick="App.showPage('categories')">🚀 ابدأ رحلتي</button>
                 
                 <div class="stats">
                     <div class="stat-item">
@@ -121,28 +121,46 @@
                 <div class="categories-grid" id="categoriesGrid"></div>
             </div>
 
-            <!-- صفحة المواضيع -->
+            <!-- صفحة المواضيع العلمية -->
             <div class="page" id="topicsPage">
                 <h2>🗂️ المواضيع العلمية</h2>
                 <div class="categories-grid" id="topicsGrid"></div>
             </div>
 
-            <!-- صفحة الدروس -->
+            <!-- صفحة الدروس العملية -->
             <div class="page" id="lessonsPage">
                 <h2>🎓 الدروس العملية</h2>
                 <div class="categories-grid" id="lessonsGrid"></div>
             </div>
 
-            <!-- صفحة التطبيقات -->
+            <!-- صفحة التطبيقات العملية -->
             <div class="page" id="applicationsPage">
                 <h2>⚡ التطبيقات العملية</h2>
                 <div class="categories-grid" id="applicationsGrid"></div>
+            </div>
+
+            <!-- صفحة المتصدرين -->
+            <div class="page" id="leaderboardPage">
+                <h2>🏆 لوحة المتصدرين</h2>
+                <div class="leaderboard" id="leaderboardGrid"></div>
             </div>
         </div>
 
         <!-- الفوتر -->
         <div class="footer">
             © 2024 جيولوجيا بلس - جميع الحقوق محفوظة
+        </div>
+    </div>
+
+    <!-- النوافذ المنبثقة للاختبارات -->
+    <div class="quiz-modal" id="quizModal" style="display: none;">
+        <div class="quiz-content">
+            <h3 id="quizTitle">بدء الاختبار</h3>
+            <p id="quizMessage">سيبدأ الاختبار قريباً...</p>
+            <div class="quiz-actions">
+                <button class="btn secondary" onclick="App.closeQuizModal()">إلغاء</button>
+                <button class="btn primary" onclick="App.startSelectedQuiz()">بدء الاختبار</button>
+            </div>
         </div>
     </div>
 
