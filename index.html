@@ -1,41 +1,76 @@
-
 <!DOCTYPE html>
 <html dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>جيولوجيا بلس</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="app">
+        <!-- الهيدر -->
         <div class="header">
-            <h1>🌋 جيولوجيا بلس</h1>
-            <p>اختر قسم للبدء في التدريب</p>
+            <button class="menu-btn">☰</button>
+            <div class="online-indicator">
+                <div class="online-dot"></div>
+                <span id="onlineCount">18 متصل</span>
+            </div>
+            <button class="settings-btn">⚙️</button>
         </div>
 
-        <div class="categories-grid" id="categoriesContainer">
-            <!-- الأقسام تظهر هنا تلقائياً -->
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <h1 class="app-title">🌋 جيولوجيا بلس</h1>
+            <p class="app-subtitle">اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية</p>
+            
+            <button class="start-btn">🚀 ابدأ رحلتي</button>
+            
+            <!-- الإحصائيات -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div>🗂️ 12 قسم</div>
+                    <div>❓ 500+ سؤال</div>
+                </div>
+                <div class="stat-item">
+                    <div>⭐ 4.8/5</div>
+                    <div>👥 1,000+ متدرب</div>
+                </div>
+            </div>
+
+            <!-- شريط التقدم -->
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">0% إكمال - ابدأ الآن لتحقيق التقدم!</div>
+            </div>
+        </div>
+
+        <!-- الفوتر -->
+        <div class="footer">
+            © 2024 جيولوجيا بلس - جميع الحقوق محفوظة
         </div>
     </div>
 
     <script src="config.js"></script>
     <script>
-        function displayCategories() {
-            const container = document.getElementById('categoriesContainer');
-            const language = CONFIG.settings.default_language;
-            
-            CONFIG.categories.forEach(category => {
-                const card = document.createElement('div');
-                card.className = 'category-card';
-                card.innerHTML = `
-                    <h3>${category[`name_${language}`]}</h3>
-                    <p>${category.name_en}</p>
-                `;
-                container.appendChild(card);
-            });
+        // تحديث عدد المتصلين عشوائياً
+        function updateOnlineCount() {
+            const count = Math.floor(Math.random() * 21) + 10; // بين 10 و 30
+            document.getElementById('onlineCount').textContent = count + ' متصل';
         }
 
-        displayCategories();
+        // تحديث شريط التقدم
+        document.getElementById('progressFill').style.width = '0%';
+
+        // تحديث عدد المتصلين كل 10 ثواني
+        updateOnlineCount();
+        setInterval(updateOnlineCount, 10000);
+
+        // نقر زر البدء
+        document.querySelector('.start-btn').addEventListener('click', function() {
+            alert('سيتم فتح صفحة الأقسام!');
+        });
     </script>
 </body>
 </html>
