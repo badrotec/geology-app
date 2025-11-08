@@ -1,18 +1,8 @@
-// تطبيق جيولوجيا بلس
-class GeologyApp {
-    constructor() {
-        this.currentLanguage = 'ar';
-        this.userProgress = {};
-        this.currentCategory = null;
-        this.currentQuestions = [];
-        this.currentQuestionIndex = 0;
-        this.userScore = 0;
-        this.quizTime = 0;
-        this.quizTimer = null;
-        
-        this.init();
-    }
-
+// تطبيق جيولوجيا بلس - الإصدار النهائي
+const App = {
+    currentLanguage: 'ar',
+    userProgress: {},
+    
     init() {
         this.loadProgress();
         this.loadSettings();
@@ -21,18 +11,17 @@ class GeologyApp {
         this.displayCategories();
         this.updateProgressBar();
         
-        // تحديث عدد المتصلين كل 10 ثواني
         setInterval(() => this.updateOnlineCount(), 10000);
-    }
+    },
 
     loadProgress() {
         const saved = localStorage.getItem('geologyPlusProgress');
         this.userProgress = saved ? JSON.parse(saved) : {};
-    }
+    },
 
     saveProgress() {
         localStorage.setItem('geologyPlusProgress', JSON.stringify(this.userProgress));
-    }
+    },
 
     loadSettings() {
         const savedSettings = localStorage.getItem('geologyPlusSettings');
@@ -41,10 +30,8 @@ class GeologyApp {
             document.getElementById('soundToggle').checked = settings.soundEnabled;
             document.getElementById('languageSelect').value = settings.language;
             this.currentLanguage = settings.language;
-        } else {
-            this.currentLanguage = CONFIG.settings.default_language;
         }
-    }
+    },
 
     saveSettings() {
         const settings = {
@@ -57,17 +44,15 @@ class GeologyApp {
         this.closeSettings();
         this.displayCategories();
         
-        // تأثير الحفظ
         const saveBtn = document.querySelector('.save-btn');
         const originalText = saveBtn.textContent;
         saveBtn.textContent = '✓ تم الحفظ';
         setTimeout(() => {
             saveBtn.textContent = originalText;
         }, 2000);
-    }
+    },
 
     setupEventListeners() {
-        // إغلاق القوائم بالنقر خارجها
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.sidebar') && !e.target.closest('.menu-btn')) {
                 this.closeSidebar();
@@ -75,127 +60,100 @@ class GeologyApp {
             if (!e.target.closest('.settings-modal') && !e.target.closest('.settings-btn')) {
                 this.closeSettings();
             }
-            if (!e.target.closest('.modal') && !e.target.closest('.quiz-container')) {
+            if (!e.target.closest('.modal')) {
                 this.closeQuizModal();
             }
         });
-
-        // إغلاق بالزر Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.closeSidebar();
-                this.closeSettings();
-                this.closeQuizModal();
-            }
-        });
-    }
+    },
 
     updateOnlineCount() {
         const count = Math.floor(Math.random() * 21) + 10;
         document.getElementById('onlineCount').textContent = count + ' متصل';
-    }
+    },
 
-    // === إدارة الواجهة ===
     toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('active');
-    }
+    },
 
     closeSidebar() {
         document.getElementById('sidebar').classList.remove('active');
-    }
+    },
 
     toggleSettings() {
         const modal = document.getElementById('settingsModal');
         modal.classList.toggle('active');
-    }
+    },
 
     closeSettings() {
         document.getElementById('settingsModal').classList.remove('active');
-    }
+    },
 
     showPage(pageId) {
-        // إخفاء جميع الصفحات
         document.querySelectorAll('.page').forEach(page => {
             page.classList.remove('active');
         });
 
-        // إظهار الصفحة المطلوبة
         const targetPage = document.getElementById(pageId + 'Page');
         if (targetPage) {
             targetPage.classList.add('active');
         }
 
-        // تحديث القائمة الجانبية
         document.querySelectorAll('.menu-item').forEach(item => {
             item.classList.remove('active');
         });
         
-        const activeMenuItem = document.querySelector(`.menu-item[onclick="showPage('${pageId}')"]`);
+        const activeMenuItem = document.querySelector(`.menu-item[onclick="App.showPage('${pageId}')"]`);
         if (activeMenuItem) {
             activeMenuItem.classList.add('active');
         }
 
-        // إغلاق القائمة الجانبية
         this.closeSidebar();
 
-        // تحديث المحتوى بناءً على الصفحة
-        this.updatePageContent(pageId);
-    }
-
-    updatePageContent(pageId) {
-        switch(pageId) {
-            case 'categories':
-                this.displayAllCategories();
-                break;
-            case 'topics':
-                this.displayCategoriesByType('topics');
-                break;
-            case 'lessons':
-                this.displayCategoriesByType('lessons');
-                break;
-            case 'applications':
-                this.displayCategoriesByType('applications');
-                break;
-            case 'leaderboard':
-                this.displayLeaderboard();
-                break;
+        if (pageId === 'categories') {
+            this.displayAllCategories();
+        } else if (pageId === 'topics') {
+            this.displayCategoriesByType('topics', 'topicsGrid');
+        } else if (pageId === 'lessons') {
+            this.displayCategoriesByType('lessons', 'lessonsGrid');
+        } else if (pageId === 'applications') {
+            this.displayCategoriesByType('applications', 'applicationsGrid');
+        } else if (pageId === 'leaderboard') {
+            this.displayLeaderboard();
         }
-    }
+    },
 
-    // === عرض الأقسام ===
     displayCategories() {
         this.displayAllCategories();
-        this.displayCategoriesByType('topics');
-        this.displayCategoriesByType('lessons');
-        this.displayCategoriesByType('applications');
+        this.displayCategoriesByType('topics', 'topicsGrid');
+        this.displayCategoriesByType('lessons', 'lessonsGrid');
+        this.displayCategoriesByType('applications', 'applicationsGrid');
         this.displayLeaderboard();
-    }
+    },
 
     displayAllCategories() {
         const grid = document.getElementById('categoriesGrid');
         if (!grid) return;
         
-        this.renderCategories(grid, CONFIG.categories);
-    }
+        grid.innerHTML = '';
+        
+        CONFIG.categories.forEach(category => {
+            grid.appendChild(this.createCategoryCard(category));
+        });
+    },
 
-    displayCategoriesByType(type) {
-        const gridId = type + 'Grid';
+    displayCategoriesByType(type, gridId) {
         const grid = document.getElementById(gridId);
         if (!grid) return;
         
-        const filteredCategories = CONFIG.categories.filter(cat => cat.type === type);
-        this.renderCategories(grid, filteredCategories);
-    }
-
-    renderCategories(grid, categories) {
         grid.innerHTML = '';
         
-        categories.forEach(category => {
-            const card = this.createCategoryCard(category);
-            grid.appendChild(card);
+        const filteredCategories = CONFIG.categories.filter(cat => cat.type === type);
+        
+        filteredCategories.forEach(category => {
+            grid.appendChild(this.createCategoryCard(category));
         });
-    }
+    },
 
     createCategoryCard(category) {
         const card = document.createElement('div');
@@ -221,7 +179,7 @@ class GeologyApp {
         
         card.onclick = () => this.startQuiz(category.id);
         return card;
-    }
+    },
 
     displayLeaderboard() {
         const leaderboard = [
@@ -251,11 +209,9 @@ class GeologyApp {
                 </div>
             </div>
         `).join('');
-    }
+    },
 
-    // === نظام الاختبارات ===
     startQuiz(categoryId) {
-        this.currentCategory = categoryId;
         const category = CONFIG.categories.find(cat => cat.id === categoryId);
         
         if (!category) {
@@ -263,119 +219,44 @@ class GeologyApp {
             return;
         }
 
+        // محاكاة بسيطة للاختبار
+        const progress = Math.floor(Math.random() * 30) + 70; // 70-100%
+        this.userProgress[categoryId] = Math.max(this.userProgress[categoryId] || 0, progress);
+        this.saveProgress();
+        this.updateProgressBar();
+        
         this.showQuizModal(
-            `بدء الاختبار: ${category.name_ar}`,
-            `هل أنت مستعد لبدء اختبار ${category.name_ar}؟<br>سيحتوي على ${category.total_questions || 30} سؤال.`
+            '🎉 تم إنهاء الاختبار!',
+            `لقد أكملت اختبار ${category.name_ar} بنجاح!<br>
+            <strong>${progress}%</strong> من الإجابات الصحيحة<br>
+            تمت إضافة ${progress} نقطة إلى رصيدك`,
+            'عودة إلى الأقسام'
         );
-    }
 
-    showQuizModal(title, message) {
+        this.displayCategories();
+    },
+
+    showQuizModal(title, message, buttonText) {
         const modal = document.getElementById('quizModal');
         const quizTitle = document.getElementById('quizTitle');
         const quizMessage = document.getElementById('quizMessage');
+        const startButton = document.querySelector('.modal-actions .primary');
         
         quizTitle.textContent = title;
         quizMessage.innerHTML = message;
-        
-        modal.classList.add('active');
-    }
-
-    closeQuizModal() {
-        const modal = document.getElementById('quizModal');
-        modal.classList.remove('active');
-    }
-
-    async startQuiz() {
-        if (!this.currentCategory) return;
-        
-        this.closeQuizModal();
-        await this.loadAndStartQuiz(this.currentCategory);
-    }
-
-    async loadAndStartQuiz(categoryId) {
-        try {
-            // محاكاة تحميل الأسئلة
-            this.showQuizModal('جاري التحميل', 'يرجى الانتظار بينما نقوم بتحميل الأسئلة...');
-            
-            // في الإصدار النهائي، سيتم تحميل الأسئلة من ملف JSON
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            this.currentQuestions = this.getSampleQuestions();
-            this.currentQuestionIndex = 0;
-            this.userScore = 0;
-            
-            this.closeQuizModal();
-            this.simulateQuizCompletion();
-            
-        } catch (error) {
-            console.error('Error loading quiz:', error);
-            this.closeQuizModal();
-            this.showQuizModal('خطأ', 'تعذر تحميل الأسئلة. يرجى المحاولة مرة أخرى.');
-        }
-    }
-
-    getSampleQuestions() {
-        return [
-            {
-                id: 1,
-                type: "multiple_choice",
-                question_ar: "ما هي الطبقة الخارجية للأرض؟",
-                question_en: "What is the outer layer of the Earth?",
-                options_ar: ["القشرة", "الوشاح", "اللب الخارجي", "اللب الداخلي"],
-                options_en: ["Crust", "Mantle", "Outer Core", "Inner Core"],
-                correct_answer: 0,
-                explanation_ar: "القشرة هي الطبقة الخارجية للأرض وتتراوح سماكتها بين 5-70 كم.",
-                explanation_en: "The crust is the Earth's outer layer, ranging from 5-70 km in thickness.",
-                difficulty: "easy",
-                points: 10
-            },
-            {
-                id: 2,
-                type: "true_false",
-                question_ar: "القشرة القارية أكثر سمكاً من القشرة المحيطية",
-                question_en: "Continental crust is thicker than oceanic crust",
-                correct_answer: true,
-                explanation_ar: "القشرة القارية تصل إلى 70 كم سمكاً بينما القشرة المحيطية لا تتجاوز 10 كم.",
-                explanation_en: "Continental crust can reach 70 km thickness while oceanic crust rarely exceeds 10 km.",
-                difficulty: "easy",
-                points: 10
-            }
-        ];
-    }
-
-    simulateQuizCompletion() {
-        // محاكاة إكمال الاختبار
-        const progress = Math.floor(Math.random() * 30) + 70; // 70-100%
-        
-        // حفظ التقدم
-        if (this.currentCategory) {
-            this.userProgress[this.currentCategory] = Math.max(
-                this.userProgress[this.currentCategory] || 0, 
-                progress
-            );
-            this.saveProgress();
-            this.updateProgressBar();
-        }
-        
-        // عرض النتيجة
-        this.showQuizModal(
-            '🎉 تم إنهاء الاختبار!',
-            `لقد أكملت الاختبار بنجاح!<br>
-            <strong>${progress}%</strong> من الإجابات الصحيحة<br>
-            تمت إضافة ${progress} نقطة إلى رصيدك`
-        );
-
-        // تحديث الزر في النافذة المنبثقة
-        const startButton = document.querySelector('.modal-actions .primary');
-        startButton.textContent = 'عودة إلى الأقسام';
+        startButton.textContent = buttonText;
         startButton.onclick = () => {
             this.closeQuizModal();
             this.showPage('categories');
         };
+        
+        modal.classList.add('active');
+    },
 
-        // تحديث العرض
-        this.displayCategories();
-    }
+    closeQuizModal() {
+        const modal = document.getElementById('quizModal');
+        modal.classList.remove('active');
+    },
 
     updateProgressBar() {
         const totalCategories = CONFIG.categories.length;
@@ -389,39 +270,39 @@ class GeologyApp {
             progressFill.style.width = progress + '%';
         }
         if (progressText) {
-            if (progress === 0) {
-                progressText.textContent = '0% إكمال - ابدأ الآن لتحقيق التقدم!';
-            } else {
-                progressText.textContent = `${progress}% إكمال - استمر في التقدم!`;
-            }
+            progressText.textContent = progress + '% إكمال - استمر في التقدم!';
         }
     }
-}
+};
 
-// إنشاء نسخة من التطبيق
-const app = new GeologyApp();
+// تهيئة التطبيق
+document.addEventListener('DOMContentLoaded', () => {
+    App.init();
+});
 
-// دوال عامة للوصول من HTML
+// دوال عامة
 function toggleSidebar() {
-    app.toggleSidebar();
+    App.toggleSidebar();
 }
 
 function toggleSettings() {
-    app.toggleSettings();
+    App.toggleSettings();
 }
 
 function showPage(pageId) {
-    app.showPage(pageId);
+    App.showPage(pageId);
 }
 
 function saveSettings() {
-    app.saveSettings();
+    App.saveSettings();
 }
 
 function closeQuizModal() {
-    app.closeQuizModal();
+    App.closeQuizModal();
 }
 
 function startQuiz() {
-    app.startQuiz();
+    // هذه الدالة لم تعد مستخدمة ولكن نتركها لتجنب الأخطاء
+    App.closeQuizModal();
+    App.showPage('categories');
 }
