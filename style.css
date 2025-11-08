@@ -25,6 +25,9 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .menu-btn, .settings-btn {
@@ -34,10 +37,17 @@ body {
     cursor: pointer;
     padding: 5px;
     transition: transform 0.3s ease;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu-btn:hover, .settings-btn:hover {
     transform: scale(1.1);
+    background: rgba(0,0,0,0.05);
 }
 
 .online-indicator {
@@ -73,6 +83,8 @@ body {
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
     transition: right 0.3s ease;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar.active {
@@ -85,10 +97,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #f8f9fa;
 }
 
 .sidebar-header h3 {
     color: #2c3e50;
+    margin: 0;
 }
 
 .close-btn {
@@ -97,10 +111,22 @@ body {
     font-size: 1.2em;
     cursor: pointer;
     color: #7f8c8d;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: rgba(0,0,0,0.05);
 }
 
 .menu-items {
     padding: 20px 0;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .menu-item {
@@ -109,8 +135,13 @@ body {
     align-items: center;
     gap: 15px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
     color: #2c3e50;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: right;
+    font-size: 1em;
 }
 
 .menu-item:hover {
@@ -122,6 +153,10 @@ body {
     color: white;
 }
 
+.menu-item span {
+    font-size: 1.2em;
+}
+
 .menu-divider {
     height: 1px;
     background: #eee;
@@ -131,21 +166,36 @@ body {
 /* الإعدادات */
 .settings-modal {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 0;
-    border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1001;
-    display: none;
-    width: 90%;
-    max-width: 400px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
 .settings-modal.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.settings-modal .settings-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.settings-modal.active .settings-content {
+    transform: translateY(0);
 }
 
 .settings-header {
@@ -158,6 +208,7 @@ body {
 
 .settings-header h3 {
     color: #2c3e50;
+    margin: 0;
 }
 
 .settings-content {
@@ -226,6 +277,7 @@ select {
     border: 1px solid #ddd;
     border-radius: 5px;
     background: white;
+    min-width: 120px;
 }
 
 .save-btn {
@@ -238,6 +290,7 @@ select {
     cursor: pointer;
     font-size: 1em;
     margin-top: 10px;
+    transition: background 0.3s ease;
 }
 
 .save-btn:hover {
@@ -248,14 +301,23 @@ select {
 .main-content {
     flex: 1;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .page {
     display: none;
+    animation: fadeIn 0.3s ease;
 }
 
 .page.active {
     display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .app-title {
@@ -263,6 +325,7 @@ select {
     margin-bottom: 10px;
     text-align: center;
     color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .app-subtitle {
@@ -271,6 +334,7 @@ select {
     opacity: 0.9;
     text-align: center;
     color: white;
+    line-height: 1.6;
 }
 
 .start-btn {
@@ -282,14 +346,16 @@ select {
     border-radius: 50px;
     cursor: pointer;
     margin: 20px 0;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
 }
 
 .start-btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
 }
 
 /* الإحصائيات */
@@ -307,6 +373,7 @@ select {
     border-radius: 10px;
     backdrop-filter: blur(10px);
     text-align: center;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .stat-number {
@@ -334,6 +401,13 @@ select {
     border-radius: 4px;
     margin: 15px auto;
     overflow: hidden;
+    position: relative;
+}
+
+.progress-bar.small {
+    height: 6px;
+    max-width: none;
+    margin: 5px 0;
 }
 
 .progress-fill {
@@ -341,18 +415,26 @@ select {
     height: 100%;
     background: #2ecc71;
     border-radius: 4px;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .progress-text {
     color: white;
     font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.progress-container {
+    margin: 10px 0;
 }
 
 /* شبكة الأقسام */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
@@ -362,9 +444,11 @@ select {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
     border-left: 4px solid #3498db;
+    position: relative;
+    overflow: hidden;
 }
 
 .category-card:hover {
@@ -375,12 +459,21 @@ select {
 .category-card h3 {
     color: #2c3e50;
     margin-bottom: 10px;
+    font-size: 1.3em;
 }
 
 .category-card p {
     color: #7f8c8d;
     font-size: 0.9em;
     margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.category-card .english-name {
+    color: #95a5a6;
+    font-size: 0.8em;
+    margin-top: 10px;
+    font-style: italic;
 }
 
 .category-type {
@@ -393,6 +486,155 @@ select {
     margin-bottom: 10px;
 }
 
+/* لوحة المتصدرين */
+.leaderboard {
+    margin-top: 20px;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    transform: translateX(-5px);
+}
+
+.leaderboard-item.top-three {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: white;
+}
+
+.rank {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 10px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.avatar {
+    font-size: 1.5em;
+    margin-left: 15px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-info .name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.user-info .score {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.user-progress {
+    margin-right: 15px;
+    min-width: 80px;
+    text-align: left;
+}
+
+.user-progress .progress-text {
+    color: #7f8c8d;
+    font-size: 0.8em;
+    margin-top: 2px;
+}
+
+.leaderboard-item.top-three .user-progress .progress-text {
+    color: rgba(255,255,255,0.9);
+}
+
+/* النوافذ المنبثقة للاختبارات */
+.quiz-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.quiz-modal.active {
+    opacity: 1;
+}
+
+.quiz-content {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.quiz-modal.active .quiz-content {
+    transform: scale(1);
+}
+
+.quiz-content h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.quiz-content p {
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.quiz-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.btn.primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #2980b9;
+}
+
+.btn.secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn.secondary:hover {
+    background: #7f8c8d;
+}
+
 /* الفوتر */
 .footer {
     background: rgba(0,0,0,0.2);
@@ -401,4 +643,122 @@ select {
     padding: 15px;
     font-size: 0.9em;
     margin-top: auto;
+}
+
+/* التجاوب */
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 15px;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .app-title {
+        font-size: 2em;
+    }
+    
+    .app-subtitle {
+        font-size: 1.1em;
+    }
+    
+    .start-btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .sidebar {
+        width: 280px;
+    }
+    
+    .quiz-content {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .quiz-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-number {
+        font-size: 1.8em;
+    }
+    
+    .menu-item {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    .settings-content {
+        padding: 15px;
+    }
+}
+
+/* تأثيرات إضافية */
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.category-card:hover::before {
+    transform: translateX(100%);
+}
+
+/* تحسينات للواجهة */
+.page h2 {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* تحسينات للشريط الجانبي */
+.menu-items::-webkit-scrollbar {
+    width: 4px;
+}
+
+.menu-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.menu-items::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+}
+
+.menu-items::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
 }
