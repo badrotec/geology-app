@@ -1,3 +1,4 @@
+
 /*
  * style.css
  * تنسيقات تطبيق GEOLOGY+ TRAINING - تم تحديث تنسيق زر البداية وقائمة الأقسام
@@ -43,11 +44,44 @@ body {
     font-size: 1.2rem;
 }
 
+.left-controls, .right-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* تنسيق أزرار التحكم الجديدة */
+#back-btn, .lang-toggle-btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+    transition: transform 0.2s;
+    margin-right: 10px; /* المسافة بين زر التراجع والمنيو */
+}
+
+.lang-toggle-btn {
+    margin-right: 15px;
+    font-size: 1.4rem;
+}
+
+/* تعديلات خاصة بـ RTL (العربية) */
+[dir="rtl"] #back-btn {
+    margin-right: 0;
+    margin-left: 10px;
+}
+[dir="rtl"] .lang-toggle-btn {
+    margin-right: 0;
+    margin-left: 15px;
+}
+[dir="rtl"] .status-dot {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+
 .status-indicator {
     display: flex;
     align-items: center;
     font-weight: bold;
-    /* يتم تعديل المارجن عبر app.js حسب RTL/LTR */
 }
 
 .status-dot {
@@ -258,7 +292,7 @@ body {
     display: none;
 }
 
-/* ------------------ تنسيقات شاشة الأقسام الجديدة ------------------ */
+/* ------------------ تنسيقات شاشة الأقسام ------------------ */
 
 .section-list-view {
     padding: 0 0 50px 0;
@@ -313,6 +347,49 @@ body {
     font-size: 1.2rem;
     color: #ccc;
 }
+
+/* ------------------ تنسيقات شاشة الاختبار (الجديدة) ------------------ */
+.quiz-view-container {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.quiz-view-container h1 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.quiz-placeholder {
+    background-color: #e8f5e9;
+    padding: 40px 20px;
+    border-radius: 10px;
+    border: 1px dashed var(--primary-color);
+}
+
+.quiz-placeholder p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.back-to-sections-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-to-sections-btn:hover {
+    background-color: #333;
+}
+
 
 /* ------------------ الحقوق ------------------ */
 .footer-copyright {
