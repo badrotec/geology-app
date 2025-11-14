@@ -1,115 +1,106 @@
-// app.js (التعديلات والإضافات الرئيسية)
-
-// ... (حافظ على حالة التطبيق العالمية كما هي) ...
-
-// ** دوال الأدوات المساعدة **
-
-// ... (حافظ على دالة translateUI، loadTranslations، setupLanguageSelector، shuffleArray) ...
-
-// ** دوال إدارة واجهة المستخدم **
-
 /**
- * عرض الشاشة المطلوبة وإخفاء البقية (تم التحديث)
+ * app.js
+ * منطق التطبيق الرئيسي (Vanilla JavaScript)
  */
-function showScreen(screenId) {
-    document.querySelectorAll('.screen').forEach(screen => {
-        screen.classList.remove('active-screen');
-    });
-    document.getElementById(screenId).classList.add('active-screen');
+
+// التأكد من تحميل الإعدادات أولاً
+if (typeof CONFIG === 'undefined') {
+    console.error('Configuration file (config.js) not loaded!');
 }
 
-/**
- * بناء وعرض بطاقات الفئات في شاشة الإعداد (حافظ عليها كما هي)
- */
-function renderCategories() {
-    const categoryContainer = document.getElementById('category-selection');
-    categoryContainer.innerHTML = '';
+const APP = {
+    currentLang: CONFIG.DEFAULT_LANGUAGE,
+    translations: {},
+    dataSections: {},
 
-    CONFIG.QUIZ_CATEGORIES.forEach(category => {
-        const card = document.createElement('div');
-        card.className = 'category-card';
-        card.setAttribute('data-category-id', category.id);
-
-        const img = document.createElement('img');
-        img.src = `${CONFIG.PATHS.CATEGORIES_IMAGES}${category.id}.jpg`;
-        img.alt = category.id;
-
-        const title = document.createElement('h3');
-        title.setAttribute('data-lang-key', category.titleKey);
-
-        card.appendChild(img);
-        card.appendChild(title);
-
-        card.addEventListener('click', () => selectCategory(category.id, card));
-        categoryContainer.appendChild(card);
-    });
-    translateUI();
-}
-
-// ... (حافظ على دالة selectCategory) ...
-
-// ** دوال إدارة الاختبار **
-
-// ... (حافظ على loadQuestions، prepareQuizQuestions، renderQuestion، handleAnswer، resetTimer، handleTimeout، renderResults) ...
-
-/**
- * دالة الانتقال إلى السؤال التالي (تم التحديث لـ next-question-button)
- */
-function nextQuestionHandler() {
-    currentQuestionIndex++;
-    renderQuestion();
-}
-
-
-// ** المستمعات للأحداث (Event Listeners) - تم التحديث **
-
-function setupEventListeners() {
-    // الانتقال من شاشة البدء إلى شاشة الإعداد
-    document.getElementById('go-to-setup-button').addEventListener('click', () => {
-        showScreen('setup-screen');
-    });
-    
-    // العودة من شاشة الإعداد إلى شاشة البدء
-    document.getElementById('back-to-start-button').addEventListener('click', () => {
-        showScreen('start-screen');
-    });
-
-    // بدء الاختبار من شاشة الإعداد
-    document.getElementById('start-quiz-button').addEventListener('click', () => {
-        if (selectedCategory) {
-            loadQuestions(selectedCategory);
-            // يتم عرض شاشة الاختبار داخل loadQuestions عند النجاح
+    // 1. وظيفة تحميل ملفات JSON
+    loadJSON: async (filePath) => {
+        try {
+            const response = await fetch(filePath);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
+            }
+            return response.json();
+        } catch (error) {
+            console.error(error);
+            return {};
         }
-    });
+    },
 
-    // الانتقال للسؤال التالي
-    document.getElementById('next-question-button').addEventListener('click', nextQuestionHandler);
+    // 2. وظيفة تحميل جميع الترجمات
+    loadTranslations: async () => {
+        const langFiles = CONFIG.SUPPORTED_LANGUAGES.map(lang => 
+            APP.loadJSON(`${CONFIG.PATHS.LANGUAGES}${lang}.json`)
+        );
+        const results = await Promise.all(langFiles);
+        CONFIG.SUPPORTED_LANGUAGES.forEach((lang, index) => {
+            APP.translations[lang] = results[index];
+        });
+        console.log('Translations loaded successfully.');
+    },
 
-    // بدء اختبار جديد من شاشة النتائج
-    document.getElementById('play-again-button').addEventListener('click', () => {
-        // إعادة تهيئة الحالة والعودة لشاشة البدء
-        selectedCategory = null;
-        document.getElementById('start-quiz-button').disabled = true;
-        document.querySelectorAll('.category-card').forEach(c => c.classList.remove('selected'));
-        showScreen('start-screen');
-    });
-}
+    // 3. وظيفة تطبيق الترجمة على عناصر الواجهة
+    applyTranslations: (lang) => {
+        const t = APP.translations[lang];
+        if (!t) return;
 
-// ** تهيئة التطبيق **
+        // ترجمة العناصر بناءً على سمة data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) {
+                el.textContent = t[key].replace('{count}', CONFIG.UI_STATS.SECTIONS_COUNT);
+            }
+        });
+        
+        // ترجمة النصوص الخاصة بالواجهة المقدمة في الـ UI
+        document.getElementById('app-slogan-main').textContent = t.slogan_main;
+        document.getElementById('app-slogan-start').textContent = t.slogan_start;
+        document.getElementById('app-name').textContent = t.app_name;
+        document.getElementById('app-tagline').textContent = CONFIG.UI_STATS.SECTIONS_COUNT + ' ' + t.sections_count;
+        document.getElementById('app-copyright').textContent = t.copyright;
+        document.getElementById('app-completion-prompt').textContent = t.completion_prompt;
+        document.getElementById('app-conn-status').textContent = CONFIG.USER_STATE.is_connected ? '22 ' + t.connection_status : '0 ' + t.connection_status;
+        document.getElementById('sidebar-title').textContent = t.sidebar_title;
+        
+        // تحديث نص زر البداية حسب اللغة الحالية
+        const startButton = document.getElementById('btn-start-journey');
+        if (lang === 'ar') {
+            startButton.textContent = t.button_start_ar;
+        } else {
+            startButton.textContent = t.button_start_en; 
+        }
 
-function init() {
-    // 1. تهيئة واجهة اختيار اللغة
-    setupLanguageSelector();
-    // 2. تحميل اللغة الافتراضية
-    loadTranslations(CONFIG.DEFAULT_LANGUAGE).then(() => {
-        // 3. عرض الفئات (يتم إخفاؤها في البداية ولكن يتم تجهيزها)
-        renderCategories();
-        // 4. إعداد المستمعات
-        setupEventListeners();
-        // 5. التأكد من عرض شاشة البدء أولاً
-        showScreen('start-screen');
-    });
-}
+        // تحديث الإحصائيات
+        document.getElementById('stat-sections').textContent = CONFIG.UI_STATS.SECTIONS_COUNT + ' ' + t.sections_count;
+        document.getElementById('stat-questions').textContent = CONFIG.UI_STATS.QUESTIONS_COUNT_DISPLAY + '+ ' + t.questions_count;
+        document.getElementById('stat-trainees').textContent = CONFIG.UI_STATS.TRAINEES_COUNT + ' ' + t.trainees_count;
+        document.getElementById('stat-rating-title').textContent = t.rating_title;
+        document.getElementById('stat-completion-label').textContent = CONFIG.USER_STATE.completion_percentage + '% ' + t.completion_status;
+    },
 
-// بدء التطبيق
-window.onload = init;
+    // 4. وظيفة تبديل القائمة الجانبية (Sidebar)
+    toggleSidebar: () => {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    },
+
+    // 5. وظيفة التهيئة والبدء
+    init: async () => {
+        // 1. تحميل الترجمات أولاً
+        await APP.loadTranslations();
+        
+        // 2. تطبيق اللغة الافتراضية
+        APP.applyTranslations(APP.currentLang);
+        
+        // 3. ربط الأحداث
+        document.getElementById('menu-toggle').addEventListener('click', APP.toggleSidebar);
+        document.getElementById('sidebar-close').addEventListener('click', APP.toggleSidebar);
+        document.getElementById('overlay').addEventListener('click', APP.toggleSidebar);
+        
+        // هنا يمكن إضافة وظيفة تحميل ملفات البيانات (dataSections) عند الحاجة
+        // APP.dataSections = await APP.loadJSON(`${CONFIG.PATHS.DATA}basic_geo.json`);
+    }
+};
+
+// بدء التطبيق بعد تحميل DOM
+document.addEventListener('DOMContentLoaded', APP.init);
