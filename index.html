@@ -12,12 +12,20 @@
     <div class="main-container" id="main-content-area">
 
         <div class="header-bar">
-            <span id="menu-toggle" class="menu-btn" data-i18n="menu_button">☰</span>
+            <div class="left-controls">
+                <span id="menu-toggle" class="menu-btn" data-i18n="menu_button">☰</span>
+                <span id="back-btn" class="back-btn" style="display:none;">←</span> 
+            </div>
+            
             <div class="status-indicator">
                 <span id="app-conn-status">22 متصل</span>
                 <span class="status-dot"></span>
             </div>
-            <span id="settings-btn" class="settings-btn" data-i18n="settings_button">⚙️</span>
+            
+            <div class="right-controls">
+                <span id="lang-toggle-btn" class="lang-toggle-btn">🌐</span> 
+                <span id="settings-btn" class="settings-btn" data-i18n="settings_button">⚙️</span>
+            </div>
         </div>
 
         <div id="welcome-screen">
