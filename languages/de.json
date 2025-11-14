@@ -1,1 +1,26 @@
-.
+{
+  "app_name": "Geologie Plus",
+  "app_tagline": "GEOLOGY+ TRAINING",
+  "slogan_main": "Entdecke die Welt der Geologie durch interaktive Tests und praktische Übungen",
+  "button_start_ar": "🚀 Meine Reise beginnen",
+  "button_start_en": "Start My Journey",
+  "slogan_start": "Beginne deine Lernreise und erwerbe geologische Fähigkeiten",
+  "sections_count": "Abschnitt",
+  "questions_count": "Frage",
+  "trainees_count": "Teilnehmer",
+  "rating_title": "Bewertung",
+  "completion_status": "Abschluss",
+  "completion_prompt": "Jetzt starten, um Fortschritt zu erzielen!",
+  "copyright": "© 2025 Geologie Plus - Alle Rechte vorbehalten",
+  "sidebar_title": "Hauptmenü",
+  "sidebar_home": "🏠 Startseite",
+  "sidebar_sections": "📖 Trainingsabschnitte ({count})",
+  "sidebar_challenges": "🎯 Herausforderungen und Erfolge",
+  "sidebar_leaderboard": "🏆 Bestenliste",
+  "sidebar_ranking": "📊 Rang und Ergebnisse",
+  "sidebar_favorites": "⭐ Favoriten",
+  "sidebar_support": "📞 Support und Hilfe",
+  "connection_status": "Verbunden",
+  "settings_button": "⚙️",
+  "menu_button": "☰"
+}
