@@ -1,280 +1,580 @@
-/**
- * app.js
- * منطق التطبيق الرئيسي (Vanilla JavaScript) - تم إضافة دوال التفاعل مع الأقسام والتحكم بالشاشات واللغة
- */
+// Geology+ Training App - Main Application Logic
 
-// التأكد من تحميل الإعدادات أولاً
-if (typeof CONFIG === 'undefined') {
-    console.error('Configuration file (config.js) not loaded!');
-}
-
-const APP = {
-    currentLang: CONFIG.DEFAULT_LANGUAGE,
-    currentView: 'welcome', // تتبع الشاشة الحالية: 'welcome', 'sections', 'quiz'
-    translations: {},
-    dataSections: {},
-
-    // 1. وظيفة تحميل ملفات JSON (بدون تغيير)
-    loadJSON: async (filePath) => {
-        try {
-            const response = await fetch(filePath);
-            if (!response.ok) {
-                if (filePath.includes('basic_geo.json')) return [];
-                throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
-            }
-            return response.json();
-        } catch (error) {
-            console.error(error);
-            return {};
-        }
-    },
-
-    // 2. وظيفة تحميل جميع الترجمات (بدون تغيير)
-    loadTranslations: async () => {
-        const langFiles = CONFIG.SUPPORTED_LANGUAGES.map(lang => 
-            APP.loadJSON(`${CONFIG.PATHS.LANGUAGES}${lang}.json`)
-        );
-        const results = await Promise.all(langFiles);
-        CONFIG.SUPPORTED_LANGUAGES.forEach((lang, index) => {
-            APP.translations[lang] = results[index];
-        });
-        console.log('Translations loaded successfully.');
-    },
-
-    // 3. وظيفة تطبيق الترجمة على عناصر الواجهة
-    applyTranslations: (lang) => {
-        const t = APP.translations[lang];
-        if (!t) return;
+class GeologyApp {
+    constructor() {
+        this.currentSection = null;
+        this.currentQuiz = null;
+        this.currentQuestionIndex = 0;
+        this.selectedAnswer = null;
+        this.score = 0;
+        this.questionsData = {};
+        this.onlineUsers = UTILS.randomBetween(CONFIG.ONLINE_USERS.MIN, CONFIG.ONLINE_USERS.MAX);
         
-        // تغيير اتجاه الصفحة بناءً على اللغة
-        const isRtl = lang === 'ar';
-        document.body.style.direction = isRtl ? 'rtl' : 'ltr';
-        document.body.style.textAlign = isRtl ? 'right' : 'left';
+        this.init();
+    }
+    
+    init() {
+        this.setupEventListeners();
+        this.updateOnlineUsers();
+        this.loadProgress();
+        this.startOnlineUsersSimulation();
+    }
+    
+    setupEventListeners() {
+        // Menu toggle
+        document.getElementById('menuBtn').addEventListener('click', () => this.toggleMenu());
+        document.getElementById('closeBtn').addEventListener('click', () => this.toggleMenu());
+        document.getElementById('overlay').addEventListener('click', () => this.toggleMenu());
         
-        // تحديث محتوى الشريط العلوي
-        document.getElementById('app-conn-status').textContent = CONFIG.USER_STATE.is_connected ? '22 ' + t.connection_status : '0 ' + t.connection_status;
-        
-        // ترجمة العناصر بناءً على سمة data-i18n
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (t[key]) {
-                el.textContent = t[key].replace('{count}', CONFIG.UI_STATS.SECTIONS_COUNT);
-            }
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = item.dataset.page;
+                this.navigateTo(page);
+                this.toggleMenu();
+            });
         });
         
-        // ترجمة النصوص الخاصة بالواجهة المقدمة في الـ UI
-        const sloganMainEl = document.getElementById('app-slogan-main');
-        if (sloganMainEl) sloganMainEl.textContent = t.slogan_main;
+        // Start button
+        document.getElementById('startBtn').addEventListener('click', () => {
+            this.navigateTo('sections');
+        });
         
-        const sloganStartEl = document.getElementById('app-slogan-start');
-        if (sloganStartEl) sloganStartEl.textContent = t.slogan_start;
+        // Back buttons
+        document.querySelectorAll('.back-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetPage = btn.dataset.back;
+                this.navigateTo(targetPage);
+            });
+        });
         
-        const appNameEl = document.getElementById('app-name');
-        if (appNameEl) appNameEl.textContent = t.app_name;
-        
-        const appCopyrightEl = document.getElementById('app-copyright');
-        if (appCopyrightEl) appCopyrightEl.textContent = t.copyright;
-        
-        const appCompletionPromptEl = document.getElementById('app-completion-prompt');
-        if (appCompletionPromptEl) appCompletionPromptEl.textContent = t.completion_prompt;
-        
-        const sidebarTitleEl = document.getElementById('sidebar-title');
-        if (sidebarTitleEl) sidebarTitleEl.textContent = t.sidebar_title;
-        
-        // تحديث نص زر البداية
-        const startButton = document.getElementById('btn-start-journey');
-        if (startButton) {
-            startButton.innerHTML = `
-                ${isRtl ? t.button_start_ar : t.button_start_en}
-                <br>
-                <span style="font-size: 0.8em; font-weight: normal;">${isRtl ? t.button_start_en : t.button_start_ar}</span>
-            `;
-        }
-
-        // تحديث الإحصائيات
-        const statSectionsEl = document.getElementById('stat-sections');
-        if (statSectionsEl) statSectionsEl.textContent = CONFIG.UI_STATS.SECTIONS_COUNT + ' ' + t.sections_count;
-        
-        const statQuestionsEl = document.getElementById('stat-questions');
-        if (statQuestionsEl) statQuestionsEl.textContent = CONFIG.UI_STATS.QUESTIONS_COUNT_DISPLAY + '+ ' + t.questions_count;
-        
-        const statTraineesEl = document.getElementById('stat-trainees');
-        if (statTraineesEl) statTraineesEl.textContent = CONFIG.UI_STATS.TRAINEES_COUNT + ' ' + t.trainees_count;
-        
-        const statRatingTitleEl = document.getElementById('stat-rating-title');
-        if (statRatingTitleEl) statRatingTitleEl.textContent = t.rating_title;
-        
-        const statCompletionLabelEl = document.getElementById('stat-completion-label');
-        if (statCompletionLabelEl) statCompletionLabelEl.textContent = CONFIG.USER_STATE.completion_percentage + '% ' + t.completion_status;
-        
-        // إعادة عرض الشاشة الحالية لتطبيق الترجمة على المحتوى الديناميكي (مثل قائمة الأقسام أو شاشة الكويز)
-        if (APP.currentView !== 'welcome') {
-            APP.renderView(APP.currentView);
-        }
-    },
-
-    // 4. وظيفة تبديل القائمة الجانبية (Sidebar) (بدون تغيير)
-    toggleSidebar: () => {
+        // Settings button
+        document.getElementById('settingsBtn').addEventListener('click', () => {
+            this.showSettings();
+        });
+    }
+    
+    toggleMenu() {
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
-        sidebar.classList.toggle('open');
-        overlay.style.display = sidebar.classList.contains('open') ? 'block' : 'none';
-    },
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
     
-    // 5. وظيفة تبديل اللغة
-    toggleLanguage: () => {
-        const supported = CONFIG.SUPPORTED_LANGUAGES;
-        const currentIndex = supported.indexOf(APP.currentLang);
-        const nextIndex = (currentIndex + 1) % supported.length;
-        APP.currentLang = supported[nextIndex];
-        APP.applyTranslations(APP.currentLang);
-        console.log(`Language switched to: ${APP.currentLang}`);
-    },
-
-    // 6. وظيفة لربط جميع الأحداث (لأن المحتوى يتغير ديناميكياً)
-    bindHeaderEvents: () => {
-        // ربط عناصر الشريط العلوي
-        document.getElementById('menu-toggle').addEventListener('click', APP.toggleSidebar);
-        document.getElementById('sidebar-close').addEventListener('click', APP.toggleSidebar);
-        document.getElementById('overlay').addEventListener('click', APP.toggleSidebar);
-        document.getElementById('lang-toggle-btn').addEventListener('click', APP.toggleLanguage);
-        
-        // ربط زر البداية (إذا كان موجوداً)
-        const startButton = document.getElementById('btn-start-journey');
-        if (startButton) {
-             startButton.onclick = APP.startJourney;
-        }
-
-        // ربط الروابط في القائمة الجانبية
-        document.querySelector('.sections-link').addEventListener('click', () => {
-             APP.toggleSidebar();
-             APP.startJourney();
-        });
-        document.querySelector('[data-i18n="sidebar_home"]').addEventListener('click', () => {
-             APP.toggleSidebar();
-             APP.renderView('welcome');
+    navigateTo(pageName) {
+        // Update navigation active state
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+            if (item.dataset.page === pageName) {
+                item.classList.add('active');
+            }
         });
         
-        // ربط زر التراجع حسب الشاشة الحالية
-        const backBtn = document.getElementById('back-btn');
-        if (backBtn && APP.currentView === 'sections') {
-            backBtn.onclick = () => APP.renderView('welcome');
-        } else if (backBtn && APP.currentView === 'quiz') {
-            backBtn.onclick = () => APP.renderView('sections');
-        }
-    },
-
-    // 7. وظيفة إدارة عرض الشاشات
-    renderView: (viewName, extraData = null) => {
-        APP.currentView = viewName;
-        const contentArea = document.getElementById('main-content-area');
-        const headerBarHTML = document.querySelector('.header-bar').outerHTML;
-
-        // تنظيف المحتوى القديم وإعادة إضافة الشريط العلوي
-        contentArea.innerHTML = headerBarHTML; 
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
         
-        // تحديث زر التراجع (سيتم إعادة ربطه في bindHeaderEvents)
-        const backBtn = contentArea.querySelector('#back-btn');
-        
-        if (viewName === 'welcome') {
-            // إعادة عرض شاشة الترحيب
-            const welcomeScreenHTML = `
-                <div id="welcome-screen" class="welcome-screen-placeholder">
-                    ${document.getElementById('welcome-screen').innerHTML}
-                </div>
-            `;
-            contentArea.innerHTML += welcomeScreenHTML;
-            backBtn.style.display = 'none';
-        } else if (viewName === 'sections') {
-            // عرض قائمة الأقسام
-            backBtn.style.display = 'block';
-            APP.renderSectionsListContent(contentArea);
-        } else if (viewName === 'quiz' && extraData) {
-            // عرض شاشة الاختبار الوهمية
-            backBtn.style.display = 'block';
-            APP.renderQuiz(contentArea, extraData);
-        }
-        
-        // إعادة تطبيق الترجمات بعد تحديث المحتوى
-        APP.applyTranslations(APP.currentLang);
-        // إعادة ربط الأحداث لكل العناصر التي تم إعادة إنشائها
-        APP.bindHeaderEvents();
-    },
-
-    // 8. وظيفة: بدء الرحلة وعرض الأقسام
-    startJourney: () => {
-        APP.renderView('sections'); 
-        console.log('Journey started! Now showing sections list...');
-    },
-
-    // 9. وظيفة: إنشاء محتوى قائمة الأقسام
-    renderSectionsListContent: (contentArea) => {
-        const t = APP.translations[APP.currentLang];
-        
-        const container = document.createElement('div');
-        container.classList.add('sections-list-view');
-        
-        let htmlContent = `
-            <h1 class="section-list-title">
-                ${t.sidebar_sections.replace('({count})', '').trim()} (${CONFIG.UI_STATS.SECTIONS_COUNT})
-            </h1>
-            <ul class="section-cards-grid">
-        `;
-        
-        CONFIG.SECTION_NAMES.forEach((sectionKey) => {
-            const translatedName = t[`section_${sectionKey}`] || sectionKey.toUpperCase();
+        // Show target page
+        const targetPage = document.getElementById(pageName + 'Page');
+        if (targetPage) {
+            targetPage.classList.add('active');
             
-            htmlContent += `
-                <li class="section-card" data-key="${sectionKey}" onclick="APP.renderView('quiz', '${sectionKey}')">
-                    <div class="card-info">
-                        <h3>${translatedName}</h3>
-                        <p class="section-status">${'التقدم: 0%'}</p>
-                    </div>
-                    <span class="section-arrow">${'→'}</span>
-                </li>
-            `;
+            // Load page content
+            if (pageName === 'sections') {
+                this.loadSections();
+            } else if (pageName === 'results') {
+                this.loadResults();
+            } else if (pageName === 'challenges') {
+                this.loadChallenges();
+            } else if (pageName === 'leaderboard') {
+                this.loadLeaderboard();
+            } else if (pageName === 'favorites') {
+                this.loadFavorites();
+            } else if (pageName === 'support') {
+                this.loadSupport();
+            }
+        }
+    }
+    
+    updateOnlineUsers() {
+        document.getElementById('onlineCount').textContent = this.onlineUsers;
+    }
+    
+    startOnlineUsersSimulation() {
+        setInterval(() => {
+            const change = UTILS.randomBetween(
+                CONFIG.ONLINE_USERS.CHANGE_AMOUNT.MIN,
+                CONFIG.ONLINE_USERS.CHANGE_AMOUNT.MAX
+            );
+            this.onlineUsers = Math.max(
+                CONFIG.ONLINE_USERS.MIN,
+                Math.min(CONFIG.ONLINE_USERS.MAX, this.onlineUsers + change)
+            );
+            this.updateOnlineUsers();
+        }, CONFIG.ONLINE_USERS.CHANGE_INTERVAL);
+    }
+    
+    loadProgress() {
+        const progress = UTILS.loadData(CONFIG.STORAGE_KEYS.PROGRESS, {
+            completedQuestions: 0,
+            totalQuestions: 500,
+            completedSections: []
         });
-
-        htmlContent += `</ul>`;
-        container.innerHTML = htmlContent;
-        contentArea.appendChild(container);
-    },
-
-    // 10. وظيفة: عرض شاشة الاختبار (Placeholder)
-    renderQuiz: (contentArea, sectionKey) => {
-        const t = APP.translations[APP.currentLang];
-        const sectionName = t[`section_${sectionKey}`] || sectionKey.toUpperCase();
         
-        const container = document.createElement('div');
-        container.classList.add('quiz-view-container');
-        container.innerHTML = `
-            <h1>${t.quiz_start_title.replace('{section_name}', sectionName)}</h1>
-            <div class="quiz-placeholder">
-                <p>${t.quiz_placeholder_message}</p>
-                <button onclick="APP.renderView('sections')" class="back-to-sections-btn">
-                    ${t.back_to_sections_button}
-                </button>
+        const percentage = UTILS.calculatePercentage(
+            progress.completedQuestions,
+            progress.totalQuestions
+        );
+        
+        document.getElementById('progressFill').style.width = percentage + '%';
+        document.getElementById('progressText').textContent = percentage + '% إكمال';
+        
+        if (percentage > 0) {
+            document.querySelector('.progress-motivation').textContent = 
+                '"مستمر في التقدم! واصل التميز!"';
+        }
+    }
+    
+    loadSections() {
+        const grid = document.getElementById('sectionsGrid');
+        grid.innerHTML = '';
+        
+        CONFIG.SECTIONS.forEach(section => {
+            const card = this.createSectionCard(section);
+            grid.appendChild(card);
+        });
+    }
+    
+    createSectionCard(section) {
+        const card = document.createElement('div');
+        card.className = 'section-card';
+        card.style.borderColor = section.color;
+        
+        // Load section data to get question counts
+        const sectionData = this.questionsData[section.id] || { 
+            textQuestions: 0, 
+            imageQuestions: 0 
+        };
+        
+        const totalQuestions = sectionData.textQuestions + sectionData.imageQuestions;
+        
+        card.innerHTML = `
+            <div class="section-icon">${section.icon}</div>
+            <div class="section-title">${section.name}</div>
+            <div class="section-title" style="font-size: 14px; color: #718096;">${section.nameEn}</div>
+            <div class="section-stats">
+                <div class="section-stat">
+                    <div class="section-stat-value">${sectionData.textQuestions}</div>
+                    <div class="section-stat-label">نصية</div>
+                </div>
+                <div class="section-stat">
+                    <div class="section-stat-value">${sectionData.imageQuestions}</div>
+                    <div class="section-stat-label">مصورة</div>
+                </div>
             </div>
         `;
         
-        contentArea.appendChild(container);
+        card.addEventListener('click', () => {
+            this.loadQuiz(section.id);
+        });
         
-        // يجب أن نضمن إعادة ربط الأحداث هنا أيضاً
-        contentArea.querySelector('.back-to-sections-btn').onclick = () => APP.renderView('sections');
-    },
-
-    // 11. وظيفة التهيئة والبدء
-    init: async () => {
-        // 1. تحميل الترجمات
-        await APP.loadTranslations();
+        // Load questions data
+        this.loadSectionData(section);
         
-        // 2. تطبيق اللغة الافتراضية
-        APP.applyTranslations(APP.currentLang);
-        
-        // 3. ربط الأحداث الأولية
-        APP.bindHeaderEvents();
+        return card;
     }
-};
+    
+    async loadSectionData(section) {
+        try {
+            const response = await fetch(section.file);
+            const data = await response.json();
+            
+            const textQuestions = data.questions.filter(q => !q.image).length;
+            const imageQuestions = data.questions.filter(q => q.image).length;
+            
+            this.questionsData[section.id] = {
+                questions: data.questions,
+                textQuestions,
+                imageQuestions
+            };
+            
+            // Update the card display
+            this.loadSections();
+        } catch (error) {
+            console.error(`Error loading ${section.id}:`, error);
+            this.questionsData[section.id] = {
+                questions: [],
+                textQuestions: 0,
+                imageQuestions: 0
+            };
+        }
+    }
+    
+    async loadQuiz(sectionId) {
+        const section = CONFIG.SECTIONS.find(s => s.id === sectionId);
+        if (!section) return;
+        
+        this.currentSection = section;
+        
+        try {
+            if (!this.questionsData[sectionId] || !this.questionsData[sectionId].questions) {
+                const response = await fetch(section.file);
+                const data = await response.json();
+                this.questionsData[sectionId] = {
+                    questions: data.questions,
+                    textQuestions: data.questions.filter(q => !q.image).length,
+                    imageQuestions: data.questions.filter(q => q.image).length
+                };
+            }
+            
+            const allQuestions = this.questionsData[sectionId].questions;
+            
+            // Shuffle questions if enabled
+            const questions = CONFIG.QUIZ.SHUFFLE_QUESTIONS ? 
+                UTILS.shuffleArray(allQuestions) : allQuestions;
+            
+            // Take limited number of questions
+            this.currentQuiz = questions.slice(0, CONFIG.QUIZ.QUESTIONS_PER_SESSION);
+            this.currentQuestionIndex = 0;
+            this.score = 0;
+            
+            document.getElementById('quizTitle').textContent = 
+                `${section.icon} ${section.name}`;
+            
+            this.navigateTo('quiz');
+            this.displayQuestion();
+            
+        } catch (error) {
+            console.error('Error loading quiz:', error);
+            alert('حدث خطأ في تحميل الاختبار. يرجى المحاولة مرة أخرى.');
+        }
+    }
+    
+    displayQuestion() {
+        const question = this.currentQuiz[this.currentQuestionIndex];
+        const container = document.getElementById('quizContainer');
+        
+        // Shuffle answers if enabled
+        const answers = CONFIG.QUIZ.SHUFFLE_ANSWERS ? 
+            UTILS.shuffleArray(question.answers) : question.answers;
+        
+        container.innerHTML = `
+            <div class="question-header">
+                <div class="question-number">
+                    السؤال ${this.currentQuestionIndex + 1} من ${this.currentQuiz.length}
+                </div>
+                <div class="question-score">النتيجة: ${this.score}/${this.currentQuestionIndex}</div>
+            </div>
+            
+            <div class="question-text">${question.question}</div>
+            
+            ${question.image ? `<img src="${question.image}" alt="صورة السؤال" class="question-image">` : ''}
+            
+            <div class="answers-list">
+                ${answers.map((answer, index) => `
+                    <button class="answer-btn" data-index="${index}" data-answer="${answer}">
+                        ${answer}
+                    </button>
+                `).join('')}
+            </div>
+            
+            <div class="quiz-actions">
+                <button class="quiz-btn submit-btn" id="submitAnswer" disabled>تأكيد الإجابة</button>
+                <button class="quiz-btn next-btn" id="nextQuestion" style="display: none;">السؤال التالي</button>
+            </div>
+        `;
+        
+        this.setupQuizEventListeners();
+    }
+    
+    setupQuizEventListeners() {
+        const answerButtons = document.querySelectorAll('.answer-btn');
+        const submitBtn = document.getElementById('submitAnswer');
+        const nextBtn = document.getElementById('nextQuestion');
+        
+        answerButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                answerButtons.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                this.selectedAnswer = btn.dataset.answer;
+                submitBtn.disabled = false;
+            });
+        });
+        
+        submitBtn.addEventListener('click', () => {
+            this.checkAnswer();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            this.nextQuestion();
+        });
+    }
+    
+    checkAnswer() {
+        const question = this.currentQuiz[this.currentQuestionIndex];
+        const answerButtons = document.querySelectorAll('.answer-btn');
+        const submitBtn = document.getElementById('submitAnswer');
+        const nextBtn = document.getElementById('nextQuestion');
+        
+        // Disable all buttons
+        answerButtons.forEach(btn => {
+            btn.disabled = true;
+            
+            if (btn.dataset.answer === question.correctAnswer) {
+                btn.classList.add('correct');
+            } else if (btn.dataset.answer === this.selectedAnswer) {
+                btn.classList.add('wrong');
+            }
+        });
+        
+        // Check if answer is correct
+        if (this.selectedAnswer === question.correctAnswer) {
+            this.score++;
+        }
+        
+        // Update button states
+        submitBtn.style.display = 'none';
+        nextBtn.style.display = 'block';
+        
+        // Save progress
+        this.saveQuizProgress();
+    }
+    
+    nextQuestion() {
+        this.currentQuestionIndex++;
+        this.selectedAnswer = null;
+        
+        if (this.currentQuestionIndex < this.currentQuiz.length) {
+            this.displayQuestion();
+        } else {
+            this.showQuizResults();
+        }
+    }
+    
+    showQuizResults() {
+        const percentage = UTILS.calculatePercentage(this.score, this.currentQuiz.length);
+        const container = document.getElementById('quizContainer');
+        
+        let message = '';
+        let emoji = '';
+        
+        if (percentage === 100) {
+            message = 'ممتاز! درجة كاملة! 🎉';
+            emoji = '🏆';
+        } else if (percentage >= 80) {
+            message = 'أحسنت! أداء رائع! 👏';
+            emoji = '⭐';
+        } else if (percentage >= 60) {
+            message = 'جيد جداً! استمر في التحسن! 💪';
+            emoji = '👍';
+        } else {
+            message = 'حاول مرة أخرى! يمكنك تحسين أدائك! 📚';
+            emoji = '📖';
+        }
+        
+        container.innerHTML = `
+            <div style="text-align: center; padding: 40px;">
+                <div style="font-size: 80px; margin-bottom: 20px;">${emoji}</div>
+                <h2 style="color: var(--primary-color); margin-bottom: 15px;">نتيجة الاختبار</h2>
+                <div style="font-size: 48px; font-weight: bold; color: var(--accent-color); margin: 20px 0;">
+                    ${this.score}/${this.currentQuiz.length}
+                </div>
+                <div style="font-size: 36px; font-weight: bold; color: var(--primary-color); margin-bottom: 15px;">
+                    ${percentage}%
+                </div>
+                <p style="font-size: 18px; color: var(--text-light); margin-bottom: 30px;">
+                    ${message}
+                </p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <button class="quiz-btn submit-btn" onclick="app.loadQuiz('${this.currentSection.id}')">
+                        إعادة الاختبار
+                    </button>
+                    <button class="quiz-btn next-btn" onclick="app.navigateTo('sections')">
+                        العودة للأقسام
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        // Update overall progress
+        this.updateOverallProgress();
+    }
+    
+    saveQuizProgress() {
+        const progress = UTILS.loadData(CONFIG.STORAGE_KEYS.PROGRESS, {
+            completedQuestions: 0,
+            totalQuestions: 500,
+            completedSections: []
+        });
+        
+        progress.completedQuestions++;
+        UTILS.saveData(CONFIG.STORAGE_KEYS.PROGRESS, progress);
+    }
+    
+    updateOverallProgress() {
+        this.loadProgress();
+    }
+    
+    loadResults() {
+        const container = document.getElementById('resultsContainer');
+        const scores = UTILS.loadData(CONFIG.STORAGE_KEYS.SCORES, []);
+        
+        if (scores.length === 0) {
+            container.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 60px; margin-bottom: 20px;">📊</div>
+                    <p style="color: var(--text-light);">لا توجد نتائج بعد. ابدأ الاختبارات لتسجيل نتائجك!</p>
+                </div>
+            `;
+            return;
+        }
+        
+        container.innerHTML = `
+            <div style="background: white; border-radius: 12px; padding: 20px;">
+                <h3 style="margin-bottom: 20px; color: var(--primary-color);">آخر النتائج</h3>
+                ${scores.slice(-10).reverse().map(score => `
+                    <div style="padding: 15px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: bold;">${score.section}</div>
+                            <div style="font-size: 12px; color: var(--text-light);">${UTILS.formatDate(score.date)}</div>
+                        </div>
+                        <div style="font-size: 24px; font-weight: bold; color: var(--accent-color);">
+                            ${score.score}%
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    loadChallenges() {
+        const container = document.getElementById('challengesContainer');
+        const progress = UTILS.loadData(CONFIG.STORAGE_KEYS.PROGRESS, {
+            completedQuestions: 0,
+            achievements: []
+        });
+        
+        container.innerHTML = `
+            <div style="display: grid; gap: 15px;">
+                ${CONFIG.ACHIEVEMENTS.map(achievement => {
+                    const completed = progress.achievements && 
+                        progress.achievements.includes(achievement.id);
+                    return `
+                        <div style="background: white; border-radius: 12px; padding: 20px; 
+                                    display: flex; gap: 15px; align-items: center;
+                                    opacity: ${completed ? '1' : '0.6'}">
+                            <div style="font-size: 48px;">${achievement.icon}</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: bold; margin-bottom: 5px;">${achievement.name}</div>
+                                <div style="font-size: 14px; color: var(--text-light);">${achievement.description}</div>
+                            </div>
+                            ${completed ? '<div style="color: var(--success); font-size: 24px;">✓</div>' : ''}
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+    }
+    
+    loadLeaderboard() {
+        const container = document.getElementById('leaderboardContainer');
+        
+        // Generate sample leaderboard
+        const leaders = Array.from({length: 10}, (_, i) => ({
+            rank: i + 1,
+            name: `متدرب ${i + 1}`,
+            score: Math.floor(Math.random() * 500) + 500,
+            avatar: ['🧑‍🎓', '👨‍🔬', '👩‍🔬', '🧑‍💼'][Math.floor(Math.random() * 4)]
+        })).sort((a, b) => b.score - a.score);
+        
+        container.innerHTML = `
+            <div style="background: white; border-radius: 12px; padding: 20px;">
+                ${leaders.map((leader, index) => `
+                    <div style="padding: 15px; border-bottom: 1px solid #e2e8f0; 
+                                display: flex; align-items: center; gap: 15px;">
+                        <div style="font-size: 24px; font-weight: bold; width: 40px; 
+                                    color: ${index < 3 ? 'var(--accent-color)' : 'var(--text-light)'}">
+                            ${leader.rank}
+                        </div>
+                        <div style="font-size: 32px;">${leader.avatar}</div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: bold;">${leader.name}</div>
+                        </div>
+                        <div style="font-size: 20px; font-weight: bold; color: var(--primary-color);">
+                            ${leader.score}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    loadFavorites() {
+        const container = document.getElementById('favoritesContainer');
+        const favorites = UTILS.loadData(CONFIG.STORAGE_KEYS.FAVORITES, []);
+        
+        if (favorites.length === 0) {
+            container.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 60px; margin-bottom: 20px;">⭐</div>
+                    <p style="color: var(--text-light);">لا توجد أسئلة مفضلة بعد!</p>
+                </div>
+            `;
+            return;
+        }
+        
+        container.innerHTML = `
+            <div style="background: white; border-radius: 12px; padding: 20px;">
+                <p style="color: var(--text-light);">ميزة المفضلة قيد التطوير</p>
+            </div>
+        `;
+    }
+    
+    loadSupport() {
+        const container = document.getElementById('supportContainer');
+        
+        container.innerHTML = `
+            <div style="background: white; border-radius: 12px; padding: 30px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px;">الدعم والمساعدة</h3>
+                
+                <div style="margin-bottom: 30px;">
+                    <h4 style="margin-bottom: 10px;">📧 البريد الإلكتروني</h4>
+                    <p style="color: var(--text-light);">support@geologyplus.com</p>
+                </div>
+                
+                <div style="margin-bottom: 30px;">
+                    <h4 style="margin-bottom: 10px;">❓ الأسئلة الشائعة</h4>
+                    <div style="padding: 15px; background: var(--bg-color); border-radius: 8px; margin-bottom: 10px;">
+                        <strong>كيف أبدأ الاختبارات؟</strong>
+                        <p style="color: var(--text-light); margin-top: 5px;">اضغط على "ابدأ رحلتي" ثم اختر القسم المطلوب</p>
+                    </div>
+                    <div style="padding: 15px; background: var(--bg-color); border-radius: 8px; margin-bottom: 10px;">
+                        <strong>هل يمكنني إعادة الاختبار؟</strong>
+                        <p style="color: var(--text-light); margin-top: 5px;">نعم، يمكنك إعادة أي اختبار في أي وقت</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 10px;">💡 نصائح</h4>
+                    <ul style="color: var(--text-light); padding-right: 20px;">
+                        <li>خذ وقتك في قراءة الأسئلة بعناية</li>
+                        <li>راجع الإجابات الخاطئة للتعلم منها</li>
+                        <li>تدرب بانتظام لتحسين أدائك</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+    }
+    
+    showSettings() {
+        alert('إعدادات التطبيق قيد التطوير');
+    }
+}
 
-// بدء التطبيق بعد تحميل DOM
-document.addEventListener('DOMContentLoaded', APP.init);
+// Initialize app when DOM is loaded
+let app;
+document.addEventListener('DOMContentLoaded', () => {
+    app = new GeologyApp();
+});
