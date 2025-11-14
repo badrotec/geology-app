@@ -10,30 +10,44 @@
 
     <div class="quiz-container">
         
-        <div id="language-selector">
-            <label for="language-select" data-lang-key="select_language"></label>
-            <select id="language-select"></select>
-        </div>
-
-        <h1 data-lang-key="app_title">Geology Quiz</h1>
-
-        <div id="selection-screen">
-            <h2 data-lang-key="select_category">Select a Quiz Category</h2>
-            <div id="category-selection">
-                </div>
-            <button class="start-button" id="start-quiz-button" disabled data-lang-key="start_quiz">
-                Start Quiz
+        <div id="start-screen" class="screen active-screen">
+            <header>
+                <h1 data-lang-key="app_title">Geology Quiz</h1>
+                <p data-lang-key="welcome_message">Test your knowledge in various fields of geology.</p>
+            </header>
+            
+            <div class="settings-box">
+                <label for="language-select" data-lang-key="select_language">Select Language:</label>
+                <select id="language-select"></select>
+            </div>
+            
+            <button class="primary-button" id="go-to-setup-button" data-lang-key="start_journey">
+                Start Your Journey
             </button>
         </div>
 
-        <div id="quiz-screen" style="display: none;">
+        <div id="setup-screen" class="screen">
+            <h2 data-lang-key="select_category">Select a Quiz Category</h2>
+            <div id="category-selection">
+                </div>
+            <button class="primary-button" id="start-quiz-button" disabled data-lang-key="start_quiz">
+                Start Quiz
+            </button>
+            <button class="secondary-button" id="back-to-start-button" data-lang-key="back">
+                Back
+            </button>
+        </div>
+
+        <div id="quiz-screen" class="screen">
             
-            <div class="progress-info">
-                <span id="question-progress"></span>
-                <span id="time-display"></span>
-            </div>
-            <div class="timer-bar">
-                <div class="timer-fill" id="timer-fill"></div>
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span id="question-progress"></span>
+                    <span id="time-display"></span>
+                </div>
+                <div class="timer-bar">
+                    <div class="timer-fill" id="timer-fill"></div>
+                </div>
             </div>
 
             <p class="question-text" id="question-text"></p>
@@ -42,12 +56,12 @@
             <ul class="options-list" id="options-list">
                 </ul>
 
-            <button class="start-button" id="next-question-button" disabled data-lang-key="next_question">
+            <button class="primary-button" id="next-question-button" disabled data-lang-key="next_question">
                 Next Question
             </button>
         </div>
 
-        <div id="results-screen" style="display: none;">
+        <div id="results-screen" class="screen">
             <h2 data-lang-key="quiz_completed">Quiz Completed!</h2>
             
             <div class="score-detail">
@@ -59,11 +73,8 @@
             <div class="score-detail wrong">
                 <span data-lang-key="incorrect_answers">Incorrect Answers:</span> <span id="incorrect-count">0</span>
             </div>
-            <div class="score-detail">
-                <span data-lang-key="total_questions">Total Questions:</span> <span id="total-count">0</span>
-            </div>
             
-            <button class="start-button" id="play-again-button" style="margin-top: 20px;" data-lang-key="play_again">
+            <button class="primary-button" id="play-again-button" style="margin-top: 20px;" data-lang-key="play_again">
                 Play Again
             </button>
         </div>
