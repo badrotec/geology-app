@@ -1,142 +1,176 @@
-// config.js - إعدادات التطبيق والثوابت
+// Geology+ Training App Configuration
 
 const CONFIG = {
-    // معلومات الأقسام الثمانية
-    sections: [
+    APP_NAME: 'جيولوجيا بلس',
+    APP_NAME_EN: 'GEOLOGY+ TRAINING',
+    VERSION: '1.0.0',
+    
+    // Sections Configuration
+    SECTIONS: [
         {
             id: 'basic_geo',
-            nameAr: 'جيولوجيا أساسية',
+            name: 'علم الجيولوجيا الأساسي',
             nameEn: 'Basic Geology',
             icon: '🌍',
-            color: '#4CAF50',
-            description: 'أساسيات علم الجيولوجيا والمفاهيم الأولية',
-            dataFile: 'assets/data/basic_geo.json'
+            file: 'assets/data/basic_geo.json',
+            color: '#2c5f2d'
         },
         {
             id: 'mineralogy',
-            nameAr: 'علم المعادن',
+            name: 'علم المعادن',
             nameEn: 'Mineralogy',
             icon: '💎',
-            color: '#2196F3',
-            description: 'دراسة المعادن وخصائصها وتصنيفاتها',
-            dataFile: 'assets/data/mineralogy.json'
+            file: 'assets/data/mineralogy.json',
+            color: '#9333ea'
         },
         {
             id: 'sedimentology',
-            nameAr: 'علم الرواسب',
+            name: 'علم الرسوبيات',
             nameEn: 'Sedimentology',
-            icon: '🏔️',
-            color: '#FF9800',
-            description: 'دراسة الصخور الرسوبية وعمليات الترسيب',
-            dataFile: 'assets/data/sedimentology.json'
+            icon: '🏜️',
+            file: 'assets/data/sedimentology.json',
+            color: '#d97706'
         },
         {
             id: 'structural_geology',
-            nameAr: 'جيولوجيا بنيوية',
+            name: 'الجيولوجيا البنيوية',
             nameEn: 'Structural Geology',
             icon: '⛰️',
-            color: '#9C27B0',
-            description: 'دراسة التراكيب الجيولوجية والطيات والصدوع',
-            dataFile: 'assets/data/structural_geology.json'
+            file: 'assets/data/structural_geology.json',
+            color: '#dc2626'
         },
         {
             id: 'petroleum_geology',
-            nameAr: 'جيولوجيا نفط',
+            name: 'جيولوجيا البترول',
             nameEn: 'Petroleum Geology',
             icon: '🛢️',
-            color: '#F44336',
-            description: 'دراسة تكوين وتوزيع واستكشاف النفط والغاز',
-            dataFile: 'assets/data/petroleum_geology.json'
+            file: 'assets/data/petroleum_geology.json',
+            color: '#0891b2'
         },
         {
             id: 'hydrogeology',
-            nameAr: 'جيولوجيا مياه',
+            name: 'الجيولوجيا المائية',
             nameEn: 'Hydrogeology',
             icon: '💧',
-            color: '#00BCD4',
-            description: 'دراسة المياه الجوفية وحركتها في الصخور',
-            dataFile: 'assets/data/hydrogeology.json'
-        },
-        {
-            id: 'engineering_geology',
-            nameAr: 'جيولوجيا هندسية',
-            nameEn: 'Engineering Geology',
-            icon: '🏗️',
-            color: '#795548',
-            description: 'تطبيق الجيولوجيا في المشاريع الهندسية',
-            dataFile: 'assets/data/engineering_geology.json'
+            file: 'assets/data/hydrogeology.json',
+            color: '#2563eb'
         },
         {
             id: 'geophysics',
-            nameAr: 'جيوفيزياء',
+            name: 'الجيوفيزياء',
             nameEn: 'Geophysics',
-            icon: '📡',
-            color: '#607D8B',
-            description: 'دراسة الخصائص الفيزيائية للأرض',
-            dataFile: 'assets/data/geophysics.json'
+            icon: '🌊',
+            file: 'assets/data/geophysics.json',
+            color: '#7c3aed'
+        },
+        {
+            id: 'engineering_geology',
+            name: 'الجيولوجيا الهندسية',
+            nameEn: 'Engineering Geology',
+            icon: '🏗️',
+            file: 'assets/data/engineering_geology.json',
+            color: '#059669'
         }
     ],
-
-    // إعدادات المستخدمين المتصلين
-    onlineUsers: {
-        min: 850,
-        max: 1250,
-        updateInterval: 30000 // 30 ثانية
+    
+    // Online Users Simulation
+    ONLINE_USERS: {
+        MIN: 850,
+        MAX: 1200,
+        CHANGE_INTERVAL: 15000, // 15 seconds
+        CHANGE_AMOUNT: {
+            MIN: -5,
+            MAX: 15
+        }
     },
-
-    // إعدادات الكويز
-    quiz: {
-        questionsPerSession: 10,
-        timePerQuestion: 60, // ثانية
-        passingScore: 70 // نسبة مئوية
+    
+    // Progress Tracking
+    STORAGE_KEYS: {
+        PROGRESS: 'geology_progress',
+        SCORES: 'geology_scores',
+        FAVORITES: 'geology_favorites',
+        USER_DATA: 'geology_user_data'
     },
-
-    // مسارات الصور
-    imagePath: 'assets/images/',
-
-    // مفاتيح التخزين المحلي
-    storage: {
-        progress: 'geology_progress',
-        scores: 'geology_scores',
-        favorites: 'geology_favorites',
-        answers: 'geology_answers'
+    
+    // Leaderboard Configuration
+    LEADERBOARD: {
+        TOP_COUNT: 10,
+        UPDATE_INTERVAL: 60000 // 1 minute
+    },
+    
+    // Achievements Configuration
+    ACHIEVEMENTS: [
+        { id: 'first_quiz', name: 'البداية', icon: '🌟', description: 'أكمل أول اختبار', requirement: 1 },
+        { id: 'quiz_master', name: 'خبير الاختبارات', icon: '🏆', description: 'أكمل 10 اختبارات', requirement: 10 },
+        { id: 'perfect_score', name: 'الدرجة الكاملة', icon: '💯', description: 'احصل على 100% في اختبار', requirement: 1 },
+        { id: 'section_complete', name: 'إتمام القسم', icon: '✅', description: 'أكمل جميع أسئلة قسم واحد', requirement: 1 },
+        { id: 'all_sections', name: 'الشامل', icon: '🎓', description: 'أكمل جميع الأقسام الثمانية', requirement: 8 },
+        { id: 'speed_demon', name: 'سرعة البرق', icon: '⚡', description: 'أجب على 20 سؤال في أقل من 10 دقائق', requirement: 1 },
+        { id: 'persistent', name: 'المثابر', icon: '💪', description: 'ادرس لمدة 7 أيام متتالية', requirement: 7 },
+        { id: 'knowledge_seeker', name: 'طالب العلم', icon: '📚', description: 'أجب على 100 سؤال', requirement: 100 }
+    ],
+    
+    // Quiz Settings
+    QUIZ: {
+        QUESTIONS_PER_SESSION: 10,
+        TIME_LIMIT: null, // null = no limit
+        SHOW_CORRECT_ANSWER: true,
+        SHUFFLE_QUESTIONS: true,
+        SHUFFLE_ANSWERS: true
     }
 };
 
-// دالة لتوليد عدد عشوائي بين min و max
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// دالة للحصول على عدد المستخدمين المتصلين بشكل واقعي
-function getOnlineUsersCount() {
-    const { min, max } = CONFIG.onlineUsers;
-    const baseCount = getRandomNumber(min, max);
+// Utility Functions
+const UTILS = {
+    // Save data to localStorage
+    saveData(key, data) {
+        try {
+            localStorage.setItem(key, JSON.stringify(data));
+            return true;
+        } catch (e) {
+            console.error('Error saving data:', e);
+            return false;
+        }
+    },
     
-    // إضافة تغير طفيف بناءً على الوقت (ذروة في النهار، أقل في الليل)
-    const hour = new Date().getHours();
-    let multiplier = 1;
+    // Load data from localStorage
+    loadData(key, defaultValue = null) {
+        try {
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : defaultValue;
+        } catch (e) {
+            console.error('Error loading data:', e);
+            return defaultValue;
+        }
+    },
     
-    if (hour >= 9 && hour <= 12) {
-        multiplier = 1.1; // ذروة صباحية
-    } else if (hour >= 14 && hour <= 17) {
-        multiplier = 1.15; // ذروة مسائية
-    } else if (hour >= 20 && hour <= 23) {
-        multiplier = 1.05; // نشاط ليلي متوسط
-    } else if (hour >= 0 && hour <= 5) {
-        multiplier = 0.6; // أقل نشاط
+    // Shuffle array
+    shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    },
+    
+    // Calculate percentage
+    calculatePercentage(value, total) {
+        if (total === 0) return 0;
+        return Math.round((value / total) * 100);
+    },
+    
+    // Format date
+    formatDate(date) {
+        return new Date(date).toLocaleDateString('ar-SA', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    },
+    
+    // Generate random number between min and max
+    randomBetween(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    
-    return Math.round(baseCount * multiplier);
-}
-
-// دالة للحصول على لون القسم
-function getSectionColor(sectionId) {
-    const section = CONFIG.sections.find(s => s.id === sectionId);
-    return section ? section.color : '#666';
-}
-
-// دالة للحصول على معلومات القسم
-function getSectionInfo(sectionId) {
-    return CONFIG.sections.find(s => s.id === sectionId);
-}
+};
