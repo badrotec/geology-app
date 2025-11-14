@@ -1,42 +1,73 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار الجيولوجيا</title>
+    <title data-lang-key="app_title">Geology Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🌋 اختبار الجيولوجيا</h1>
-            <p>اختبر معرفتك في علم الجيولوجيا</p>
-        </header>
+
+    <div class="quiz-container">
         
-        <main>
-            <div class="quiz-section active" id="start">
-                <h2>مرحباً بك!</h2>
-                <p>اختبار بسيط يتكون من 6 أسئلة في الجيولوجيا</p>
-                <button onclick="startQuiz()">بدء الاختبار</button>
-            </div>
+        <div id="language-selector">
+            <label for="language-select" data-lang-key="select_language"></label>
+            <select id="language-select"></select>
+        </div>
 
-            <div class="quiz-section" id="quiz">
-                <div class="question-header">
-                    <span id="question-number">السؤال 1</span>
-                    <span id="score">النقاط: 0</span>
+        <h1 data-lang-key="app_title">Geology Quiz</h1>
+
+        <div id="selection-screen">
+            <h2 data-lang-key="select_category">Select a Quiz Category</h2>
+            <div id="category-selection">
                 </div>
-                <h3 id="question-text"></h3>
-                <div id="question-image"></div>
-                <div class="options" id="options"></div>
-                <button onclick="nextQuestion()" id="next-btn">التالي</button>
+            <button class="start-button" id="start-quiz-button" disabled data-lang-key="start_quiz">
+                Start Quiz
+            </button>
+        </div>
+
+        <div id="quiz-screen" style="display: none;">
+            
+            <div class="progress-info">
+                <span id="question-progress"></span>
+                <span id="time-display"></span>
+            </div>
+            <div class="timer-bar">
+                <div class="timer-fill" id="timer-fill"></div>
             </div>
 
-            <div class="quiz-section" id="result">
-                <h2>النتيجة النهائية</h2>
-                <div class="score" id="final-score">0/6</div>
-                <button onclick="restartQuiz()">إعادة الاختبار</button>
+            <p class="question-text" id="question-text"></p>
+            <img id="question-image" class="question-image" src="" alt="Geology Diagram/Image" style="display:none;">
+
+            <ul class="options-list" id="options-list">
+                </ul>
+
+            <button class="start-button" id="next-question-button" disabled data-lang-key="next_question">
+                Next Question
+            </button>
+        </div>
+
+        <div id="results-screen" style="display: none;">
+            <h2 data-lang-key="quiz_completed">Quiz Completed!</h2>
+            
+            <div class="score-detail">
+                <span data-lang-key="your_score">Your Score:</span> <span id="final-score">0</span>
             </div>
-        </main>
+            <div class="score-detail correct">
+                <span data-lang-key="correct_answers">Correct Answers:</span> <span id="correct-count">0</span>
+            </div>
+            <div class="score-detail wrong">
+                <span data-lang-key="incorrect_answers">Incorrect Answers:</span> <span id="incorrect-count">0</span>
+            </div>
+            <div class="score-detail">
+                <span data-lang-key="total_questions">Total Questions:</span> <span id="total-count">0</span>
+            </div>
+            
+            <button class="start-button" id="play-again-button" style="margin-top: 20px;" data-lang-key="play_again">
+                Play Again
+            </button>
+        </div>
+
     </div>
 
     <script src="config.js"></script>
