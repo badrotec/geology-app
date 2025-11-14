@@ -22,5 +22,13 @@
   "sidebar_support": "📞 Support and Help",
   "connection_status": "Connected",
   "settings_button": "⚙️",
-  "menu_button": "☰"
+  "menu_button": "☰",
+  "section_basic_geo": "Basic Geology",
+  "section_engineering_geology": "Engineering Geology",
+  "section_geophysics": "Geophysics",
+  "section_hydrogeology": "Hydrogeology",
+  "section_mineralogy": "Mineralogy",
+  "section_petroleum_geology": "Petroleum Geology",
+  "section_sedimentology": "Sedimentology",
+  "section_structural_geology": "Structural Geology"
 }
