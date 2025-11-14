@@ -1,70 +1,367 @@
 {
-    "questions": [
-        {
-            "id": 1,
-            "type": "text",
-            "question": {
-                "en": "What is the study of the Earth, its materials, and the processes acting upon them?",
-                "ar": "ما هو العلم الذي يدرس الأرض ومكوناتها والعمليات المؤثرة عليها؟"
-            },
-            "options": [
-                {"en": "Meteorology", "ar": "علم الأرصاد الجوية"},
-                {"en": "Geology", "ar": "علم الجيولوجيا"},
-                {"en": "Oceanography", "ar": "علم المحيطات"},
-                {"en": "Astronomy", "ar": "علم الفلك"}
-            ],
-            "answer": "Geology"
-        },
-        {
-            "id": 2,
-            "type": "text",
-            "question": {
-                "en": "The three main types of rocks are Igneous, Sedimentary, and...?",
-                "ar": "الأنواع الرئيسية الثلاثة للصخور هي النارية والرسوبية و...؟"
-            },
-            "options": [
-                {"en": "Volcanic", "ar": "البركانية"},
-                {"en": "Metamorphic", "ar": "المتحولة"},
-                {"en": "Tectonic", "ar": "التكتونية"},
-                {"en": "Magmatic", "ar": "الماغماتية"}
-            ],
-            "answer": "Metamorphic"
-        },
-        
-        // ... أضف حتى 15 سؤال 'text' هنا
-        
-        {
-            "id": 16,
-            "type": "image",
-            "image": "rock_cycle.pngq", // اسم الملف في assets/images/
-            "question": {
-                "en": "The process labeled 'A' in the rock cycle diagram represents?",
-                "ar": "ماذا تمثل العملية المسماة 'أ' في مخطط دورة الصخور؟"
-            },
-            "options": [
-                {"en": "Melting", "ar": "الانصهار"},
-                {"en": "Erosion and Deposition", "ar": "التعرية والترسيب"},
-                {"en": "Metamorphism", "ar": "التحول"},
-                {"en": "Crystallization", "ar": "التبلور"}
-            ],
-            "answer": "Erosion and Deposition"
-        },
-        {
-            "id": 17,
-            "type": "image",
-            "image": "plate_tectonics.jpgq", // اسم الملف في assets/images/
-            "question": {
-                "en": "The boundary type shown in this figure where plates move towards each other is?",
-                "ar": "نوع الحدود الموضح في هذا الشكل حيث تتحرك الصفائح نحو بعضها البعض هو؟"
-            },
-            "options": [
-                {"en": "Divergent", "ar": "التباعدية"},
-                {"en": "Convergent", "ar": "التقاربية"},
-                {"en": "Transform", "ar": "الانزلاقية"},
-                {"en": "Passive", "ar": "الخاملة"}
-            ],
-            "answer": "Convergent"
-        }
-        // ... أضف باقي أسئلة 'image' هنا ليكون المجموع الكلي حوالي 21 سؤالاً أو أكثر (نص + صورة)
-    ]
+  "sectionId": "basic_geo",
+  "sectionName": "علم الجيولوجيا الأساسي",
+  "sectionNameEn": "Basic Geology",
+  "questions": [
+    {
+      "id": "bg_001",
+      "question": "ما هو علم الجيولوجيا؟ What is Geology?",
+      "answers": [
+        "علم دراسة الأرض وتركيبها وتاريخها - The study of Earth's structure and history",
+        "علم دراسة الكواكب - The study of planets",
+        "علم دراسة المحيطات - The study of oceans",
+        "علم دراسة الغلاف الجوي - The study of atmosphere"
+      ],
+      "correctAnswer": "علم دراسة الأرض وتركيبها وتاريخها - The study of Earth's structure and history",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_002",
+      "question": "كم يبلغ عمر الأرض تقريباً؟ What is Earth's approximate age?",
+      "answers": [
+        "4.5 مليار سنة - 4.5 billion years",
+        "1 مليار سنة - 1 billion years",
+        "10 مليار سنة - 10 billion years",
+        "100 مليون سنة - 100 million years"
+      ],
+      "correctAnswer": "4.5 مليار سنة - 4.5 billion years",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_003",
+      "question": "ما هي الطبقات الرئيسية للأرض؟ What are Earth's main layers?",
+      "answers": [
+        "القشرة والوشاح واللب - Crust, Mantle, and Core",
+        "القشرة والوشاح فقط - Crust and Mantle only",
+        "القشرة واللب فقط - Crust and Core only",
+        "طبقة واحدة متجانسة - One homogeneous layer"
+      ],
+      "correctAnswer": "القشرة والوشاح واللب - Crust, Mantle, and Core",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_004",
+      "question": "ما هي نظرية الصفائح التكتونية؟ What is Plate Tectonics Theory?",
+      "answers": [
+        "نظرية حركة الصفائح القارية - Theory of continental plate movement",
+        "نظرية ثبات القارات - Theory of stationary continents",
+        "نظرية تكون الجبال فقط - Theory of mountain formation only",
+        "نظرية تكون البحار - Theory of sea formation"
+      ],
+      "correctAnswer": "نظرية حركة الصفائح القارية - Theory of continental plate movement",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_005",
+      "question": "ما هو الزلزال؟ What is an earthquake?",
+      "answers": [
+        "اهتزاز مفاجئ للأرض نتيجة حركة الصفائح - Sudden shaking due to plate movement",
+        "انفجار بركاني - Volcanic eruption",
+        "انهيار جبلي - Mountain collapse",
+        "فيضان مائي - Water flooding"
+      ],
+      "correctAnswer": "اهتزاز مفاجئ للأرض نتيجة حركة الصفائح - Sudden shaking due to plate movement",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_006",
+      "question": "ما هو البركان؟ What is a volcano?",
+      "answers": [
+        "فتحة في القشرة الأرضية تخرج منها الحمم - Opening in Earth's crust releasing lava",
+        "جبل عادي - Normal mountain",
+        "حفرة في الأرض - Hole in the ground",
+        "تكوين صخري - Rock formation"
+      ],
+      "correctAnswer": "فتحة في القشرة الأرضية تخرج منها الحمم - Opening in Earth's crust releasing lava",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_007",
+      "question": "ما هي دورة الصخور؟ What is the rock cycle?",
+      "answers": [
+        "العملية المستمرة لتكوين وتحول الصخور - Continuous process of rock formation and transformation",
+        "تكوين الصخور فقط - Rock formation only",
+        "تآكل الصخور فقط - Rock erosion only",
+        "نقل الصخور - Rock transportation"
+      ],
+      "correctAnswer": "العملية المستمرة لتكوين وتحول الصخور - Continuous process of rock formation and transformation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_008",
+      "question": "ما هي الأنواع الرئيسية للصخور؟ What are the main types of rocks?",
+      "answers": [
+        "نارية ورسوبية ومتحولة - Igneous, Sedimentary, and Metamorphic",
+        "نارية ومتحولة فقط - Igneous and Metamorphic only",
+        "رسوبية ومتحولة فقط - Sedimentary and Metamorphic only",
+        "نوع واحد فقط - One type only"
+      ],
+      "correctAnswer": "نارية ورسوبية ومتحولة - Igneous, Sedimentary, and Metamorphic",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_009",
+      "question": "ما هي الصخور النارية؟ What are igneous rocks?",
+      "answers": [
+        "صخور تكونت من تبريد الصهارة - Rocks formed from cooled magma",
+        "صخور تكونت من الترسيب - Rocks formed from sedimentation",
+        "صخور تكونت من الضغط - Rocks formed from pressure",
+        "صخور تكونت من التآكل - Rocks formed from erosion"
+      ],
+      "correctAnswer": "صخور تكونت من تبريد الصهارة - Rocks formed from cooled magma",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_010",
+      "question": "ما هي الصخور الرسوبية؟ What are sedimentary rocks?",
+      "answers": [
+        "صخور تكونت من ترسب المواد - Rocks formed from sediment deposition",
+        "صخور تكونت من الصهارة - Rocks formed from magma",
+        "صخور تكونت من الضغط العالي - Rocks formed from high pressure",
+        "صخور تكونت من الحرارة - Rocks formed from heat"
+      ],
+      "correctAnswer": "صخور تكونت من ترسب المواد - Rocks formed from sediment deposition",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_011",
+      "question": "What causes the formation of mountains? ما الذي يسبب تكوين الجبال؟",
+      "answers": [
+        "Plate collision and tectonic forces - اصطدام الصفائح والقوى التكتونية",
+        "Wind erosion only - التعرية الريحية فقط",
+        "Water deposition - الترسيب المائي",
+        "Volcanic ash accumulation - تراكم الرماد البركاني"
+      ],
+      "correctAnswer": "Plate collision and tectonic forces - اصطدام الصفائح والقوى التكتونية",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_012",
+      "question": "What is weathering? ما هو التجوية؟",
+      "answers": [
+        "Breaking down of rocks by natural processes - تفتت الصخور بالعوامل الطبيعية",
+        "Formation of new rocks - تكوين صخور جديدة",
+        "Movement of sediments - حركة الرواسب",
+        "Melting of rocks - انصهار الصخور"
+      ],
+      "correctAnswer": "Breaking down of rocks by natural processes - تفتت الصخور بالعوامل الطبيعية",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_013",
+      "question": "What is erosion? ما هو التعرية؟",
+      "answers": [
+        "Transport of weathered materials - نقل المواد المتجوية",
+        "Breaking of rocks - تكسير الصخور",
+        "Formation of minerals - تكوين المعادن",
+        "Crystallization process - عملية التبلور"
+      ],
+      "correctAnswer": "Transport of weathered materials - نقل المواد المتجوية",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_014",
+      "question": "What is a fossil? ما هي الأحفورة؟",
+      "answers": [
+        "Preserved remains of ancient organisms - بقايا محفوظة لكائنات قديمة",
+        "Modern animal bones - عظام حيوانات حديثة",
+        "Type of mineral - نوع من المعادن",
+        "Volcanic rock - صخر بركاني"
+      ],
+      "correctAnswer": "Preserved remains of ancient organisms - بقايا محفوظة لكائنات قديمة",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_015",
+      "question": "What is magma? ما هي الصهارة؟",
+      "answers": [
+        "Molten rock beneath Earth's surface - صخر منصهر تحت سطح الأرض",
+        "Cooled lava - حمم متجمدة",
+        "Type of sediment - نوع من الرواسب",
+        "Mineral crystal - بلورة معدنية"
+      ],
+      "correctAnswer": "Molten rock beneath Earth's surface - صخر منصهر تحت سطح الأرض",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_016",
+      "question": "What is lava? ما هي الحمم البركانية؟",
+      "answers": [
+        "Magma that reaches Earth's surface - صهارة وصلت لسطح الأرض",
+        "Underground molten rock - صخر منصهر تحت الأرض",
+        "Solid volcanic rock - صخر بركاني صلب",
+        "Volcanic ash - رماد بركاني"
+      ],
+      "correctAnswer": "Magma that reaches Earth's surface - صهارة وصلت لسطح الأرض",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_017",
+      "question": "What scale measures earthquake magnitude? ما المقياس الذي يقيس قوة الزلازل؟",
+      "answers": [
+        "Richter Scale - مقياس ريختر",
+        "Celsius Scale - مقياس سيليزيوس",
+        "Beaufort Scale - مقياس بوفورت",
+        "Mohs Scale - مقياس موس"
+      ],
+      "correctAnswer": "Richter Scale - مقياس ريختر",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_018",
+      "question": "What is the epicenter of an earthquake? ما هو مركز الزلزال السطحي؟",
+      "answers": [
+        "Point on Earth's surface above the focus - نقطة على السطح فوق البؤرة",
+        "Underground origin point - نقطة الأصل تحت الأرض",
+        "Strongest shaking area - منطقة الاهتزاز الأقوى",
+        "Fault line location - موقع خط الصدع"
+      ],
+      "correctAnswer": "Point on Earth's surface above the focus - نقطة على السطح فوق البؤرة",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_019",
+      "question": "What are tectonic plates made of? مم تتكون الصفائح التكتونية؟",
+      "answers": [
+        "Lithosphere (crust and upper mantle) - الغلاف الصخري (القشرة والوشاح العلوي)",
+        "Crust only - القشرة فقط",
+        "Mantle only - الوشاح فقط",
+        "Core material - مادة اللب"
+      ],
+      "correctAnswer": "Lithosphere (crust and upper mantle) - الغلاف الصخري (القشرة والوشاح العلوي)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_020",
+      "question": "What is the Ring of Fire? ما هو حزام النار؟",
+      "answers": [
+        "Pacific Ocean volcanic belt - حزام البراكين في المحيط الهادئ",
+        "African rift valley - وادي الصدع الأفريقي",
+        "Antarctic ice region - منطقة الجليد القطبي",
+        "Sahara desert area - منطقة الصحراء الكبرى"
+      ],
+      "correctAnswer": "Pacific Ocean volcanic belt - حزام البراكين في المحيط الهادئ",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_021",
+      "question": "What is the Moho discontinuity? ما هو انقطاع موهو؟",
+      "answers": [
+        "Boundary between crust and mantle - الحد بين القشرة والوشاح",
+        "Boundary between mantle and core - الحد بين الوشاح واللب",
+        "Surface of Earth - سطح الأرض",
+        "Center of Earth - مركز الأرض"
+      ],
+      "correctAnswer": "Boundary between crust and mantle - الحد بين القشرة والوشاح",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bg_022",
+      "question": "What is subduction? ما هو الاندساس؟",
+      "answers": [
+        "One plate sliding beneath another - انزلاق صفيحة تحت أخرى",
+        "Two plates moving apart - تباعد صفيحتين",
+        "Two plates sliding past each other - انزلاق صفيحتين بجانب بعضهما",
+        "Plate rotation - دوران الصفيحة"
+      ],
+      "correctAnswer": "One plate sliding beneath another - انزلاق صفيحة تحت أخرى",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_023",
+      "question": "What are divergent plate boundaries? ما هي حدود الصفائح المتباعدة؟",
+      "answers": [
+        "Plates moving apart creating new crust - صفائح تتباعد وتكون قشرة جديدة",
+        "Plates colliding - صفائح تصطدم",
+        "Plates sliding past each other - صفائح تنزلق بجانب بعضها",
+        "Plates staying stationary - صفائح ثابتة"
+      ],
+      "correctAnswer": "Plates moving apart creating new crust - صفائح تتباعد وتكون قشرة جديدة",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_024",
+      "question": "What is a fault? ما هو الصدع؟",
+      "answers": [
+        "Fracture in Earth's crust with movement - كسر في القشرة الأرضية مع حركة",
+        "Mountain formation - تكوين جبلي",
+        "Volcanic opening - فتحة بركانية",
+        "River valley - وادي نهري"
+      ],
+      "correctAnswer": "Fracture in Earth's crust with movement - كسر في القشرة الأرضية مع حركة",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_025",
+      "question": "What is uniformitarianism? ما هي نظرية التوحيد؟",
+      "answers": [
+        "Present is key to the past - الحاضر مفتاح الماضي",
+        "Past is different from present - الماضي يختلف عن الحاضر",
+        "Future determines past - المستقبل يحدد الماضي",
+        "Random geological events - أحداث جيولوجية عشوائية"
+      ],
+      "correctAnswer": "Present is key to the past - الحاضر مفتاح الماضي",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bg_026",
+      "question": "What is the asthenosphere? ما هو الغلاف الموري؟",
+      "answers": [
+        "Partially molten layer in upper mantle - طبقة شبه منصهرة في الوشاح العلوي",
+        "Solid outer layer - الطبقة الخارجية الصلبة",
+        "Liquid core layer - طبقة اللب السائل",
+        "Earth's crust - قشرة الأرض"
+      ],
+      "correctAnswer": "Partially molten layer in upper mantle - طبقة شبه منصهرة في الوشاح العلوي",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bg_027",
+      "question": "What causes tsunamis? ما الذي يسبب التسونامي؟",
+      "answers": [
+        "Underwater earthquakes or volcanic eruptions - زلازل تحت الماء أو ثورات بركانية",
+        "Strong winds only - رياح قوية فقط",
+        "Heavy rainfall - أمطار غزيرة",
+        "Ocean currents - تيارات محيطية"
+      ],
+      "correctAnswer": "Underwater earthquakes or volcanic eruptions - زلازل تحت الماء أو ثورات بركانية",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_028",
+      "question": "What is the lithosphere? ما هو الغلاف الصخري؟",
+      "answers": [
+        "Rigid outer layer of Earth - الطبقة الخارجية الصلبة للأرض",
+        "Molten layer beneath crust - طبقة منصهرة تحت القشرة",
+        "Earth's atmosphere - الغلاف الجوي للأرض",
+        "Water bodies - المسطحات المائية"
+      ],
+      "correctAnswer": "Rigid outer layer of Earth - الطبقة الخارجية الصلبة للأرض",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bg_029",
+      "question": "What is pangaea? ما هي بانجيا؟",
+      "answers": [
+        "Ancient supercontinent - قارة عظمى قديمة",
+        "Modern continent - قارة حديثة",
+        "Ocean name - اسم محيط",
+        "Mountain range - سلسلة جبلية"
+      ],
+      "correctAnswer": "Ancient supercontinent - قارة عظمى قديمة",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg_030",
+      "question": "What is the geological time scale? ما هو مقياس الزمن الجيولوجي؟",
+      "answers": [
+        "Timeline of Earth's history - جدول زمني لتاريخ الأرض",
+        "Daily weather forecast - توقعات الطقس اليومية",
+        "Human history timeline - جدول التاريخ البشري",
+        "Astronomical calendar - تقويم فلكي"
+      ],
+      "correctAnswer": "Timeline of Earth's history - جدول زمني لتاريخ الأرض",
+      "difficulty": "easy"
+    }
+  ]
 }
