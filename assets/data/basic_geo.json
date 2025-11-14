@@ -1,38 +1,70 @@
 {
-    "section": "الجيولوجيا الأساسية",
     "questions": [
         {
-            "text": "أي من الصخور التالية تعتبر من الصخور النارية؟",
-            "image": "Basalte.jpg",
+            "id": 1,
+            "type": "text",
+            "question": {
+                "en": "What is the study of the Earth, its materials, and the processes acting upon them?",
+                "ar": "ما هو العلم الذي يدرس الأرض ومكوناتها والعمليات المؤثرة عليها؟"
+            },
             "options": [
-                "البازلت",
-                "الحجر الجيري", 
-                "الرخام",
-                "الشيست"
+                {"en": "Meteorology", "ar": "علم الأرصاد الجوية"},
+                {"en": "Geology", "ar": "علم الجيولوجيا"},
+                {"en": "Oceanography", "ar": "علم المحيطات"},
+                {"en": "Astronomy", "ar": "علم الفلك"}
             ],
-            "correctAnswer": 0
+            "answer": "Geology"
         },
         {
-            "text": "ما هو التركيب الجيولوجي الموضح في الصورة؟",
-            "image": "Anticline and Sprofile.jpg",
+            "id": 2,
+            "type": "text",
+            "question": {
+                "en": "The three main types of rocks are Igneous, Sedimentary, and...?",
+                "ar": "الأنواع الرئيسية الثلاثة للصخور هي النارية والرسوبية و...؟"
+            },
             "options": [
-                "طية محدبة (Anticline)",
-                "طية مقعرة (Syncline)",
-                "صدع عكسي (Reverse fault)",
-                "صدع عادي (Normal fault)"
+                {"en": "Volcanic", "ar": "البركانية"},
+                {"en": "Metamorphic", "ar": "المتحولة"},
+                {"en": "Tectonic", "ar": "التكتونية"},
+                {"en": "Magmatic", "ar": "الماغماتية"}
             ],
-            "correctAnswer": 0
+            "answer": "Metamorphic"
+        },
+        
+        // ... أضف حتى 15 سؤال 'text' هنا
+        
+        {
+            "id": 16,
+            "type": "image",
+            "image": "rock_cycle.pngq", // اسم الملف في assets/images/
+            "question": {
+                "en": "The process labeled 'A' in the rock cycle diagram represents?",
+                "ar": "ماذا تمثل العملية المسماة 'أ' في مخطط دورة الصخور؟"
+            },
+            "options": [
+                {"en": "Melting", "ar": "الانصهار"},
+                {"en": "Erosion and Deposition", "ar": "التعرية والترسيب"},
+                {"en": "Metamorphism", "ar": "التحول"},
+                {"en": "Crystallization", "ar": "التبلور"}
+            ],
+            "answer": "Erosion and Deposition"
         },
         {
-            "text": "أي من أنواع الصدوع التالية يظهر في الصورة؟",
-            "image": "Normal fault.jpg", 
+            "id": 17,
+            "type": "image",
+            "image": "plate_tectonics.jpgq", // اسم الملف في assets/images/
+            "question": {
+                "en": "The boundary type shown in this figure where plates move towards each other is?",
+                "ar": "نوع الحدود الموضح في هذا الشكل حيث تتحرك الصفائح نحو بعضها البعض هو؟"
+            },
             "options": [
-                "الصدع العادي",
-                "الصدع العكسي",
-                "صدع الانزلاق",
-                "الصدع الدائري"
+                {"en": "Divergent", "ar": "التباعدية"},
+                {"en": "Convergent", "ar": "التقاربية"},
+                {"en": "Transform", "ar": "الانزلاقية"},
+                {"en": "Passive", "ar": "الخاملة"}
             ],
-            "correctAnswer": 0
+            "answer": "Convergent"
         }
+        // ... أضف باقي أسئلة 'image' هنا ليكون المجموع الكلي حوالي 21 سؤالاً أو أكثر (نص + صورة)
     ]
 }
