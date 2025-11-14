@@ -30,5 +30,8 @@
   "section_mineralogy": "علم المعادن",
   "section_petroleum_geology": "جيولوجيا البترول",
   "section_sedimentology": "علم الرسوبيات",
-  "section_structural_geology": "الجيولوجيا التركيبية"
+  "section_structural_geology": "الجيولوجيا التركيبية",
+  "quiz_start_title": "اختبار قسم {section_name}",
+  "quiz_placeholder_message": "هذا هو مكان عرض أسئلة الكويز! لم يتم تحميل الأسئلة بعد.",
+  "back_to_sections_button": "العودة إلى الأقسام"
 }
