@@ -30,5 +30,8 @@
   "section_mineralogy": "Mineralogy",
   "section_petroleum_geology": "Petroleum Geology",
   "section_sedimentology": "Sedimentology",
-  "section_structural_geology": "Structural Geology"
+  "section_structural_geology": "Structural Geology",
+  "quiz_start_title": "Quiz for {section_name}",
+  "quiz_placeholder_message": "This is where the quiz questions will be displayed! Questions not loaded yet.",
+  "back_to_sections_button": "Back to Sections"
 }
