@@ -1,110 +1,184 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جيولوجيا بلس | GEOLOGY+ TRAINING</title>
-    
+    <title>جيولوجيا بلس - GEOLOGY+ TRAINING</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="main-container" id="main-content-area">
-
-        <div class="header-bar">
-            <div class="left-controls">
-                <span id="menu-toggle" class="menu-btn" data-i18n="menu_button">☰</span>
-                <span id="back-btn" class="back-btn" style="display:none;">←</span> 
-            </div>
-            
-            <div class="status-indicator">
-                <span id="app-conn-status">22 متصل</span>
-                <span class="status-dot"></span>
-            </div>
-            
-            <div class="right-controls">
-                <span id="lang-toggle-btn" class="lang-toggle-btn">🌐</span> 
-                <span id="settings-btn" class="settings-btn" data-i18n="settings_button">⚙️</span>
-            </div>
+    <!-- Header -->
+    <header class="header">
+        <button class="menu-btn" id="menuBtn">☰</button>
+        <div class="online-status">
+            <span class="status-dot"></span>
+            <span id="onlineCount">0</span> متصل
         </div>
+        <button class="settings-btn" id="settingsBtn">⚙️</button>
+    </header>
 
-        <div id="welcome-screen">
-            <div class="welcome-card">
-                <div class="card-icon">
-                    <span id="card-art">🎨</span>
-                </div>
-                <h1 id="app-name" class="app-title">جيولوجيا بلس</h1>
-                <h2 id="app-tagline" class="app-tagline">GEOLOGY+ TRAINING</h2>
-                
-                <p id="app-slogan-main" class="slogan">
-                    "اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية وتدريبات عملية"
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="closeBtn">❌</button>
+        <div class="sidebar-header">
+            <h2>🌋 القائمة الرئيسية</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="home">
+                <span>🏠</span> الصفحة الرئيسية
+            </a>
+            <a href="#" class="nav-item" data-page="sections">
+                <span>📖</span> الأقسام التدريبية (8)
+            </a>
+            <a href="#" class="nav-item" data-page="challenges">
+                <span>🎯</span> التحديات والإنجازات
+            </a>
+            <a href="#" class="nav-item" data-page="results">
+                <span>📊</span> التصنيف والنتائج
+            </a>
+            <a href="#" class="nav-item" data-page="leaderboard">
+                <span>🏆</span> لوحة المتصدرين
+            </a>
+            <a href="#" class="nav-item" data-page="favorites">
+                <span>⭐</span> المفضلة
+            </a>
+            <div class="sidebar-divider"></div>
+            <a href="#" class="nav-item" data-page="support">
+                <span>📞</span> الدعم والمساعدة
+            </a>
+        </nav>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Home Page -->
+        <div class="page active" id="homePage">
+            <div class="hero-section">
+                <div class="hero-illustration">🎨</div>
+                <h1 class="hero-title">
+                    <span class="volcano-icon">🌋</span>
+                    <span class="arabic-title">جيولوجيا بلس</span>
+                    <span class="english-title">GEOLOGY+ TRAINING</span>
+                </h1>
+                <p class="hero-subtitle">
+                    "اكتشف عالم الجيولوجيا من خلال<br>
+                    اختبارات تفاعلية وتدريبات عملية"
                 </p>
-            </div>
-
-            <div class="start-section">
-                <button id="btn-start-journey" onclick="APP.startJourney()"></button>
-                <p id="app-slogan-start" class="slogan">
-                     "انطلق في رحلة التعلم واكتسب المهارات الجيولوجية"
+                <button class="start-btn" id="startBtn">
+                    <span>🚀 ابدأ رحلتي</span>
+                    <span class="english-text">Start My Journey</span>
+                </button>
+                <p class="motivation-text">
+                    "انطلق في رحلة التعلم واكتسب<br>
+                    المهارات الجيولوجية"
                 </p>
             </div>
 
             <div class="stats-section">
                 <div class="stat-item">
-                    <div id="stat-sections" class="stat-value">8 قسم</div>
-                    <div class="stat-subtext" data-i18n="sections_count"></div>
+                    <div class="stat-icon">🗂️</div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">قسم</div>
                 </div>
                 <div class="stat-item">
-                    <div id="stat-questions" class="stat-value">500+ سؤال</div>
-                    <div class="stat-subtext" data-i18n="questions_count"></div>
+                    <div class="stat-icon">❓</div>
+                    <div class="stat-value">500+</div>
+                    <div class="stat-label">سؤال</div>
                 </div>
                 <div class="stat-item">
-                    <div id="stat-rating" class="stat-value">4.8/5</div>
-                    <div id="stat-rating-title" class="stat-subtext">تقييم</div>
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value">4.8/5</div>
+                    <div class="stat-label">تقييم</div>
                 </div>
                 <div class="stat-item">
-                    <div id="stat-trainees" class="stat-value">1,000+ متدرب</div>
-                    <div class="stat-subtext" data-i18n="trainees_count"></div>
+                    <div class="stat-icon">👤</div>
+                    <div class="stat-value">1,000+</div>
+                    <div class="stat-label">متدرب</div>
                 </div>
             </div>
 
             <div class="progress-section">
-                <div class="progress-bar-container">
-                    <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
                 </div>
-                <p id="stat-completion-label">0% إكمال</p>
-                <p id="app-completion-prompt" class="slogan">"ابدأ الآن لتحقيق تقدم!"</p>
+                <p class="progress-text" id="progressText">0% إكمال</p>
+                <p class="progress-motivation">"ابدأ الآن لتحقيق تقدم!"</p>
             </div>
         </div>
-        
-    </div>
 
-    <div id="sidebar" class="sidebar-container">
-        <div class="sidebar-header">
-            <span id="sidebar-close" class="close-btn">❌</span>
-            <h2 id="sidebar-title">🌋 القائمة الرئيسية</h2>
-            <span></span>
+        <!-- Sections Page -->
+        <div class="page" id="sectionsPage">
+            <div class="page-header">
+                <button class="back-btn" data-back="home">← رجوع</button>
+                <h2>📖 الأقسام التدريبية</h2>
+            </div>
+            <div class="sections-grid" id="sectionsGrid"></div>
         </div>
-        
-        <ul id="sidebar-list-content" class="sidebar-list">
-            <li data-i18n="sidebar_home">🏠 الصفحة الرئيسية</li>
-            <li class="sections-link" data-i18n="sidebar_sections">📖 الأقسام التدريبية (8)</li>
-            <li data-i18n="sidebar_challenges">🎯 التحديات والإنجازات</li>
-            <li data-i18n="sidebar_ranking">📊 التصنيف والنتائج</li>
-            <li data-i18n="sidebar_leaderboard">🏆 لوحة المتصدرين</li>
-            <li data-i18n="sidebar_favorites">⭐ المفضلة</li>
-            <div class="separator"></div>
-            <li data-i18n="sidebar_support">📞 الدعم والمساعدة</li>
-        </ul>
-    </div>
-    
-    <div id="overlay"></div>
 
-    <div class="footer-copyright">
-        <p id="app-copyright"></p>
-    </div>
+        <!-- Quiz Page -->
+        <div class="page" id="quizPage">
+            <div class="page-header">
+                <button class="back-btn" data-back="sections">← رجوع</button>
+                <h2 id="quizTitle">اختبار</h2>
+            </div>
+            <div class="quiz-container" id="quizContainer"></div>
+        </div>
+
+        <!-- Results Page -->
+        <div class="page" id="resultsPage">
+            <div class="page-header">
+                <button class="back-btn" data-back="home">← رجوع</button>
+                <h2>📊 التصنيف والنتائج</h2>
+            </div>
+            <div class="results-container" id="resultsContainer"></div>
+        </div>
+
+        <!-- Challenges Page -->
+        <div class="page" id="challengesPage">
+            <div class="page-header">
+                <button class="back-btn" data-back="home">← رجوع</button>
+                <h2>🎯 التحديات والإنجازات</h2>
+            </div>
+            <div class="challenges-container" id="challengesContainer"></div>
+        </div>
+
+        <!-- Leaderboard Page -->
+        <div class="page" id="leaderboardPage">
+            <div class="page-header">
+                <button class="back-btn" data-back="home">← رجوع</button>
+                <h2>🏆 لوحة المتصدرين</h2>
+            </div>
+            <div class="leaderboard-container" id="leaderboardContainer"></div>
+        </div>
+
+        <!-- Favorites Page -->
+        <div class="page" id="favoritesPage">
+            <div class="page-header">
+                <button class="back-btn" data-back="home">← رجوع</button>
+                <h2>⭐ المفضلة</h2>
+            </div>
+            <div class="favorites-container" id="favoritesContainer"></div>
+        </div>
+
+        <!-- Support Page -->
+        <div class="page" id="supportPage">
+            <div class="page-header">
+                <button class="back-btn" data-back="home">← رجوع</button>
+                <h2>📞 الدعم والمساعدة</h2>
+            </div>
+            <div class="support-container" id="supportContainer"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 جيولوجيا بلس - جميع الحقوق محفوظة</p>
+    </footer>
 
     <script src="config.js"></script>
     <script src="app.js"></script>
-
 </body>
 </html>
