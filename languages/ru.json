@@ -22,5 +22,13 @@
   "sidebar_support": "📞 Поддержка и Помощь",
   "connection_status": "Подключено",
   "settings_button": "⚙️",
-  "menu_button": "☰"
+  "menu_button": "☰",
+  "section_basic_geo": "Базовая геология",
+  "section_engineering_geology": "Инженерная геология",
+  "section_geophysics": "Геофизика",
+  "section_hydrogeology": "Гидрогеология",
+  "section_mineralogy": "Минералогия",
+  "section_petroleum_geology": "Нефтяная геология",
+  "section_sedimentology": "Седиментология",
+  "section_structural_geology": "Структурная геология"
 }
