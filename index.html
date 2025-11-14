@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="main-container">
+    <div class="main-container" id="main-content-area">
 
         <div class="header-bar">
             <span id="menu-toggle" class="menu-btn" data-i18n="menu_button">☰</span>
@@ -20,52 +20,54 @@
             <span id="settings-btn" class="settings-btn" data-i18n="settings_button">⚙️</span>
         </div>
 
-        <div class="welcome-card">
-            <div class="card-icon">
-                <span id="card-art">🎨</span>
+        <div id="welcome-screen">
+            <div class="welcome-card">
+                <div class="card-icon">
+                    <span id="card-art">🎨</span>
+                </div>
+                <h1 id="app-name" class="app-title">جيولوجيا بلس</h1>
+                <h2 id="app-tagline" class="app-tagline">GEOLOGY+ TRAINING</h2>
+                
+                <p id="app-slogan-main" class="slogan">
+                    "اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية وتدريبات عملية"
+                </p>
             </div>
-            <h1 id="app-name" class="app-title">جيولوجيا بلس</h1>
-            <h2 id="app-tagline" class="app-tagline">GEOLOGY+ TRAINING</h2>
-            
-            <p id="app-slogan-main" class="slogan">
-                "اكتشف عالم الجيولوجيا من خلال اختبارات تفاعلية وتدريبات عملية"
-            </p>
-        </div>
 
-        <div class="start-section">
-            <button id="btn-start-journey"></button>
-            <p id="app-slogan-start" class="slogan">
-                 "انطلق في رحلة التعلم واكتسب المهارات الجيولوجية"
-            </p>
-        </div>
+            <div class="start-section">
+                <button id="btn-start-journey" onclick="APP.startJourney()"></button>
+                <p id="app-slogan-start" class="slogan">
+                     "انطلق في رحلة التعلم واكتسب المهارات الجيولوجية"
+                </p>
+            </div>
 
-        <div class="stats-section">
-            <div class="stat-item">
-                <div id="stat-sections" class="stat-value">8 قسم</div>
-                <div class="stat-subtext" data-i18n="sections_count"></div>
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div id="stat-sections" class="stat-value">8 قسم</div>
+                    <div class="stat-subtext" data-i18n="sections_count"></div>
+                </div>
+                <div class="stat-item">
+                    <div id="stat-questions" class="stat-value">500+ سؤال</div>
+                    <div class="stat-subtext" data-i18n="questions_count"></div>
+                </div>
+                <div class="stat-item">
+                    <div id="stat-rating" class="stat-value">4.8/5</div>
+                    <div id="stat-rating-title" class="stat-subtext">تقييم</div>
+                </div>
+                <div class="stat-item">
+                    <div id="stat-trainees" class="stat-value">1,000+ متدرب</div>
+                    <div class="stat-subtext" data-i18n="trainees_count"></div>
+                </div>
             </div>
-            <div class="stat-item">
-                <div id="stat-questions" class="stat-value">500+ سؤال</div>
-                <div class="stat-subtext" data-i18n="questions_count"></div>
-            </div>
-            <div class="stat-item">
-                <div id="stat-rating" class="stat-value">4.8/5</div>
-                <div id="stat-rating-title" class="stat-subtext">تقييم</div>
-            </div>
-            <div class="stat-item">
-                <div id="stat-trainees" class="stat-value">1,000+ متدرب</div>
-                <div class="stat-subtext" data-i18n="trainees_count"></div>
+
+            <div class="progress-section">
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                </div>
+                <p id="stat-completion-label">0% إكمال</p>
+                <p id="app-completion-prompt" class="slogan">"ابدأ الآن لتحقيق تقدم!"</p>
             </div>
         </div>
-
-        <div class="progress-section">
-            <div class="progress-bar-container">
-                <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
-            </div>
-            <p id="stat-completion-label">0% إكمال</p>
-            <p id="app-completion-prompt" class="slogan">"ابدأ الآن لتحقيق تقدم!"</p>
-        </div>
-
+        
     </div>
 
     <div id="sidebar" class="sidebar-container">
@@ -75,9 +77,9 @@
             <span></span>
         </div>
         
-        <ul class="sidebar-list">
+        <ul id="sidebar-list-content" class="sidebar-list">
             <li data-i18n="sidebar_home">🏠 الصفحة الرئيسية</li>
-            <li data-i18n="sidebar_sections">📖 الأقسام التدريبية (8)</li>
+            <li class="sections-link" data-i18n="sidebar_sections">📖 الأقسام التدريبية (8)</li>
             <li data-i18n="sidebar_challenges">🎯 التحديات والإنجازات</li>
             <li data-i18n="sidebar_ranking">📊 التصنيف والنتائج</li>
             <li data-i18n="sidebar_leaderboard">🏆 لوحة المتصدرين</li>
