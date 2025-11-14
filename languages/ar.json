@@ -22,5 +22,13 @@
   "sidebar_support": "📞 الدعم والمساعدة",
   "connection_status": "متصل",
   "settings_button": "⚙️",
-  "menu_button": "☰"
+  "menu_button": "☰",
+  "section_basic_geo": "الجيولوجيا الأساسية",
+  "section_engineering_geology": "الجيولوجيا الهندسية",
+  "section_geophysics": "الجيوفيزياء",
+  "section_hydrogeology": "الجيولوجيا المائية",
+  "section_mineralogy": "علم المعادن",
+  "section_petroleum_geology": "جيولوجيا البترول",
+  "section_sedimentology": "علم الرسوبيات",
+  "section_structural_geology": "الجيولوجيا التركيبية"
 }
