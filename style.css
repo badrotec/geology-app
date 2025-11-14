@@ -1,6 +1,6 @@
 /*
  * style.css
- * تنسيقات تطبيق GEOLOGY+ TRAINING
+ * تنسيقات تطبيق GEOLOGY+ TRAINING - تم تحديث تنسيق زر البداية وقائمة الأقسام
  */
 
 :root {
@@ -22,9 +22,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    /* افتراض RTL للعربية */
-    direction: rtl;
-    text-align: right;
+    /* سيتم تحديد الاتجاه عبر app.js */
     overflow-x: hidden;
 }
 
@@ -34,6 +32,7 @@ body {
     padding: 20px;
     max-width: 450px; /* محاكاة لجهاز محمول */
     margin: 0 auto;
+    min-height: 100vh; /* لضمان أن الشريط السفلي في مكانه الصحيح */
 }
 
 .header-bar {
@@ -48,6 +47,7 @@ body {
     display: flex;
     align-items: center;
     font-weight: bold;
+    /* يتم تعديل المارجن عبر app.js حسب RTL/LTR */
 }
 
 .status-dot {
@@ -55,7 +55,7 @@ body {
     height: 10px;
     background-color: var(--primary-color);
     border-radius: 50%;
-    margin-left: 5px; /* RTL margin */
+    margin-left: 5px; 
 }
 
 .settings-btn, #menu-toggle {
@@ -65,6 +65,11 @@ body {
 }
 
 /* ------------------ بطاقة الترحيب ------------------ */
+#welcome-screen {
+    /* يضم كل محتوى شاشة الترحيب */
+    padding-bottom: 50px;
+}
+
 .welcome-card {
     background-color: var(--card-bg);
     border-radius: 15px;
@@ -98,7 +103,7 @@ body {
     margin-top: 15px;
 }
 
-/* ------------------ زر البداية ------------------ */
+/* ------------------ زر البداية (تم تحسينه) ------------------ */
 .start-section {
     padding: 20px 0;
     text-align: center;
@@ -115,6 +120,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(255, 152, 0, 0.4);
     transition: background-color 0.3s;
+    line-height: 1.2; /* لضبط المسافة بين السطرين في الزر */
 }
 
 #btn-start-journey:hover {
@@ -127,14 +133,12 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     padding: 10px 0 20px;
-    text-align: right;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
 
 .stat-item {
     padding: 10px;
-    font-size: 1rem;
 }
 
 .stat-value {
@@ -146,10 +150,10 @@ body {
     font-size: 0.8rem;
     color: #888;
 }
-/* تنسيق خاص للإحصائيات لتظهر في سطرين كما في الواجهة */
+/* لتنظيم البيانات في سطرين كما في التصميم */
 .stats-section div:nth-child(1),
 .stats-section div:nth-child(2) {
-    border-bottom: 1px dashed #ddd; /* لفصل السطر الأول عن الثاني */
+    border-bottom: 1px dashed #ddd; 
     padding-bottom: 15px;
     margin-bottom: 5px;
 }
@@ -170,7 +174,7 @@ body {
 
 .progress-bar {
     height: 100%;
-    width: 0%; /* سيتغير عبر JS */
+    width: 0%; 
     background-color: var(--primary-color);
     border-radius: 10px;
 }
@@ -179,15 +183,15 @@ body {
 .sidebar-container {
     position: fixed;
     top: 0;
-    right: -300px; /* إخفاء لليسار في RTL */
-    width: 250px;
+    right: -300px; 
+    width: 280px;
     height: 100%;
     background-color: var(--card-bg);
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow على اليمين */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); 
     transition: right 0.3s ease;
     z-index: 1001;
     padding: 20px;
-    direction: rtl;
+    direction: rtl; 
     text-align: right;
 }
 
@@ -233,7 +237,7 @@ body {
 
 .sidebar-list li::before {
     content: '→';
-    margin-left: 10px; /* RTL margin */
+    margin-left: 10px; 
     color: var(--accent-color);
 }
 
@@ -254,14 +258,72 @@ body {
     display: none;
 }
 
-.sidebar-container.open ~ #overlay {
-    display: block;
+/* ------------------ تنسيقات شاشة الأقسام الجديدة ------------------ */
+
+.section-list-view {
+    padding: 0 0 50px 0;
+}
+
+.section-list-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    padding-top: 20px;
+}
+
+.section-cards-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 15px;
+}
+
+.section-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-right: 5px solid var(--accent-color); 
+}
+
+.section-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-card h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.section-status {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+.section-arrow {
+    font-size: 1.2rem;
+    color: #ccc;
 }
 
 /* ------------------ الحقوق ------------------ */
 .footer-copyright {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
     font-size: 0.7rem;
     color: #888;
-    padding: 20px 0 10px;
+    padding: 10px 0;
+    background-color: var(--bg-color);
+    z-index: 999;
+    border-top: 1px solid #eee;
 }
