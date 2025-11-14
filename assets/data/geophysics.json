@@ -1,1 +1,917 @@
-.
+[
+  {
+    "id": 1,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الطريقة الجيوفيزيائية التي تعتمد على قياس التغيرات في مجال جاذبية الأرض الناتجة عن تباينات الكثافة تحت السطح؟",
+      "en": "Which geophysical method relies on measuring variations in the Earth's gravitational field caused by subsurface density contrasts?",
+      "de": "Welche geophysikalische Methode basiert auf der Messung von Variationen im Gravitationsfeld der Erde, die durch Dichtekontraste im Untergrund verursacht werden?",
+      "fr": "Quelle méthode géophysique repose sur la mesure des variations du champ gravitationnel terrestre causées par les contrastes de densité souterrains?",
+      "es": "Qué método geofísico se basa en medir las variaciones en el campo gravitacional de la Tierra causadas por contrastes de densidad subsuperficiales?",
+      "ru": "Какой геофизический метод основан на измерении изменений гравитационного поля Земли, вызванных контрастами плотности в недрах?"
+    },
+    "options": [
+      {"ar": "الطريقة المغناطيسية", "en": "Magnetic Method", "de": "Magnetische Methode", "fr": "Méthode magnétique", "es": "Método magnético", "ru": "Магнитный метод"},
+      {"ar": "طريقة الجاذبية", "en": "Gravity Method", "de": "Gravitationsmethode", "fr": "Méthode gravimétrique", "es": "Método de gravedad", "ru": "Гравитационный метод"},
+      {"ar": "الطريقة الزلزالية", "en": "Seismic Method", "de": "Seismische Methode", "fr": "Méthode sismique", "es": "Método sísmico", "ru": "Сейсмический метод"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "تستخدم طريقة الجاذبية لتحديد الهياكل الجيولوجية العميقة مثل الأحواض والقباب بناءً على اختلاف الكثافة.",
+      "en": "The gravity method is used to identify deep geological structures like basins and domes based on density differences.",
+      "de": "Die Gravitationsmethode wird zur Identifizierung tiefer geologischer Strukturen wie Becken und Dome basierend auf Dichteunterschieden verwendet.",
+      "fr": "La méthode gravimétrique est utilisée pour identifier les structures géologiques profondes comme les bassins et les dômes basées sur les différences de densité.",
+      "es": "El método de gravedad se utiliza para identificar estructuras geológicas profundas como cuencas y domos basándose en diferencias de densidad.",
+      "ru": "Гравитационный метод используется для выявления глубоких геологических структур, таких как бассейны и купола, на основе различий в плотности."
+    }
+  },
+  {
+    "id": 2,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الموجات الزلزالية الأسرع التي تصل أولاً إلى أجهزة الاستقبال؟",
+      "en": "Which seismic waves are the fastest and arrive first at the receivers?",
+      "de": "Welche seismischen Wellen sind die schnellsten und kommen zuerst bei den Empfängern an?",
+      "fr": "Quelles ondes sismiques sont les plus rapides et arrivent en premier aux récepteurs?",
+      "es": "Cuáles son las ondas sísmicas más rápidas y llegan primero a los receptores?",
+      "ru": "Какие сейсмические волны самые быстрые и приходят первыми к приемникам?"
+    },
+    "options": [
+      {"ar": "موجات S", "en": "S-waves", "de": "S-Wellen", "fr": "Ondes S", "es": "Ondas S", "ru": "S-волны"},
+      {"ar": "موجات P", "en": "P-waves", "de": "P-Wellen", "fr": "Ondes P", "es": "Ondas P", "ru": "P-волны"},
+      {"ar": "الموجات السطحية", "en": "Surface Waves", "de": "Oberflächenwellen", "fr": "Ondes de surface", "es": "Ondas superficiales", "ru": "Поверхностные волны"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "موجات P (الأولية) هي موجات ضغط تنتقل عبر المواد الصلبة والسائلة والغازية بشكل أسرع من موجات S.",
+      "en": "P-waves (Primary) are compressional waves that travel through solids, liquids, and gases faster than S-waves.",
+      "de": "P-Wellen (Primärwellen) sind Kompressionswellen, die schneller durch Festkörper, Flüssigkeiten und Gase reisen als S-Wellen.",
+      "fr": "Les ondes P (primaires) sont des ondes de compression qui se propagent à travers les solides, les liquides et les gaz plus rapidement que les ondes S.",
+      "es": "Las ondas P (primarias) son ondas de compresión que viajan a través de sólidos, líquidos y gases más rápido que las ondas S.",
+      "ru": "P-волны (первичные) — это волны сжатия, которые распространяются через твердые тела, жидкости и газы быстрее, чем S-волны."
+    }
+  },
+  {
+    "id": 3,
+    "type": "text",
+    "question": {
+      "ar": "في المسح المغناطيسي، ما هي الوحدة القياسية المستخدمة لقياس كثافة التدفق المغناطيسي (Magnetic Flux Density)؟",
+      "en": "In magnetic surveying, what is the standard unit used to measure Magnetic Flux Density?",
+      "de": "Was ist in der magnetischen Vermessung die Standardeinheit zur Messung der magnetischen Flussdichte?",
+      "fr": "Dans les levés magnétiques, quelle est l'unité standard utilisée pour mesurer la densité de flux magnétique?",
+      "es": "En la prospección magnética, cuál es la unidad estándar utilizada para medir la Densidad de Flujo Magnético?",
+      "ru": "Какая стандартная единица используется для измерения магнитной индукции (Magnetic Flux Density) в магнитной съемке?"
+    },
+    "options": [
+      {"ar": "الغال (Gal)", "en": "Gal", "de": "Gal", "fr": "Gal", "es": "Gal", "ru": "Гал"},
+      {"ar": "البيكوثانية (Picosecond)", "en": "Picosecond", "de": "Pikosekunde", "fr": "Picoseconde", "es": "Picosegundo", "ru": "Пикосекунда"},
+      {"ar": "النانوتسلا (nT)", "en": "Nanotesla (nT)", "de": "Nanotesla (nT)", "fr": "Nanotesla (nT)", "es": "Nanotesla (nT)", "ru": "Нанотесла (нТл)"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "النانوتسلا (nT) هي الوحدة الأكثر شيوعاً لقياس التغيرات الصغيرة في المجال المغناطيسي للأرض في الاستكشاف الجيوفيزيائي.",
+      "en": "The Nanotesla (nT) is the most common unit for measuring small variations in the Earth's magnetic field in geophysical exploration.",
+      "de": "Nanotesla (nT) ist die gängigste Einheit zur Messung kleiner Variationen im Erdmagnetfeld bei der geophysikalischen Exploration.",
+      "fr": "Le Nanotesla (nT) est l'unité la plus courante pour mesurer les petites variations du champ magnétique terrestre dans l'exploration géophysique.",
+      "es": "El Nanotesla (nT) es la unidad más común para medir pequeñas variaciones en el campo magnético de la Tierra en la exploración geofísica.",
+      "ru": "Нанотесла (нТл) — наиболее распространенная единица для измерения малых вариаций магнитного поля Земли в геофизической разведке."
+    }
+  },
+  {
+    "id": 4,
+    "type": "text",
+    "question": {
+      "ar": "ما هو المفهوم الذي يصف الفرق بين المجال المغناطيسي المقاس والمجال المغناطيسي المرجعي (الإقليمي)؟",
+      "en": "What concept describes the difference between the measured magnetic field and a regional (reference) magnetic field?",
+      "de": "Welches Konzept beschreibt den Unterschied zwischen dem gemessenen Magnetfeld und einem regionalen (Referenz-)Magnetfeld?",
+      "fr": "Quel concept décrit la différence entre le champ magnétique mesuré et un champ magnétique régional (de référence)?",
+      "es": "Qué concepto describe la diferencia entre el campo magnético medido y un campo magnético regional (de referencia)?",
+      "ru": "Какое понятие описывает разницу между измеренным магнитным полем и региональным (эталонным) магнитным полем?"
+    },
+    "options": [
+      {"ar": "الشذوذ المغناطيسي (Anomaly)", "en": "Magnetic Anomaly", "de": "Magnetische Anomalie", "fr": "Anomalie magnétique", "es": "Anomalía magnética", "ru": "Магнитная аномалия"},
+      {"ar": "الانحراف المغناطيسي", "en": "Magnetic Declination", "de": "Magnetische Deklination", "fr": "Déclinaison magnétique", "es": "Declinación magnética", "ru": "Магнитное склонение"},
+      {"ar": "الميل المغناطيسي", "en": "Magnetic Inclination", "de": "Magnetische Inklination", "fr": "Inclinaison magnétique", "es": "Inclinación magnética", "ru": "Магнитное наклонение"}
+    ],
+    "correct_index": 0,
+    "explanation": {
+      "ar": "الشذوذ المغناطيسي هو التباين المحلي في المجال المغناطيسي الناتج عن المعادن والمواد ذات الخصائص المغناطيسية المختلفة في القشرة.",
+      "en": "A magnetic anomaly is the local variation in the magnetic field caused by minerals and materials with different magnetic properties in the crust.",
+      "de": "Eine magnetische Anomalie ist die lokale Variation des Magnetfeldes, verursacht durch Minerale und Materialien mit unterschiedlichen magnetischen Eigenschaften in der Kruste.",
+      "fr": "Une anomalie magnétique est la variation locale du champ magnétique causée par des minéraux et des matériaux aux propriétés magnétiques différentes dans la croûte.",
+      "es": "Una anomalía magnética es la variación local en el campo magnético causada por minerales y materiales con diferentes propiedades magnéticas en la corteza.",
+      "ru": "Магнитная аномалия — это местное изменение магнитного поля, вызванное минералами и материалами с различными магнитными свойствами в коре."
+    }
+  },
+  {
+    "id": 5,
+    "type": "text",
+    "question": {
+      "ar": "في المسح السيزمي الانعكاسي (Reflection Seismics)، ما هي الخاصية التي تحدد كمية طاقة الموجة التي تنعكس عند الحدود بين الطبقات؟",
+      "en": "In reflection seismics, what property determines the amount of wave energy reflected at the boundary between layers?",
+      "de": "Welche Eigenschaft bestimmt in der Reflexionsseismik die Energiemenge der Welle, die an der Grenze zwischen Schichten reflektiert wird?",
+      "fr": "Dans la sismique réflexion, quelle propriété détermine la quantité d'énergie d'onde réfléchie à la limite entre les couches?",
+      "es": "En la sísmica de reflexión, qué propiedad determina la cantidad de energía de onda reflejada en el límite entre capas?",
+      "ru": "В сейсмической разведке методом отраженных волн (Reflection Seismics), какое свойство определяет количество энергии волны, отражаемой на границе между слоями?"
+    },
+    "options": [
+      {"ar": "المسامية (Porosity)", "en": "Porosity", "de": "Porosität", "fr": "Porosité", "es": "Porosidad", "ru": "Пористость"},
+      {"ar": "المقاومة الكهربائية", "en": "Electrical Resistivity", "de": "Elektrischer Widerstand", "fr": "Résistivité électrique", "es": "Resistividad eléctrica", "ru": "Электрическое сопротивление"},
+      {"ar": "المعاوقة الصوتية (Acoustic Impedance)", "en": "Acoustic Impedance", "de": "Akustische Impedanz", "fr": "Impédance acoustique", "es": "Impedancia acústica", "ru": "Акустический импеданс"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "المعاوقة الصوتية هي حاصل ضرب الكثافة وسرعة الموجة. الفرق الكبير في المعاوقة بين طبقتين يؤدي إلى انعكاس قوي.",
+      "en": "Acoustic Impedance is the product of density and wave velocity. A large difference in impedance between two layers leads to a strong reflection.",
+      "de": "Die akustische Impedanz ist das Produkt aus Dichte und Wellengeschwindigkeit. Ein großer Impedanzunterschied zwischen zwei Schichten führt zu einer starken Reflexion.",
+      "fr": "L'impédance acoustique est le produit de la densité et de la vitesse de l'onde. Une grande différence d'impédance entre deux couches conduit à une forte réflexion.",
+      "es": "La impedancia acústica es el producto de la densidad y la velocidad de la onda. Una gran diferencia de impedancia entre dos capas conduce a una fuerte reflexión.",
+      "ru": "Акустический импеданс — это произведение плотности и скорости волны. Большая разница в импедансе между двумя слоями приводит к сильному отражению."
+    }
+  },
+  {
+    "id": 6,
+    "type": "text",
+    "question": {
+      "ar": "ما هو جهاز القياس المستخدم في طريقة الجاذبية لتحديد التسارع الناتج عن الجاذبية؟",
+      "en": "What measuring instrument is used in the gravity method to determine the acceleration due to gravity?",
+      "de": "Welches Messinstrument wird in der Gravitationsmethode verwendet, um die durch die Schwerkraft verursachte Beschleunigung zu bestimmen?",
+      "fr": "Quel instrument de mesure est utilisé dans la méthode gravimétrique pour déterminer l'accélération due à la gravité?",
+      "es": "Qué instrumento de medición se utiliza en el método de gravedad para determinar la aceleración debida a la gravedad?",
+      "ru": "Какой измерительный прибор используется в гравитационном методе для определения ускорения, вызванного гравитацией?"
+    },
+    "options": [
+      {"ar": "المغناطيسية", "en": "Magnetometer", "de": "Magnetometer", "fr": "Magnétomètre", "es": "Magnetómetro", "ru": "Магнитометр"},
+      {"ar": "مقياس الجاذبية (Gravimeter)", "en": "Gravimeter", "de": "Gravimeter", "fr": "Gravimètre", "es": "Gravímetro", "ru": "Гравиметр"},
+      {"ar": "مقياس المقاومة", "en": "Resistivity Meter", "de": "Widerstandsmessgerät", "fr": "Résistivimètre", "es": "Medidor de resistividad", "ru": "Измеритель сопротивления"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "مقياس الجاذبية (Gravimeter) يقيس تغيرات صغيرة جداً في تسارع الجاذبية من موقع لآخر.",
+      "en": "A Gravimeter measures very small variations in the acceleration due to gravity from one location to another.",
+      "de": "Ein Gravimeter misst sehr kleine Variationen in der Beschleunigung aufgrund der Schwerkraft von einem Ort zum anderen.",
+      "fr": "Un gravimètre mesure de très petites variations de l'accélération due à la gravité d'un endroit à un autre.",
+      "es": "Un Gravímetro mide variaciones muy pequeñas en la aceleración debida a la gravedad de una ubicación a otra.",
+      "ru": "Гравиметр измеряет очень малые вариации ускорения, вызванного гравитацией, от одного местоположения к другому."
+    }
+  },
+  {
+    "id": 7,
+    "type": "text",
+    "question": {
+      "ar": "ما هو المبدأ الجيوفيزيائي الذي يشير إلى أن سرعة الموجات الزلزالية تزداد مع العمق عادةً؟",
+      "en": "What geophysical principle indicates that seismic wave velocity generally increases with depth?",
+      "de": "Welches geophysikalische Prinzip besagt, dass die Geschwindigkeit seismischer Wellen im Allgemeinen mit der Tiefe zunimmt?",
+      "fr": "Quel principe géophysique indique que la vitesse des ondes sismiques augmente généralement avec la profondeur?",
+      "es": "Qué principio geofísico indica que la velocidad de las ondas sísmicas generalmente aumenta con la profundidad?",
+      "ru": "Какой геофизический принцип указывает на то, что скорость сейсмических волн обычно увеличивается с глубиной?"
+    },
+    "options": [
+      {"ar": "قانون هوب (Hooke's Law)", "en": "Hooke's Law", "de": "Hookesches Gesetz", "fr": "Loi de Hooke", "es": "Ley de Hooke", "ru": "Закон Гука"},
+      {"ar": "مبدأ الانكسار", "en": "Refraction Principle", "de": "Brechungsprinzip", "fr": "Principe de réfraction", "es": "Principio de refracción", "ru": "Принцип преломления"},
+      {"ar": "قانون سنيل (Snell's Law)", "en": "Snell's Law", "de": "Snelliussches Gesetz", "fr": "Loi de Snell", "es": "Ley de Snell", "ru": "Закон Снеллиуса"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "قانون سنيل يفسر كيف تنكسر الموجات عند الحدود بين طبقات ذات سرعات مختلفة، مما يسمح لنا بتحديد الهياكل تحت السطح باستخدام طريقة الانكسار السيزمي.",
+      "en": "Snell's Law explains how waves refract at boundaries between layers of different velocities, allowing us to map subsurface structures using the seismic refraction method.",
+      "de": "Das Snelliussche Gesetz erklärt, wie Wellen an Grenzen zwischen Schichten unterschiedlicher Geschwindigkeiten gebrochen werden, wodurch wir Untergrundstrukturen mit der seismischen Refraktionsmethode kartieren können.",
+      "fr": "La loi de Snell explique comment les ondes réfractent aux limites entre des couches de vitesses différentes, nous permettant de cartographier les structures souterraines à l'aide de la méthode de réfraction sismique.",
+      "es": "La Ley de Snell explica cómo las ondas se refractan en los límites entre capas de diferentes velocidades, lo que nos permite mapear estructuras subsuperficiales utilizando el método de refracción sísmica.",
+      "ru": "Закон Снеллиуса объясняет, как волны преломляются на границах между слоями с разными скоростями, что позволяет нам картировать подземные структуры с помощью метода сейсмической рефракции."
+    }
+  },
+  {
+    "id": 8,
+    "type": "text",
+    "question": {
+      "ar": "ما هو مصطلح 'الإزاحة' (Drift) في سياق القياسات الجيوفيزيائية؟",
+      "en": "What is the term 'Drift' in the context of geophysical measurements?",
+      "de": "Was ist der Begriff 'Drift' im Zusammenhang mit geophysikalischen Messungen?",
+      "fr": "Quel est le terme 'dérive' (Drift) dans le contexte des mesures géophysiques?",
+      "es": "Qué es el término 'Deriva' (Drift) en el contexto de las mediciones geofísicas?",
+      "ru": "Что такое термин 'Дрейф' (Drift) в контексте геофизических измерений?"
+    },
+    "options": [
+      {"ar": "التغير المكاني", "en": "Spatial Variation", "de": "Räumliche Variation", "fr": "Variation spatiale", "es": "Variación espacial", "ru": "Пространственная вариация"},
+      {"ar": "التغير الزمني غير المرغوب", "en": "Undesired temporal change", "de": "Unerwünschte zeitliche Änderung", "fr": "Changement temporel indésirable", "es": "Cambio temporal no deseado", "ru": "Нежелательное временное изменение"},
+      {"ar": "الإشارة المستهدفة", "en": "Target Signal", "de": "Zielsignal", "fr": "Signal cible", "es": "Señal objetivo", "ru": "Целевой сигнал"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "يشير الانجراف إلى التغيرات البطيئة في قراءة الأداة بمرور الوقت بسبب عوامل داخلية (مثل الحرارة أو الزحف الميكانيكي).",
+      "en": "Drift refers to slow changes in an instrument's reading over time due to internal factors (like temperature or mechanical creep).",
+      "de": "Drift bezieht sich auf langsame Änderungen des Messwertes eines Instruments über die Zeit aufgrund interner Faktoren (wie Temperatur oder mechanisches Kriechen).",
+      "fr": "La dérive fait référence aux changements lents dans la lecture d'un instrument au fil du temps en raison de facteurs internes (comme la température ou le fluage mécanique).",
+      "es": "La Deriva se refiere a cambios lentos en la lectura de un instrumento con el tiempo debido a factores internos (como la temperatura o la fluencia mecánica).",
+      "ru": "Дрейф относится к медленным изменениям показаний прибора со временем из-за внутренних факторов (таких как температура или механическое ползучесть)."
+    }
+  },
+  {
+    "id": 9,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الطريقة التي تستخدم لقياس مقاومة المواد تحت السطح لتدفق التيار الكهربائي؟",
+      "en": "Which method is used to measure the subsurface materials' resistance to the flow of electric current?",
+      "de": "Welche Methode wird verwendet, um den Widerstand von Untergrundmaterialien gegen den Fluss von elektrischem Strom zu messen?",
+      "fr": "Quelle méthode est utilisée pour mesurer la résistance des matériaux souterrains au flux de courant électrique?",
+      "es": "Qué método se utiliza para medir la resistencia de los materiales subsuperficiales al flujo de corriente eléctrica?",
+      "ru": "Какой метод используется для измерения сопротивления подземных материалов потоку электрического тока?"
+    },
+    "options": [
+      {"ar": "الرادار المخترق للأرض (GPR)", "en": "Ground Penetrating Radar (GPR)", "de": "Bodenradar (GPR)", "fr": "Radar à pénétration de sol (GPR)", "es": "Radar de penetración terrestre (GPR)", "ru": "Георадар (GPR)"},
+      {"ar": "طريقة المقاومة الكهربائية", "en": "Electrical Resistivity Method", "de": "Elektrische Widerstandsmethode", "fr": "Méthode de résistivité électrique", "es": "Método de resistividad eléctrica", "ru": "Метод электрического сопротивления"},
+      {"ar": "طريقة الإشعاع", "en": "Radiometric Method", "de": "Radiometrische Methode", "fr": "Méthode radiométrique", "es": "Método radiométrico", "ru": "Радиометрический метод"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "تعتبر طريقة المقاومة الكهربائية فعالة في تحديد حدود الماء الجوفي، ونوع الصخور، والملوثات، لأنها تؤثر على توصيلية التيار.",
+      "en": "The electrical resistivity method is effective in identifying groundwater boundaries, rock types, and contaminants, as they affect current conductivity.",
+      "de": "Die elektrische Widerstandsmethode ist effektiv bei der Identifizierung von Grundwassergrenzen, Gesteinsarten und Verunreinigungen, da diese die Stromleitfähigkeit beeinflussen.",
+      "fr": "La méthode de résistivité électrique est efficace pour identifier les limites des eaux souterraines, les types de roches et les contaminants, car ils affectent la conductivité du courant.",
+      "es": "El método de resistividad eléctrica es efectivo para identificar límites de agua subterránea, tipos de roca y contaminantes, ya que afectan la conductividad de la corriente.",
+      "ru": "Метод электрического сопротивления эффективен для выявления границ грунтовых вод, типов пород и загрязнителей, поскольку они влияют на проводимость тока."
+    }
+  },
+  {
+    "id": 10,
+    "type": "text",
+    "question": {
+      "ar": "ما هو الانحراف (Declination) في المجال المغناطيسي للأرض؟",
+      "en": "What is the Magnetic Declination of the Earth's magnetic field?",
+      "de": "Was ist die magnetische Deklination des Erdmagnetfeldes?",
+      "fr": "Qu'est-ce que la Déclinaison magnétique du champ magnétique terrestre?",
+      "es": "Qué es la Declinación Magnética del campo magnético terrestre?",
+      "ru": "Что такое магнитное склонение (Magnetic Declination) магнитного поля Земли?"
+    },
+    "options": [
+      {"ar": "الزاوية بين الشمال المغناطيسي والعمودي", "en": "The angle between magnetic north and the vertical", "de": "Der Winkel zwischen magnetisch Nord und der Vertikalen", "fr": "L'angle entre le nord magnétique et la verticale", "es": "El ángulo entre el norte magnético y la vertical", "ru": "Угол между магнитным севером и вертикалью"},
+      {"ar": "الزاوية بين الشمال المغناطيسي والشمال الجغرافي الحقيقي", "en": "The angle between magnetic north and true geographic north", "de": "Der Winkel zwischen magnetisch Nord und dem wahren geografischen Nord", "fr": "L'angle entre le nord magnétique et le vrai nord géographique", "es": "El ángulo entre el norte magnético y el verdadero norte geográfico", "ru": "Угол между магнитным севером и истинным географическим севером"},
+      {"ar": "الشدة الكلية للمجال", "en": "The total intensity of the field", "de": "Die Gesamtintensität des Feldes", "fr": "L'intensité totale du champ", "es": "La intensidad total del campo", "ru": "Полная интенсивность поля"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "الانحراف هو الزاوية التي يجب أن تُصحح بها البوصلة لتوجه إلى الشمال الجغرافي الحقيقي بدلاً من الشمال المغناطيسي.",
+      "en": "Declination is the angle by which a compass must be corrected to point to true geographic north instead of magnetic north.",
+      "de": "Die Deklination ist der Winkel, um den ein Kompass korrigiert werden muss, um auf den wahren geografischen Norden statt auf den magnetischen Norden zu zeigen.",
+      "fr": "La déclinaison est l'angle par lequel une boussole doit être corrigée pour pointer vers le vrai nord géographique au lieu du nord magnétique.",
+      "es": "La Declinación es el ángulo por el cual se debe corregir una brújula para apuntar al verdadero norte geográfico en lugar del norte magnético.",
+      "ru": "Склонение — это угол, на который необходимо скорректировать компас, чтобы он указывал на истинный географический север, а не на магнитный север."
+    }
+  },
+  {
+    "id": 11,
+    "type": "text",
+    "question": {
+      "ar": "ما هو الهدف الرئيسي لاستخدام طريقة الانكسار السيزمي الضحل؟",
+      "en": "What is the primary objective of using the shallow seismic refraction method?",
+      "de": "Was ist das Hauptziel der Verwendung der flachen seismischen Refraktionsmethode?",
+      "fr": "Quel est l'objectif principal de l'utilisation de la méthode de réfraction sismique peu profonde?",
+      "es": "Cuál es el objetivo principal de utilizar el método de refracción sísmica superficial?",
+      "ru": "Какова основная цель использования метода неглубокой сейсмической рефракции?"
+    },
+    "options": [
+      {"ar": "استكشاف النفط", "en": "Oil exploration", "de": "Ölexploration", "fr": "Exploration pétrolière", "es": "Exploración petrolera", "ru": "Разведка нефти"},
+      {"ar": "تحديد عمق الصخر الأساس (Bedrock)", "en": "Determining bedrock depth", "de": "Bestimmung der Felsuntergrundtiefe", "fr": "Déterminer la profondeur du substratum rocheux", "es": "Determinar la profundidad del lecho rocoso", "ru": "Определение глубины залегания коренных пород"},
+      {"ar": "قياس درجة الحرارة الجوفية", "en": "Measuring subsurface temperature", "de": "Messung der Untergrundtemperatur", "fr": "Mesurer la température souterraine", "es": "Medir la temperatura subsuperficial", "ru": "Измерение температуры недр"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "تستخدم هذه الطريقة بشكل شائع في الهندسة المدنية لتحديد الواجهة بين التربة السطحية والصخر الأساس الأكثر صلابة.",
+      "en": "This method is commonly used in civil engineering to determine the interface between soft surface soil and harder bedrock.",
+      "de": "Diese Methode wird häufig im Bauingenieurwesen verwendet, um die Grenzfläche zwischen weichem Oberflächenboden und härterem Felsuntergrund zu bestimmen.",
+      "fr": "Cette méthode est couramment utilisée en génie civil pour déterminer l'interface entre le sol de surface mou et le substratum rocheux plus dur.",
+      "es": "Este método se usa comúnmente en ingeniería civil para determinar la interfaz entre el suelo superficial blando y el lecho rocoso más duro.",
+      "ru": "Этот метод обычно используется в гражданском строительстве для определения границы раздела между мягким поверхностным грунтом и более твердыми коренными породами."
+    }
+  },
+  {
+    "id": 12,
+    "type": "text",
+    "question": {
+      "ar": "ما هو التأثير الذي يصف زيادة في قراءة الجاذبية بسبب التضاريس المحيطة المرتفعة؟",
+      "en": "What effect describes an increase in gravity reading due to surrounding elevated topography?",
+      "de": "Welcher Effekt beschreibt eine Zunahme des Gravitationsmesswerts aufgrund der umgebenden erhöhten Topographie?",
+      "fr": "Quel effet décrit une augmentation de la lecture de gravité due à la topographie environnante élevée?",
+      "es": "Qué efecto describe un aumento en la lectura de gravedad debido a la topografía elevada circundante?",
+      "ru": "Какой эффект описывает увеличение показаний гравитации из-за окружающей приподнятой топографии?"
+    },
+    "options": [
+      {"ar": "تصحيح بوجيه (Bouguer Correction)", "en": "Bouguer Correction", "de": "Bouguer-Korrektur", "fr": "Correction de Bouguer", "es": "Corrección de Bouguer", "ru": "Поправка Бугера"},
+      {"ar": "تصحيح المنطقة (Terrain Correction)", "en": "Terrain Correction", "de": "Geländekorrektur", "fr": "Correction de terrain", "es": "Corrección de terreno", "ru": "Топографическая поправка"},
+      {"ar": "تصحيح خط العرض", "en": "Latitude Correction", "de": "Breitenkorrektur", "fr": "Correction de latitude", "es": "Corrección de latitud", "ru": "Поправка за широту"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "يتم تطبيق تصحيح المنطقة لإزالة تأثير التضاريس (الجبال أو الأودية) القريبة على قياس الجاذبية، لتبقى فقط الشذوذات تحت السطحية.",
+      "en": "Terrain Correction is applied to remove the effect of nearby topography (mountains or valleys) on the gravity measurement, leaving only the subsurface anomalies.",
+      "de": "Die Geländekorrektur wird angewendet, um den Einfluss der nahen Topographie (Berge oder Täler) auf die Gravitationsmessung zu entfernen, sodass nur die Untergrundanomalien übrig bleiben.",
+      "fr": "La Correction de terrain est appliquée pour supprimer l'effet de la topographie proche (montagnes ou vallées) sur la mesure de gravité, ne laissant que les anomalies souterraines.",
+      "es": "La Corrección de terreno se aplica para eliminar el efecto de la topografía cercana (montañas o valles) en la medición de gravedad, dejando solo las anomalías subsuperficiales.",
+      "ru": "Топографическая поправка применяется для устранения влияния близлежащего рельефа (гор или долин) на измерение гравитации, оставляя только подземные аномалии."
+    }
+  },
+  {
+    "id": 13,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الوحدة التي يعبر عنها عادةً بالتوصيلية الكهربائية (Conductivity) في الجيوفيزياء؟",
+      "en": "What unit is Electrical Conductivity commonly expressed in in geophysics?",
+      "de": "In welcher Einheit wird die elektrische Leitfähigkeit in der Geophysik üblicherweise ausgedrückt?",
+      "fr": "Quelle unité est couramment utilisée pour exprimer la conductivité électrique en géophysique?",
+      "es": "En qué unidad se expresa comúnmente la Conductividad Eléctrica en geofísica?",
+      "ru": "В какой единице обычно выражается электрическая проводимость (Conductivity) в геофизике?"
+    },
+    "options": [
+      {"ar": "أوم-متر (Ω·m)", "en": "Ohm-meter (Ω·m)", "de": "Ohm-Meter (Ω·m)", "fr": "Ohm-mètre (Ω·m)", "es": "Ohm-metro (Ω·m)", "ru": "Ом-метр (Ом·м)"},
+      {"ar": "السيمنز/المتر (S/m)", "en": "Siemens per meter (S/m)", "de": "Siemens pro Meter (S/m)", "fr": "Siemens par mètre (S/m)", "es": "Siemens por metro (S/m)", "ru": "Сименс на метр (См/м)"},
+      {"ar": "النيوتن/المتر", "en": "Newton per meter", "de": "Newton pro Meter", "fr": "Newton par mètre", "es": "Newton por metro", "ru": "Ньютон на метр"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "التوصيلية (S/m) هي مقلوب المقاومة (Ω·m). كلما زادت التوصيلية، كان تدفق التيار أسهل.",
+      "en": "Conductivity (S/m) is the reciprocal of resistivity (Ω·m). Higher conductivity means easier current flow.",
+      "de": "Leitfähigkeit (S/m) ist der Kehrwert des spezifischen Widerstands (Ω·m). Höhere Leitfähigkeit bedeutet leichteren Stromfluss.",
+      "fr": "La conductivité (S/m) est l'inverse de la résistivité (Ω·m). Une conductivité plus élevée signifie un flux de courant plus facile.",
+      "es": "La Conductividad (S/m) es el recíproco de la resistividad (Ω·m). Una mayor conductividad significa un flujo de corriente más fácil.",
+      "ru": "Проводимость (См/м) является обратной величиной сопротивления (Ом·м). Более высокая проводимость означает более легкий поток тока."
+    }
+  },
+  {
+    "id": 14,
+    "type": "text",
+    "question": {
+      "ar": "ما هو الغرض من حقل 'Shot Point' في المسح السيزمي؟",
+      "en": "What is the purpose of the 'Shot Point' in a seismic survey?",
+      "de": "Was ist der Zweck des 'Shot Point' in einer seismischen Vermessung?",
+      "fr": "Quel est le but du 'Point de Tir' dans un levé sismique?",
+      "es": "Cuál es el propósito del 'Punto de Disparo' en una prospección sísmica?",
+      "ru": "Какова цель 'Точки взрыва' (Shot Point) в сейсмической съемке?"
+    },
+    "options": [
+      {"ar": "نقطة قياس الجاذبية", "en": "Gravity measurement point", "de": "Gravitationsmesspunkt", "fr": "Point de mesure de gravité", "es": "Punto de medición de gravedad", "ru": "Точка измерения гравитации"},
+      {"ar": "موقع إحداثيات السيزموجراف", "en": "Seismograph coordinate location", "de": "Seismographen-Koordinatenstandort", "fr": "Emplacement des coordonnées du sismographe", "es": "Ubicación de coordenadas del sismógrafo", "ru": "Местоположение координат сейсмографа"},
+      {"ar": "الموقع الذي يتم فيه توليد طاقة الموجة الزلزالية", "en": "The location where seismic wave energy is generated", "de": "Der Ort, an dem seismische Wellenenergie erzeugt wird", "fr": "L'emplacement où l'énergie des ondes sismiques est générée", "es": "La ubicación donde se genera la energía de la onda sísmica", "ru": "Место, где генерируется энергия сейсмической волны"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "نقطة الإطلاق (Shot Point) هي المكان الذي يحدث فيه الانفجار (أو الطرق) لتوليد الموجة السيزمية التي تنتشر تحت السطح.",
+      "en": "The Shot Point is where the blast (or hammer strike) occurs to generate the seismic wave that propagates into the subsurface.",
+      "de": "Der Shot Point ist der Ort, an dem die Sprengung (oder der Hammerschlag) erfolgt, um die seismische Welle zu erzeugen, die sich in den Untergrund ausbreitet.",
+      "fr": "Le Point de Tir est l'endroit où l'explosion (ou le coup de marteau) se produit pour générer l'onde sismique qui se propage dans le sous-sol.",
+      "es": "El Punto de Disparo es donde ocurre la explosión (o golpe de martillo) para generar la onda sísmica que se propaga en el subsuelo.",
+      "ru": "Точка взрыва — это место, где происходит взрыв (или удар молотка) для генерации сейсмической волны, которая распространяется в недрах."
+    }
+  },
+  {
+    "id": 15,
+    "type": "text",
+    "question": {
+      "ar": "أي من الطرق الجيوفيزيائية التالية هو الأفضل في اكتشاف الأنابيب البلاستيكية (غير المعدنية) المدفونة؟",
+      "en": "Which of the following geophysical methods is best for detecting buried plastic (non-metallic) pipes?",
+      "de": "Welche der folgenden geophysikalischen Methoden eignet sich am besten zur Erfassung vergrabener Kunststoffrohre (nichtmetallisch)?",
+      "fr": "Quelle méthode géophysique parmi les suivantes est la meilleure pour détecter les tuyaux en plastique (non métalliques) enfouis?",
+      "es": "Cuál de los siguientes métodos geofísicos es mejor para detectar tuberías de plástico (no metálicas) enterradas?",
+      "ru": "Какой из следующих геофизических методов лучше всего подходит для обнаружения закопанных пластиковых (неметаллических) труб?"
+    },
+    "options": [
+      {"ar": "طريقة المقاومة الكهربائية", "en": "Electrical Resistivity Method", "de": "Elektrische Widerstandsmethode", "fr": "Méthode de résistivité électrique", "es": "Método de resistividad eléctrica", "ru": "Метод электрического сопротивления"},
+      {"ar": "المسح المغناطيسي", "en": "Magnetic Survey", "de": "Magnetische Vermessung", "fr": "Levé magnétique", "es": "Prospección magnética", "ru": "Магнитная съемка"},
+      {"ar": "رادار اختراق الأرض (GPR)", "en": "Ground Penetrating Radar (GPR)", "de": "Bodenradar (GPR)", "fr": "Radar à pénétration de sol (GPR)", "es": "Radar de penetración terrestre (GPR)", "ru": "Георадар (GPR)"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "يعتمد GPR على التغيرات في السماحية الكهربائية (Permittivity) ويمكنه تمييز المواد غير الموصلة مثل البلاستيك أو الفراغات عن التربة المحيطة.",
+      "en": "GPR relies on changes in electrical permittivity and can distinguish non-conductive materials like plastic or voids from the surrounding soil.",
+      "de": "GPR basiert auf Änderungen der elektrischen Permittivität und kann nichtleitende Materialien wie Kunststoff oder Hohlräume vom umgebenden Boden unterscheiden.",
+      "fr": "Le GPR repose sur les changements de permittivité électrique et peut distinguer les matériaux non conducteurs comme le plastique ou les vides du sol environnant.",
+      "es": "El GPR se basa en cambios en la permitividad eléctrica y puede distinguir materiales no conductores como el plástico o los huecos del suelo circundante.",
+      "ru": "Георадар (GPR) основан на изменениях электрической проницаемости и может отличать непроводящие материалы, такие как пластик или пустоты, от окружающего грунта."
+    }
+  },
+  {
+    "id": 16,
+    "type": "text",
+    "question": {
+      "ar": "ما هو مصطلح 'شذوذ بوجيه الحر' (Free Air Anomaly) في دراسات الجاذبية؟",
+      "en": "What is the term 'Free Air Anomaly' in gravity studies?",
+      "de": "Was ist der Begriff 'Freiluftanomalie' (Free Air Anomaly) in Gravitationsstudien?",
+      "fr": "Quel est le terme 'Anomalie à l'air libre' (Free Air Anomaly) dans les études de gravité?",
+      "es": "Qué es el término 'Anomalía al Aire Libre' (Free Air Anomaly) en los estudios de gravedad?",
+      "ru": "Что такое термин 'Аномалия свободного воздуха' (Free Air Anomaly) в гравитационных исследованиях?"
+    },
+    "options": [
+      {"ar": "الشذوذ بعد تصحيح كل من خط العرض والتضاريس", "en": "Anomaly after correcting for both latitude and terrain", "de": "Anomalie nach Korrektur für Breite und Gelände", "fr": "Anomalie après correction pour la latitude et le terrain", "es": "Anomalía después de corregir tanto la latitud como el terreno", "ru": "Аномалия после поправки как за широту, так и за рельеф"},
+      {"ar": "الشذوذ بعد تصحيح خط العرض فقط", "en": "Anomaly after correcting for latitude only", "de": "Anomalie nach Korrektur nur für die Breite", "fr": "Anomalie après correction pour la latitude uniquement", "es": "Anomalía después de corregir solo la latitud", "ru": "Аномалия после поправки только за широту"},
+      {"ar": "الشذوذ بعد تصحيح خط العرض والارتفاع", "en": "Anomaly after correcting for latitude and elevation", "de": "Anomalie nach Korrektur für Breite und Höhe", "fr": "Anomalie après correction pour la latitude et l'élévation", "es": "Anomalía después de corregir la latitud y la elevación", "ru": "Аномалия после поправки за широту и высоту"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "شذوذ الهواء الحر هو الفرق بين الجاذبية المقاسة والقيمة النظرية، بعد تطبيق تصحيح خط العرض وتصحيح الهواء الحر (الذي يصحح للارتفاع فوق الجيود).",
+      "en": "The Free Air Anomaly is the difference between measured gravity and theoretical value, after applying latitude and free-air correction (which corrects for elevation above the geoid).",
+      "de": "Die Freiluftanomalie ist die Differenz zwischen der gemessenen und der theoretischen Gravitation, nach Anwendung der Breiten- und Freiluftkorrektur (die die Höhe über dem Geoid korrigiert).",
+      "fr": "L'Anomalie à l'air libre est la différence entre la gravité mesurée et la valeur théorique, après application de la correction de latitude et de la correction à l'air libre (qui corrige l'élévation au-dessus du géoïde).",
+      "es": "La Anomalía al Aire Libre es la diferencia entre la gravedad medida y el valor teórico, después de aplicar la corrección de latitud y la corrección al aire libre (que corrige la elevación sobre el geoide).",
+      "ru": "Аномалия свободного воздуха — это разница между измеренной гравитацией и теоретическим значением, после применения поправки за широту и поправки свободного воздуха (которая корректирует высоту над геоидом)."
+    }
+  },
+  {
+    "id": 17,
+    "type": "text",
+    "question": {
+      "ar": "ما هو الدور الرئيسي لـ 'Geophone' في المسح السيزمي؟",
+      "en": "What is the main role of a 'Geophone' in a seismic survey?",
+      "de": "Was ist die Hauptaufgabe eines 'Geophons' in einer seismischen Vermessung?",
+      "fr": "Quel est le rôle principal d'un 'Géophone' dans un levé sismique?",
+      "es": "Cuál es el papel principal de un 'Geófono' en una prospección sísmica?",
+      "ru": "Какова основная роль 'Геофона' (Geophone) в сейсмической съемке?"
+    },
+    "options": [
+      {"ar": "إرسال موجات كهرومغناطيسية", "en": "Transmitting electromagnetic waves", "de": "Übertragung elektromagnetischer Wellen", "fr": "Transmission d'ondes électromagnétiques", "es": "Transmisión de ondas electromagnéticas", "ru": "Передача электромагнитных волн"},
+      {"ar": "تسجيل اهتزازات الأرض الناتجة عن الموجات الزلزالية", "en": "Recording ground vibrations caused by seismic waves", "de": "Aufzeichnung von Bodenvibrationen, die durch seismische Wellen verursacht werden", "fr": "Enregistrement des vibrations du sol causées par les ondes sismiques", "es": "Registro de vibraciones del suelo causadas por ondas sísmicas", "ru": "Регистрация колебаний грунта, вызванных сейсмическими волнами"},
+      {"ar": "قياس المجال المغناطيسي الكلي", "en": "Measuring the total magnetic field", "de": "Messung des gesamten Magnetfeldes", "fr": "Mesurer le champ magnétique total", "es": "Medición del campo magnético total", "ru": "Измерение полного магнитного поля"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "الجيوفون يحول الحركة الأرضية إلى إشارة كهربائية يمكن تسجيلها وتحليلها.",
+      "en": "The geophone converts ground motion into an electrical signal that can be recorded and analyzed.",
+      "de": "Das Geophon wandelt Bodenbewegungen in ein elektrisches Signal um, das aufgezeichnet und analysiert werden kann.",
+      "fr": "Le géophone convertit le mouvement du sol en un signal électrique qui peut être enregistré et analysé.",
+      "es": "El geófono convierte el movimiento del suelo en una señal eléctrica que puede registrarse y analizarse.",
+      "ru": "Геофон преобразует движение грунта в электрический сигнал, который можно записать и проанализировать."
+    }
+  },
+  {
+    "id": 18,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الظاهرة التي تسبب تغيرات في قيمة الجاذبية مع تغير الموقع الجغرافي (الشمال/الجنوب)؟",
+      "en": "What phenomenon causes changes in the gravity value as geographic location (North/South) changes?",
+      "de": "Welches Phänomen verursacht Änderungen des Gravitationswerts, wenn sich der geografische Standort (Nord/Süd) ändert?",
+      "fr": "Quel phénomène provoque des changements dans la valeur de gravité lorsque l'emplacement géographique (Nord/Sud) change?",
+      "es": "Qué fenómeno causa cambios en el valor de la gravedad a medida que cambia la ubicación geográfica (Norte/Sur)?",
+      "ru": "Какое явление вызывает изменения значения гравитации при изменении географического местоположения (Север/Юг)?"
+    },
+    "options": [
+      {"ar": "قوة الطرد المركزي لدوران الأرض", "en": "Centrifugal force of Earth's rotation", "de": "Zentrifugalkraft der Erdrotation", "fr": "Force centrifuge de la rotation terrestre", "es": "Fuerza centrífuga de la rotación terrestre", "ru": "Центробежная сила вращения Земли"},
+      {"ar": "التغير في الكثافة الصخرية", "en": "Variation in rock density", "de": "Variation der Gesteinsdichte", "fr": "Variation de la densité rocheuse", "es": "Variación en la densidad de la roca", "ru": "Изменение плотности породы"},
+      {"ar": "المد والجزر", "en": "Tides", "de": "Gezeiten", "fr": "Marées", "es": "Mareas", "ru": "Приливы"}
+    ],
+    "correct_index": 0,
+    "explanation": {
+      "ar": "بسبب تفلطح الأرض ودورانها، تكون قوة الطرد المركزي عند خط الاستواء أكبر، مما يقلل الجاذبية هناك مقارنة بالقطبين.",
+      "en": "Due to Earth's flattening and rotation, the centrifugal force is greater at the equator, reducing gravity there compared to the poles.",
+      "de": "Aufgrund der Abplattung und Rotation der Erde ist die Zentrifugalkraft am Äquator größer, wodurch die Schwerkraft dort im Vergleich zu den Polen reduziert wird.",
+      "fr": "En raison de l'aplatissement et de la rotation de la Terre, la force centrifuge est plus grande à l'équateur, ce qui y réduit la gravité par rapport aux pôles.",
+      "es": "Debido al achatamiento y la rotación de la Tierra, la fuerza centrífuga es mayor en el ecuador, lo que reduce la gravedad allí en comparación con los polos.",
+      "ru": "Из-за сплюснутости и вращения Земли центробежная сила больше на экваторе, что уменьшает там гравитацию по сравнению с полюсами."
+    }
+  },
+  {
+    "id": 19,
+    "type": "text",
+    "question": {
+      "ar": "في المسح المغناطيسي، ما هي الخاصية المغناطيسية التي تصف قدرة المادة على الاحتفاظ بالمغناطيسية بعد إزالة المجال الخارجي؟",
+      "en": "In magnetic surveying, what magnetic property describes a material's ability to retain magnetism after the external field is removed?",
+      "de": "Welche magnetische Eigenschaft beschreibt in der magnetischen Vermessung die Fähigkeit eines Materials, den Magnetismus nach Entfernung des externen Feldes beizubehalten?",
+      "fr": "Dans les levés magnétiques, quelle propriété magnétique décrit la capacité d'un matériau à retenir le magnétisme après la suppression du champ externe?",
+      "es": "En la prospección magnética, qué propiedad magnética describe la capacidad de un material para retener el magnetismo después de que se elimina el campo externo?",
+      "ru": "В магнитной съемке, какое магнитное свойство описывает способность материала сохранять намагниченность после удаления внешнего поля?"
+    },
+    "options": [
+      {"ar": "القابلية المغناطيسية (Susceptibility)", "en": "Susceptibility", "de": "Suszeptibilität", "fr": "Susceptibilité", "es": "Susceptibilidad", "ru": "Восприимчивость"},
+      {"ar": "المغناطيسية المتبقية (Remanence)", "en": "Remanence", "de": "Remanenz", "fr": "Rémanence", "es": "Remanencia", "ru": "Остаточная намагниченность"},
+      {"ar": "النفاذية (Permeability)", "en": "Permeability", "de": "Permeabilität", "fr": "Perméabilité", "es": "Permeabilidad", "ru": "Проницаемость"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "المغناطيسية المتبقية هي المغناطيسية الدائمة التي تكتسبها الصخور خلال فترة تكوينها أو تبريدها.",
+      "en": "Remanence is the permanent magnetism acquired by rocks during their formation or cooling period.",
+      "de": "Remanenz ist der permanente Magnetismus, den Gesteine während ihrer Entstehung oder Abkühlungsphase erwerben.",
+      "fr": "La rémanence est le magnétisme permanent acquis par les roches pendant leur période de formation ou de refroidissement.",
+      "es": "La Remanencia es el magnetismo permanente adquirido por las rocas durante su período de formación o enfriamiento.",
+      "ru": "Остаточная намагниченность — это постоянная намагниченность, приобретенная породами во время их формирования или периода остывания."
+    }
+  },
+  {
+    "id": 20,
+    "type": "text",
+    "question": {
+      "ar": "في مسح المقاومة الكهربائية، ما هو ترتيب الأقطاب المستخدم في 'Wenner Array'?",
+      "en": "In electrical resistivity surveying, what is the electrode arrangement used in the 'Wenner Array'?",
+      "de": "Wie lautet die Elektrodenanordnung, die in der elektrischen Widerstandsmessung beim 'Wenner Array' verwendet wird?",
+      "fr": "Dans les levés de résistivité électrique, quel est l'arrangement des électrodes utilisé dans le 'Dispositif Wenner'?",
+      "es": "En la prospección de resistividad eléctrica, cuál es la disposición de electrodos utilizada en el 'Arreglo Wenner'?",
+      "ru": "Какова конфигурация электродов, используемая в 'массиве Веннера' (Wenner Array) при измерении электрического сопротивления?"
+    },
+    "options": [
+      {"ar": "الأقطاب متباعدة بالتساوي", "en": "Electrodes are equally spaced", "de": "Elektroden sind gleichmäßig beabstandet", "fr": "Les électrodes sont espacées de manière égale", "es": "Los electrodos están espaciados uniformemente", "ru": "Электроды расположены на равном расстоянии"},
+      {"ar": "الأقطاب متباعدة بضعف المسافة", "en": "Electrodes are spaced at double the distance", "de": "Elektroden sind mit doppeltem Abstand beabstandet", "fr": "Les électrodes sont espacées à double distance", "es": "Los electrodos están espaciados al doble de distancia", "ru": "Электроды расположены на двойном расстоянии"},
+      {"ar": "اثنان متقاربان واثنان بعيدان", "en": "Two close, two far", "de": "Zwei nah, zwei fern", "fr": "Deux proches, deux éloignés", "es": "Dos cercanos, dos lejanos", "ru": "Два близко, два далеко"}
+    ],
+    "correct_index": 0,
+    "explanation": {
+      "ar": "يستخدم ترتيب وينر أربعة أقطاب كهربائية متباعدة بمسافات متساوية (a-a-a) لتبسيط الحسابات وتوفير عمق اختراق ثابت نسبياً.",
+      "en": "The Wenner array uses four electrodes equally spaced (a-a-a) to simplify calculations and provide a relatively constant depth of penetration.",
+      "de": "Das Wenner-Array verwendet vier gleichmäßig beabstandete Elektroden (a-a-a), um Berechnungen zu vereinfachen und eine relativ konstante Eindringtiefe zu bieten.",
+      "fr": "Le dispositif Wenner utilise quatre électrodes également espacées (a-a-a) pour simplifier les calculs et fournir une profondeur de pénétration relativement constante.",
+      "es": "El arreglo Wenner utiliza cuatro electrodos espaciados uniformemente (a-a-a) para simplificar los cálculos y proporcionar una profundidad de penetración relativamente constante.",
+      "ru": "Массив Веннера использует четыре электрода, расположенные на равном расстоянии (a-a-a), для упрощения расчетов и обеспечения относительно постоянной глубины проникновения."
+    }
+  },
+  {
+    "id": 21,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الظاهرة التي يصفها 'قانون كوريه' (Curie's Law) في المغناطيسية؟",
+      "en": "What phenomenon is described by 'Curie's Law' in magnetism?",
+      "de": "Welches Phänomen wird durch das 'Curie-Gesetz' im Magnetismus beschrieben?",
+      "fr": "Quel phénomène est décrit par la 'Loi de Curie' en magnétisme?",
+      "es": "Qué fenómeno describe la 'Ley de Curie' en magnetismo?",
+      "ru": "Какое явление описывается 'Законом Кюри' (Curie's Law) в магнетизме?"
+    },
+    "options": [
+      {"ar": "تغير سرعة الموجات الزلزالية مع العمق", "en": "Seismic wave velocity change with depth", "de": "Änderung der seismischen Wellengeschwindigkeit mit der Tiefe", "fr": "Changement de vitesse des ondes sismiques avec la profondeur", "es": "Cambio en la velocidad de las ondas sísmicas con la profundidad", "ru": "Изменение скорости сейсмических волн с глубиной"},
+      {"ar": "علاقة القابلية المغناطيسية بدرجة الحرارة", "en": "Relationship between magnetic susceptibility and temperature", "de": "Beziehung zwischen magnetischer Suszeptibilität und Temperatur", "fr": "Relation entre la susceptibilité magnétique et la température", "es": "Relación entre la susceptibilidad magnética y la temperatura", "ru": "Связь между магнитной восприимчивостью и температурой"},
+      {"ar": "انكسار الضوء عبر معادن مختلفة", "en": "Refraction of light through different minerals", "de": "Lichtbrechung durch verschiedene Mineralien", "fr": "Réfraction de la lumière à travers différents minéraux", "es": "Refracción de la luz a través de diferentes minerales", "ru": "Преломление света через разные минералы"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "ينص قانون كوري على أن القابلية المغناطيسية للمادة تتناسب عكسياً مع درجة الحرارة المطلقة. تصل القابلية إلى الصفر عند نقطة كوري (Curie Point).",
+      "en": "Curie's Law states that the magnetic susceptibility of a material is inversely proportional to its absolute temperature. Susceptibility drops to zero at the Curie Point.",
+      "de": "Das Curie-Gesetz besagt, dass die magnetische Suszeptibilität eines Materials umgekehrt proportional zu seiner absoluten Temperatur ist. Die Suszeptibilität fällt am Curie-Punkt auf Null.",
+      "fr": "La loi de Curie stipule que la susceptibilité magnétique d'un matériau est inversement proportionnelle à sa température absolue. La susceptibilité chute à zéro au Point de Curie.",
+      "es": "La Ley de Curie establece que la susceptibilidad magnética de un material es inversamente proporcional a su temperatura absoluta. La susceptibilidad cae a cero en el Punto de Curie.",
+      "ru": "Закон Кюри гласит, что магнитная восприимчивость материала обратно пропорциональна его абсолютной температуре. Восприимчивость падает до нуля в точке Кюри."
+    }
+  },
+  {
+    "id": 22,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الموجات التي لا يمكنها الانتشار عبر السوائل أو الغازات؟",
+      "en": "Which type of seismic waves cannot propagate through liquids or gases?",
+      "de": "Welche Art von seismischen Wellen kann sich nicht durch Flüssigkeiten oder Gase ausbreiten?",
+      "fr": "Quel type d'ondes sismiques ne peut pas se propager à travers les liquides ou les gaz?",
+      "es": "Qué tipo de ondas sísmicas no pueden propagarse a través de líquidos o gases?",
+      "ru": "Какой тип сейсмических волн не может распространяться через жидкости или газы?"
+    },
+    "options": [
+      {"ar": "موجات P", "en": "P-waves", "de": "P-Wellen", "fr": "Ondes P", "es": "Ondas P", "ru": "P-волны"},
+      {"ar": "موجات S", "en": "S-waves", "de": "S-Wellen", "fr": "Ondes S", "es": "Ondas S", "ru": "S-волны"},
+      {"ar": "موجات رايلي", "en": "Rayleigh waves", "de": "Rayleigh-Wellen", "fr": "Ondes de Rayleigh", "es": "Ondas de Rayleigh", "ru": "Волны Рэлея"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "موجات S (الثانوية) هي موجات قص (Shear Waves) وتحتاج إلى وسيط صلب لتنتشر، لذا لا تمر عبر اللب الخارجي السائل للأرض.",
+      "en": "S-waves (Secondary) are shear waves and require a solid medium to propagate, thus they do not pass through the Earth's liquid outer core.",
+      "de": "S-Wellen (Sekundärwellen) sind Scherwellen und benötigen ein festes Medium zur Ausbreitung, daher passieren sie den flüssigen äußeren Kern der Erde nicht.",
+      "fr": "Les ondes S (secondaires) sont des ondes de cisaillement et nécessitent un milieu solide pour se propager, elles ne traversent donc pas le noyau externe liquide de la Terre.",
+      "es": "Las ondas S (Secundarias) son ondas de cizallamiento y requieren un medio sólido para propagarse, por lo que no pasan a través del núcleo externo líquido de la Tierra.",
+      "ru": "S-волны (вторичные) — это волны сдвига и требуют твердой среды для распространения, поэтому они не проходят через жидкое внешнее ядро Земли."
+    }
+  },
+  {
+    "id": 23,
+    "type": "text",
+    "question": {
+      "ar": "في طريقة قياس الإشعاع، ما هو الغرض من 'Spectrometer'?",
+      "en": "In the radiometric method, what is the purpose of a 'Spectrometer'?",
+      "de": "Was ist der Zweck eines 'Spektrometers' in der radiometrischen Methode?",
+      "fr": "Quel est le but d'un 'Spectromètre' dans la méthode radiométrique?",
+      "es": "Cuál es el propósito de un 'Espectrómetro' en el método radiométrico?",
+      "ru": "Какова цель 'Спектрометра' в радиометрическом методе?"
+    },
+    "options": [
+      {"ar": "قياس شدة المجال المغناطيسي", "en": "Measuring magnetic field intensity", "de": "Messung der Magnetfeldintensität", "fr": "Mesurer l'intensité du champ magnétique", "es": "Medición de la intensidad del campo magnético", "ru": "Измерение интенсивности магнитного поля"},
+      {"ar": "تمييز أنواع النظائر المشعة المنبعثة من الصخور", "en": "Distinguishing the types of radioactive isotopes emitted by rocks", "de": "Unterscheidung der Arten von radioaktiven Isotopen, die von Gesteinen emittiert werden", "fr": "Distinguer les types d'isotopes radioactifs émis par les roches", "es": "Distinguir los tipos de isótopos radiactivos emitidos por las rocas", "ru": "Различение типов радиоактивных изотопов, излучаемых породами"},
+      {"ar": "قياس الانعكاسية (Reflectivity) للتربة", "en": "Measuring soil reflectivity", "de": "Messung der Bodenreflexionsfähigkeit", "fr": "Mesurer la réflectivité du sol", "es": "Medición de la reflectividad del suelo", "ru": "Измерение отражательной способности грунта"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "يقوم مقياس الطيف بتحليل طاقة أشعة جاما (Gamma Rays) المنبعثة لتحديد تركيزات البوتاسيوم (K) واليورانيوم (U) والثوريوم (Th) في الصخور.",
+      "en": "The spectrometer analyzes the energy of emitted gamma rays to identify concentrations of Potassium (K), Uranium (U), and Thorium (Th) in rocks.",
+      "de": "Das Spektrometer analysiert die Energie der emittierten Gammastrahlen, um Konzentrationen von Kalium (K), Uran (U) und Thorium (Th) in Gesteinen zu identifizieren.",
+      "fr": "Le spectromètre analyse l'énergie des rayons gamma émis pour identifier les concentrations de Potassium (K), d'Uranium (U) et de Thorium (Th) dans les roches.",
+      "es": "El espectrómetro analiza la energía de los rayos gamma emitidos para identificar las concentraciones de Potasio (K), Uranio (U) y Torio (Th) en las rocas.",
+      "ru": "Спектрометр анализирует энергию испускаемых гамма-лучей для определения концентраций Калия (K), Урана (U) и Тория (Th) в породах."
+    }
+  },
+  {
+    "id": 24,
+    "type": "text",
+    "question": {
+      "ar": "ما هو النوع الأساسي من الشذوذ الجيوفيزيائي الذي يسعى الباحثون إلى اكتشافه عند البحث عن أجسام خام (Ore Bodies) غنية بالحديد؟",
+      "en": "What primary type of geophysical anomaly do researchers seek when looking for iron-rich ore bodies?",
+      "de": "Welche primäre Art von geophysikalischer Anomalie suchen Forscher, wenn sie nach eisenreichen Erzkörpern suchen?",
+      "fr": "Quel type primaire d'anomalie géophysique les chercheurs recherchent-ils lorsqu'ils cherchent des corps de minerai riches en fer?",
+      "es": "Qué tipo primario de anomalía geofísica buscan los investigadores al buscar cuerpos de mineral ricos en hierro?",
+      "ru": "Какой основной тип геофизической аномалии ищут исследователи при поиске богатых железом рудных тел?"
+    },
+    "options": [
+      {"ar": "شذوذ توصيلية عالية", "en": "High Conductivity Anomaly", "de": "Anomalie hoher Leitfähigkeit", "fr": "Anomalie de haute conductivité", "es": "Anomalía de alta conductividad", "ru": "Аномалия высокой проводимости"},
+      {"ar": "شذوذ جاذبية منخفضة", "en": "Low Gravity Anomaly", "de": "Anomalie geringer Gravitation", "fr": "Anomalie de faible gravité", "es": "Anomalía de baja gravedad", "ru": "Аномалия низкой гравитации"},
+      {"ar": "شذوذ مغناطيسي إيجابي", "en": "Positive Magnetic Anomaly", "de": "Positive magnetische Anomalie", "fr": "Anomalie magnétique positive", "es": "Anomalía magnética positiva", "ru": "Положительная магнитная аномалия"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "المعادن الحديدية مثل المغنتيت تزيد بشكل كبير من القابلية المغناطيسية للصخور، مما يؤدي إلى شذوذ مغناطيسي إيجابي قوي.",
+      "en": "Ferrous minerals like Magnetite significantly increase rock magnetic susceptibility, leading to a strong positive magnetic anomaly.",
+      "de": "Eisenhaltige Mineralien wie Magnetit erhöhen die magnetische Suszeptibilität des Gesteins erheblich, was zu einer starken positiven magnetischen Anomalie führt.",
+      "fr": "Les minéraux ferreux comme la Magnétite augmentent significativement la susceptibilité magnétique des roches, conduisant à une forte anomalie magnétique positive.",
+      "es": "Los minerales ferrosos como la Magnetita aumentan significativamente la susceptibilidad magnética de la roca, lo que lleva a una fuerte anomalía magnética positiva.",
+      "ru": "Железистые минералы, такие как магнетит, значительно увеличивают магнитную восприимчивость породы, что приводит к сильной положительной магнитной аномалии."
+    }
+  },
+  {
+    "id": 25,
+    "type": "text",
+    "question": {
+      "ar": "ما هو الغرض من تصحيح 'الإزاحة بالارتفاع' (Elevation Correction) في المسح الزلزالي؟",
+      "en": "What is the purpose of the 'Elevation Correction' in seismic surveying?",
+      "de": "Was ist der Zweck der 'Höhenkorrektur' (Elevation Correction) in der seismischen Vermessung?",
+      "fr": "Quel est le but de la 'Correction d'Élévation' (Elevation Correction) dans les levés sismiques?",
+      "es": "Cuál es el propósito de la 'Corrección de Elevación' (Elevation Correction) en la prospección sísmica?",
+      "ru": "Какова цель 'Поправки за высоту' (Elevation Correction) в сейсмической съемке?"
+    },
+    "options": [
+      {"ar": "تصحيح سرعة الموجة", "en": "Correcting wave velocity", "de": "Korrektur der Wellengeschwindigkeit", "fr": "Correction de la vitesse des ondes", "es": "Corrección de la velocidad de la onda", "ru": "Коррекция скорости волны"},
+      {"ar": "إزالة تأثير التغيرات الطارئة في مستوى الأرض", "en": "Removing the effect of incidental changes in ground level", "de": "Entfernen des Einflusses von zufälligen Änderungen der Bodenhöhe", "fr": "Supprimer l'effet des changements fortuits du niveau du sol", "es": "Eliminar el efecto de los cambios incidentales en el nivel del suelo", "ru": "Устранение влияния случайных изменений уровня земли"},
+      {"ar": "تصحيح الشذوذات المغناطيسية", "en": "Correcting magnetic anomalies", "de": "Korrektur magnetischer Anomalien", "fr": "Correction des anomalies magnétiques", "es": "Corrección de anomalías magnéticas", "ru": "Коррекция магнитных аномалий"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "تصحيح الارتفاع يصحح أوقات وصول الموجات الزلزالية لجعلها تبدو كما لو أن نقطة الإطلاق وأجهزة الاستقبال كانت على سطح مرجعي ثابت (Datum).",
+      "en": "The Elevation Correction adjusts seismic travel times to make it appear as if the shot point and receivers were on a consistent reference surface (Datum).",
+      "de": "Die Höhenkorrektur passt seismische Laufzeiten an, um es so aussehen zu lassen, als wären der Schusspunkt und die Empfänger auf einer konsistenten Bezugsfläche (Datum).",
+      "fr": "La Correction d'Élévation ajuste les temps de trajet sismique pour donner l'impression que le point de tir et les récepteurs étaient sur une surface de référence cohérente (Datum).",
+      "es": "La Corrección de Elevación ajusta los tiempos de viaje sísmico para que parezca que el punto de disparo y los receptores estaban en una superficie de referencia consistente (Datum).",
+      "ru": "Поправка за высоту корректирует времена прихода сейсмических волн, чтобы создать впечатление, что точка взрыва и приемники находились на постоянной опорной поверхности (Datum)."
+    }
+  },
+  {
+    "id": 26,
+    "type": "text",
+    "question": {
+      "ar": "ما هي الطريقة الجيوفيزيائية التي تعتمد على قياس الموجات الكهرومغناطيسية المنعكسة؟",
+      "en": "Which geophysical method relies on measuring reflected electromagnetic waves?",
+      "de": "Welche geophysikalische Methode basiert auf der Messung reflektierter elektromagnetischer Wellen?",
+      "fr": "Quelle méthode géophysique repose sur la mesure des ondes électromagnétiques réfléchies?",
+      "es": "Qué método geofísico se basa en medir ondas electromagnéticas reflejadas?",
+      "ru": "Какой геофизический метод основан на измерении отраженных электромагнитных волн?"
+    },
+    "options": [
+      {"ar": "GPR", "en": "GPR", "de": "GPR", "fr": "GPR", "es": "GPR", "ru": "ГПР"},
+      {"ar": "طريقة السيزمية", "en": "Seismic Method", "de": "Seismische Methode", "fr": "Méthode sismique", "es": "Método sísmico", "ru": "Сейсмический метод"},
+      {"ar": "طريقة الجاذبية", "en": "Gravity Method", "de": "Gravitationsmethode", "fr": "Méthode gravimétrique", "es": "Método de gravedad", "ru": "Гравитационный метод"}
+    ],
+    "correct_index": 0,
+    "explanation": {
+      "ar": "يعتمد الرادار المخترق للأرض (GPR) على إرسال موجات راديوية واستقبال انعكاساتها من الطبقات تحت السطح.",
+      "en": "Ground Penetrating Radar (GPR) relies on transmitting radio waves and receiving their reflections from subsurface layers.",
+      "de": "Das Bodenradar (GPR) basiert auf der Aussendung von Radiowellen und dem Empfang ihrer Reflexionen von Untergrundschichten.",
+      "fr": "Le Radar à Pénétration de Sol (GPR) repose sur l'émission d'ondes radio et la réception de leurs réflexions des couches souterraines.",
+      "es": "El Radar de Penetración Terrestre (GPR) se basa en la transmisión de ondas de radio y la recepción de sus reflexiones de las capas subsuperficiales.",
+      "ru": "Георадар (GPR) основан на излучении радиоволн и приеме их отражений от подземных слоев."
+    }
+  },
+  {
+    "id": 27,
+    "type": "text",
+    "question": {
+      "ar": "ما هو التأثير الذي يصف تغيرات الجاذبية الناتجة عن حركة كتل المياه والمحيطات والأرض تحت تأثير القمر والشمس؟",
+      "en": "What effect describes changes in gravity caused by the movement of water masses, oceans, and land under the influence of the Moon and Sun?",
+      "de": "Welcher Effekt beschreibt Änderungen der Schwerkraft, die durch die Bewegung von Wassermassen, Ozeanen und Land unter dem Einfluss von Mond und Sonne verursacht werden?",
+      "fr": "Quel effet décrit les changements de gravité causés par le mouvement des masses d'eau, des océans et de la terre sous l'influence de la Lune et du Soleil?",
+      "es": "Qué efecto describe los cambios en la gravedad causados por el movimiento de masas de agua, océanos y tierra bajo la influencia de la Luna y el Sol?",
+      "ru": "Какой эффект описывает изменения гравитации, вызванные движением водных масс, океанов и суши под влиянием Луны и Солнца?"
+    },
+    "options": [
+      {"ar": "تصحيح بوجيه", "en": "Bouguer Correction", "de": "Bouguer-Korrektur", "fr": "Correction de Bouguer", "es": "Corrección de Bouguer", "ru": "Поправка Бугера"},
+      {"ar": "تصحيح المد والجزر", "en": "Tidal Correction", "de": "Gezeitenkorrektur", "fr": "Correction des marées", "es": "Corrección de mareas", "ru": "Приливная поправка"},
+      {"ar": "تصحيح الإزاحة (Drift Correction)", "en": "Drift Correction", "de": "Driftkorrektur", "fr": "Correction de dérive", "es": "Corrección de deriva", "ru": "Коррекция дрейфа"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "يجب تطبيق تصحيح المد والجزر لإزالة هذا التغير الزمني من قياسات الجاذبية، لتبقى فقط الشذوذات الجيولوجية المستهدفة.",
+      "en": "Tidal Correction must be applied to remove this time-varying change from gravity measurements, leaving only the targeted geological anomalies.",
+      "de": "Die Gezeitenkorrektur muss angewendet werden, um diese zeitlich variierende Änderung aus den Gravitationsmessungen zu entfernen und nur die beabsichtigten geologischen Anomalien zu belassen.",
+      "fr": "La Correction des marées doit être appliquée pour supprimer ce changement variant dans le temps des mesures de gravité, ne laissant que les anomalies géologiques ciblées.",
+      "es": "La Corrección de Mareas debe aplicarse para eliminar este cambio variable en el tiempo de las mediciones de gravedad, dejando solo las anomalías geológicas objetivo.",
+      "ru": "Приливная поправка должна быть применена для устранения этого изменяющегося во времени изменения из измерений гравитации, оставляя только целевые геологические аномалии."
+    }
+  },
+  {
+    "id": 28,
+    "type": "text",
+    "question": {
+      "ar": "أي من الخصائص الصخرية التالية هو العامل الرئيسي الذي يحدد سرعة الموجات الزلزالية؟",
+      "en": "Which of the following rock properties is the main factor determining seismic wave velocity?",
+      "de": "Welche der folgenden Gesteinseigenschaften ist der Hauptfaktor, der die Geschwindigkeit seismischer Wellen bestimmt?",
+      "fr": "Quelle propriété rocheuse parmi les suivantes est le principal facteur déterminant la vitesse des ondes sismiques?",
+      "es": "Cuál de las siguientes propiedades de la roca es el factor principal que determina la velocidad de la onda sísmica?",
+      "ru": "Какое из следующих свойств породы является основным фактором, определяющим скорость сейсмических волн?"
+    },
+    "options": [
+      {"ar": "القساوة (Hardness) ودرجة الحرارة", "en": "Hardness and Temperature", "de": "Härte und Temperatur", "fr": "Dureté et Température", "es": "Dureza y Temperatura", "ru": "Твердость и Температура"},
+      {"ar": "الكثافة ومعاملات المرونة (Elastic Moduli)", "en": "Density and Elastic Moduli", "de": "Dichte und Elastizitätsmoduln", "fr": "Densité et Modules d'Élasticité", "es": "Densidad y Módulos Elásticos", "ru": "Плотность и Модули упругости"},
+      {"ar": "المسامية والمغناطيسية", "en": "Porosity and Magnetism", "de": "Porosität und Magnetismus", "fr": "Porosité et Magnétisme", "es": "Porosidad y Magnetismo", "ru": "Пористость и Магнетизм"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "تعتمد سرعة الموجات الزلزالية بشكل أساسي على كثافة ومرونة (صلابة) المادة التي تمر من خلالها.",
+      "en": "Seismic wave velocity primarily depends on the density and elasticity (stiffness) of the material they travel through.",
+      "de": "Die Geschwindigkeit seismischer Wellen hängt hauptsächlich von der Dichte und Elastizität (Steifigkeit) des Materials ab, durch das sie sich bewegen.",
+      "fr": "La vitesse des ondes sismiques dépend principalement de la densité et de l'élasticité (rigidité) du matériau qu'elles traversent.",
+      "es": "La velocidad de la onda sísmica depende principalmente de la densidad y la elasticidad (rigidez) del material por el que viajan.",
+      "ru": "Скорость сейсмических волн в основном зависит от плотности и упругости (жесткости) материала, через который они проходят."
+    }
+  },
+  {
+    "id": 29,
+    "type": "text",
+    "question": {
+      "ar": "ما هو النوع من الموجات الكهرومغناطيسية الذي يستخدمه GPR؟",
+      "en": "What type of electromagnetic waves does GPR use?",
+      "de": "Welche Art von elektromagnetischen Wellen verwendet GPR?",
+      "fr": "Quel type d'ondes électromagnétiques le GPR utilise-t-il?",
+      "es": "Qué tipo de ondas electromagnéticas utiliza el GPR?",
+      "ru": "Какой тип электромагнитных волн использует георадар (GPR)?"
+    },
+    "options": [
+      {"ar": "موجات الراديو", "en": "Radio waves", "de": "Radiowellen", "fr": "Ondes radio", "es": "Ondas de radio", "ru": "Радиоволны"},
+      {"ar": "الأشعة تحت الحمراء", "en": "Infrared rays", "de": "Infrarotstrahlen", "fr": "Rayons infrarouges", "es": "Rayos infrarrojos", "ru": "Инфракрасные лучи"},
+      {"ar": "أشعة جاما", "en": "Gamma rays", "de": "Gammastrahlen", "fr": "Rayons gamma", "es": "Rayos gamma", "ru": "Гамма-лучи"}
+    ],
+    "correct_index": 0,
+    "explanation": {
+      "ar": "يعمل GPR ضمن نطاق ترددات الراديو والموجات الدقيقة، وعادة ما يكون بين 10 ميجاهرتز و 2.5 جيجاهرتز.",
+      "en": "GPR operates within the radio frequency and microwave range, typically between 10 MHz and 2.5 GHz.",
+      "de": "GPR arbeitet im Bereich der Radiofrequenz- und Mikrowellen, typischerweise zwischen 10 MHz und 2,5 GHz.",
+      "fr": "Le GPR fonctionne dans la gamme des radiofréquences et des micro-ondes, généralement entre 10 MHz et 2,5 GHz.",
+      "es": "El GPR opera dentro del rango de frecuencia de radio y microondas, típicamente entre 10 MHz y 2.5 GHz.",
+      "ru": "Георадар (GPR) работает в диапазоне радиочастот и микроволн, обычно между 10 МГц и 2,5 ГГц."
+    }
+  },
+  {
+    "id": 30,
+    "type": "text",
+    "question": {
+      "ar": "أي ظاهرة جيوفيزيائية هي الأكثر استخداماً لتحديد الفراغات والتجاويف تحت الأرض؟",
+      "en": "Which geophysical phenomenon is most commonly used to locate underground voids and cavities?",
+      "de": "Welches geophysikalische Phänomen wird am häufigsten zur Lokalisierung von unterirdischen Hohlräumen und Kavitäten verwendet?",
+      "fr": "Quel phénomène géophysique est le plus couramment utilisé pour localiser les vides et les cavités souterraines?",
+      "es": "Qué fenómeno geofísico se utiliza más comúnmente para localizar vacíos y cavidades subterráneas?",
+      "ru": "Какое геофизическое явление наиболее часто используется для обнаружения подземных пустот и полостей?"
+    },
+    "options": [
+      {"ar": "شذوذ مغناطيسي كبير", "en": "Large magnetic anomaly", "de": "Große magnetische Anomalie", "fr": "Grande anomalie magnétique", "es": "Gran anomalía magnética", "ru": "Большая магнитная аномалия"},
+      {"ar": "شذوذ جاذبية سالبة", "en": "Negative gravity anomaly", "de": "Negative Gravitationsanomalie", "fr": "Anomalie de gravité négative", "es": "Anomalía de gravedad negativa", "ru": "Отрицательная гравитационная аномалия"},
+      {"ar": "انكسار زلزالي سريع", "en": "Fast seismic refraction", "de": "Schnelle seismische Brechung", "fr": "Réfraction sismique rapide", "es": "Refracción sísmica rápida", "ru": "Быстрое сейсмическое преломление"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "الفراغات والتجاويف لها كثافة صفرية (أو منخفضة جداً)، مما يؤدي إلى نقص في الكتلة تحت السطح، وينتج عنه شذوذ جاذبية سالبة يمكن قياسه.",
+      "en": "Voids and cavities have zero (or very low) density, resulting in a mass deficit beneath the surface, which produces a measurable negative gravity anomaly.",
+      "de": "Hohlräume und Kavitäten haben eine Dichte von Null (oder sehr niedrig), was zu einem Massendefizit unter der Oberfläche führt und eine messbare negative Gravitationsanomalie erzeugt.",
+      "fr": "Les vides et les cavités ont une densité nulle (ou très faible), ce qui entraîne un déficit de masse sous la surface, produisant une anomalie de gravité négative mesurable.",
+      "es": "Los vacíos y cavidades tienen densidad cero (o muy baja), lo que resulta en un déficit de masa debajo de la superficie, produciendo una anomalía de gravedad negativa medible.",
+      "ru": "Пустоты и полости имеют нулевую (или очень низкую) плотность, что приводит к дефициту массы под поверхностью, вызывая измеримую отрицательную гравитационную аномалию."
+    }
+  },
+  {
+    "id": 31,
+    "type": "image",
+    "image_path": "assets/images/Resistivity maps.png",
+    "question": {
+      "ar": "الخريطة الموضحة تمثل ناتج أي طريقة جيوفيزيائية؟",
+      "en": "The map shown represents the result of which geophysical method?",
+      "de": "Die gezeigte Karte stellt das Ergebnis welcher geophysikalischen Methode dar?",
+      "fr": "La carte montrée représente le résultat de quelle méthode géophysique?",
+      "es": "El mapa mostrado representa el resultado de qué método geofísico?",
+      "ru": "Какого геофизического метода представляет собой показанная карта?"
+    },
+    "options": [
+      {"ar": "المسح المغناطيسي", "en": "Magnetic Survey", "de": "Magnetische Vermessung", "fr": "Levé magnétique", "es": "Prospección magnética", "ru": "Магнитная съемка"},
+      {"ar": "طريقة المقاومة الكهربائية", "en": "Electrical Resistivity Method", "de": "Elektrische Widerstandsmethode", "fr": "Méthode de résistivité électrique", "es": "Método de resistividad eléctrica", "ru": "Метод электрического сопротивления"},
+      {"ar": "المسح الحراري", "en": "Thermal Survey", "de": "Thermische Vermessung", "fr": "Levé thermique", "es": "Prospección térmica", "ru": "Тепловая съемка"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "الخريطة تظهر تغيرات في المقاومة الكهربائية، حيث تشير الألوان الدافئة إلى مقاومة عالية (عادة صخور جافة) والباردة إلى مقاومة منخفضة (عادة مياه أو معادن طينية).",
+      "en": "The map shows variations in electrical resistivity, where warm colors indicate high resistance (usually dry rock) and cool colors indicate low resistance (usually water or clay minerals).",
+      "de": "Die Karte zeigt Variationen des elektrischen Widerstands, wobei warme Farben auf hohen Widerstand (normalerweise trockenes Gestein) und kühle Farben auf niedrigen Widerstand (normalerweise Wasser oder Tonminerale) hinweisen.",
+      "fr": "La carte montre des variations de la résistivité électrique, où les couleurs chaudes indiquent une résistance élevée (roche généralement sèche) et les couleurs froides indiquent une faible résistance (généralement de l'eau ou des minéraux argileux).",
+      "es": "El mapa muestra variaciones en la resistividad eléctrica, donde los colores cálidos indican alta resistencia (roca generalmente seca) y los colores fríos indican baja resistencia (generalmente agua o minerales arcillosos).",
+      "ru": "Карта показывает вариации электрического сопротивления, где теплые цвета указывают на высокое сопротивление (обычно сухая порода), а холодные — на низкое сопротивление (обычно вода или глинистые минералы)."
+    }
+  },
+  {
+    "id": 32,
+    "type": "image",
+    "image_path": "assets/images/Recording Reflected Seismic.jpg",
+    "question": {
+      "ar": "ما هي الظاهرة الفيزيائية التي تعتمد عليها هذه الطريقة لاستكشاف أعماق الأرض؟",
+      "en": "What physical phenomenon does this method rely on to explore the Earth's depths?",
+      "de": "Auf welchem physikalischen Phänomen beruht diese Methode zur Erforschung der Tiefe der Erde?",
+      "fr": "Sur quel phénomène physique cette méthode repose-t-elle pour explorer les profondeurs de la Terre?",
+      "es": "En qué fenómeno físico se basa este método para explorar las profundidades de la Tierra?",
+      "ru": "На каком физическом явлении основан этот метод для исследования глубин Земли?"
+    },
+    "options": [
+      {"ar": "التوهين", "en": "Attenuation", "de": "Dämpfung", "fr": "Atténuation", "es": "Atenuación", "ru": "Затухание"},
+      {"ar": "الانعكاس الزلزالي", "en": "Seismic Reflection", "de": "Seismische Reflexion", "fr": "Réflexion sismique", "es": "Reflexión sísmica", "ru": "Сейсмическое отражение"},
+      {"ar": "قانون نيوتن", "en": "Newton's Law", "de": "Newtons Gesetz", "fr": "Loi de Newton", "es": "Ley de Newton", "ru": "Закон Ньютона"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "المسح السيزمي الانعكاسي يعتمد على ارتداد الموجات (الانعكاس) عند حدود الطبقات ذات الكثافات والسرعات المختلفة.",
+      "en": "Reflection seismic surveying relies on waves bouncing back (reflection) at boundaries of layers with different densities and velocities.",
+      "de": "Die Reflexionsseismik beruht auf der Rückprallung von Wellen (Reflexion) an den Grenzen von Schichten mit unterschiedlichen Dichten und Geschwindigkeiten.",
+      "fr": "Le levé sismique réflexion repose sur le rebond des ondes (réflexion) aux limites des couches ayant des densités et des vitesses différentes.",
+      "es": "La prospección sísmica de reflexión se basa en el rebote de las ondas (reflexión) en los límites de las capas con diferentes densidades y velocidades.",
+      "ru": "Сейсмическая разведка методом отраженных волн основана на отражении волн на границах слоев с различными плотностями и скоростями."
+    }
+  },
+  {
+    "id": 33,
+    "type": "image",
+    "image_path": "assets/images/Seismic Data Logger.jpg",
+    "question": {
+      "ar": "ما هو الدور الرئيسي للجهاز الموضح في الصورة في المسح الزلزالي؟",
+      "en": "What is the primary role of the device shown in the image in a seismic survey?",
+      "de": "Was ist die Hauptaufgabe des auf dem Bild gezeigten Geräts bei einer seismischen Vermessung?",
+      "fr": "Quel est le rôle principal de l'appareil montré sur l'image dans un levé sismique?",
+      "es": "Cuál es el papel principal del dispositivo que se muestra en la imagen en una prospección sísmica?",
+      "ru": "Какова основная роль устройства, показанного на изображении, в сейсмической съемке?"
+    },
+    "options": [
+      {"ar": "تسجيل بيانات الجاذبية", "en": "Recording gravity data", "de": "Aufzeichnung von Gravitationsdaten", "fr": "Enregistrement des données de gravité", "es": "Registro de datos de gravedad", "ru": "Запись данных гравитации"},
+      {"ar": "تسجيل توقيت وصول الموجات السيزمية من الجيوفونات", "en": "Recording the arrival timing of seismic waves from geophones", "de": "Aufzeichnung des Ankunftszeitpunkts seismischer Wellen von Geophonen", "fr": "Enregistrement du temps d'arrivée des ondes sismiques des géophones", "es": "Registro del tiempo de llegada de las ondas sísmicas de los geófonos", "ru": "Запись времени прихода сейсмических волн от геофонов"},
+      {"ar": "توليد المجال المغناطيسي", "en": "Generating the magnetic field", "de": "Erzeugung des Magnetfeldes", "fr": "Générer le champ magnétique", "es": "Generación del campo magnético", "ru": "Генерация магнитного поля"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "هذا الجهاز (Data Logger) هو المسؤول عن استقبال وتخزين الإشارات الكهربائية القادمة من الجيوفونات تمهيداً لمعالجتها.",
+      "en": "This device (Data Logger) is responsible for receiving and storing electrical signals coming from the geophones for later processing.",
+      "de": "Dieses Gerät (Data Logger) ist für den Empfang und die Speicherung der von den Geophonen kommenden elektrischen Signale zur späteren Verarbeitung verantwortlich.",
+      "fr": "Cet appareil (Enregistreur de données) est responsable de la réception et du stockage des signaux électriques provenant des géophones pour un traitement ultérieur.",
+      "es": "Este dispositivo (Registrador de Datos) es responsable de recibir y almacenar las señales eléctricas provenientes de los geófonos para su posterior procesamiento.",
+      "ru": "Это устройство (Регистратор данных) отвечает за прием и хранение электрических сигналов, поступающих от геофонов, для последующей обработки."
+    }
+  },
+  {
+    "id": 34,
+    "type": "image",
+    "image_path": "assets/images/geophysics.json",
+    "question": {
+      "ar": "ما هو النوع من المسح المغناطيسي الذي يستخدم فيه هذا المخطط البياني (Plot) لتحديد عمق الجسم المغناطيسي؟",
+      "en": "What type of magnetic survey uses this plot to determine the depth of the magnetic body?",
+      "de": "Welche Art der magnetischen Vermessung verwendet dieses Diagramm zur Bestimmung der Tiefe des magnetischen Körpers?",
+      "fr": "Quel type de levé magnétique utilise ce graphique pour déterminer la profondeur du corps magnétique?",
+      "es": "Qué tipo de prospección magnética utiliza este gráfico para determinar la profundidad del cuerpo magnético?",
+      "ru": "Какой тип магнитной съемки использует этот график для определения глубины залегания магнитного тела?"
+    },
+    "options": [
+      {"ar": "تحليل الأطياف (Spectral Analysis)", "en": "Spectral Analysis", "de": "Spektralanalyse", "fr": "Analyse spectrale", "es": "Análisis espectral", "ru": "Спектральный анализ"},
+      {"ar": "تحليل ميل المنحنى (Slope Analysis)", "en": "Slope Analysis", "de": "Neigungsanalyse", "fr": "Analyse de la pente", "es": "Análisis de pendiente", "ru": "Анализ наклона"},
+      {"ar": "تحليل الشذوذ الحراري", "en": "Thermal Anomaly Analysis", "de": "Analyse der thermischen Anomalie", "fr": "Analyse de l'anomalie thermique", "es": "Análisis de anomalía térmica", "ru": "Анализ тепловой аномалии"}
+    ],
+    "correct_index": 1,
+    "explanation": {
+      "ar": "في تحليل ميل المنحنى (مثل طريقة Half-Slope)، يتم استخدام ميل جانبي الشذوذ المغناطيسي لتقدير العمق إلى الجزء العلوي من الجسم المسبب للشذوذ.",
+      "en": "In Slope Analysis (e.g., Half-Slope method), the slope of the magnetic anomaly flanks is used to estimate the depth to the top of the causative body.",
+      "de": "Bei der Neigungsanalyse (z. B. Halbschrägenmethode) wird die Steigung der Flanken der magnetischen Anomalie zur Schätzung der Tiefe zum oberen Teil des verursachenden Körpers verwendet.",
+      "fr": "Dans l'Analyse de la Pente (par exemple, méthode Half-Slope), la pente des flancs de l'anomalie magnétique est utilisée pour estimer la profondeur jusqu'au sommet du corps causatif.",
+      "es": "En el Análisis de Pendiente (por ejemplo, método de Media Pendiente), la pendiente de los flancos de la anomalía magnética se utiliza para estimar la profundidad hasta la parte superior del cuerpo causante.",
+      "ru": "В анализе наклона (например, метод половинного наклона) наклон флангов магнитной аномалии используется для оценки глубины залегания верхней части причинного тела."
+    }
+  },
+  {
+    "id": 35,
+    "type": "image",
+    "image_path": "assets/images/Seismic Profiles.jpg",
+    "question": {
+      "ar": "ما هي الأداة الجيوفيزيائية التي تمثل البيانات الموضحة على هذا 'المقطع الزلزالي'؟",
+      "en": "What geophysical tool do the data shown on this 'Seismic Profile' represent?",
+      "de": "Welches geophysikalische Werkzeug repräsentieren die auf diesem 'Seismischen Profil' gezeigten Daten?",
+      "fr": "Quel outil géophysique représentent les données montrées sur ce 'Profil Sismique'?",
+      "es": "Qué herramienta geofísica representan los datos mostrados en este 'Perfil Sísmico'?",
+      "ru": "Какой геофизический инструмент представляют данные, показанные на этом 'Сейсмическом профиле'?"
+    },
+    "options": [
+      {"ar": "مقاطع GPR", "en": "GPR Profiles", "de": "GPR-Profile", "fr": "Profils GPR", "es": "Perfiles GPR", "ru": "Профили GPR"},
+      {"ar": "مقاطع مغناطيسية", "en": "Magnetic Profiles", "de": "Magnetische Profile", "fr": "Profils magnétiques", "es": "Perfiles magnéticos", "ru": "Магнитные профили"},
+      {"ar": "مقاطع سيزمية انعكاسية", "en": "Reflection Seismic Profiles", "de": "Reflexionsseismische Profile", "fr": "Profils sismiques réflexion", "es": "Perfiles sísmicos de reflexión", "ru": "Профили сейсмической рефлексии"}
+    ],
+    "correct_index": 2,
+    "explanation": {
+      "ar": "تظهر الأشرطة الأفقية المترابطة (Reflectors) حدود الطبقات، وهي السمة المميزة لبيانات المسح السيزمي الانعكاسي.",
+      "en": "The connected horizontal bands (Reflectors) show layer boundaries, which is the characteristic feature of reflection seismic survey data.",
+      "de": "Die verbundenen horizontalen Bänder (Reflektoren) zeigen Schichtgrenzen, was das charakteristische Merkmal von Reflexionsseismik-Vermessungsdaten ist.",
+      "fr": "Les bandes horizontales connectées (Réflecteurs) montrent les limites des couches, ce qui est la caractéristique des données de levé sismique réflexion.",
+      "es": "Las bandas horizontales conectadas (Reflectores) muestran los límites de las capas, lo cual es la característica de los datos de prospección sísmica de reflexión.",
+      "ru": "Соединенные горизонтальные полосы (Отражатели) показывают границы слоев, что является характерной особенностью данных сейсмической разведки методом отраженных волн."
+    }
+  }
+]
