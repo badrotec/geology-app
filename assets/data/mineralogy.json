@@ -1,38 +1,368 @@
 {
-    "section": "علم المعادن والصخور",
-    "questions": [
-        {
-            "text": "أي من الصخور التالية تعتبر من الصخور المتحولة؟",
-            "image": "Schiste.jpg",
-            "options": [
-                "صخور الشيست",
-                "صخور البازلت", 
-                "صخور الجرانيت",
-                "صخور الحجر الجيري"
-            ],
-            "correctAnswer": 0
-        },
-        {
-            "text": "ما هو المعدن الرئيسي في الصخور الجرانيتية؟",
-            "image": "Rhyditis.jpg",
-            "options": [
-                "الكوارتز",
-                "الكالسيت",
-                "الجبس", 
-                "الهاليت"
-            ],
-            "correctAnswer": 0
-        },
-        {
-            "text": "أي من الصخور التالية تستخدم غالباً في البناء؟",
-            "image": "Calcare.jpeg",
-            "options": [
-                "الحجر الجيري",
-                "صخور الشيست",
-                "البازلت",
-                "الرخام"
-            ],
-            "correctAnswer": 0
-        }
-    ]
+  "sectionId": "mineralogy",
+  "sectionName": "علم المعادن",
+  "sectionNameEn": "Mineralogy",
+  "questions": [
+    {
+      "id": "min_001",
+      "question": "What is a mineral? ما هو المعدن؟",
+      "answers": [
+        "Naturally occurring inorganic solid with ordered structure - مادة صلبة غير عضوية طبيعية ذات تركيب منتظم",
+        "Any rock material - أي مادة صخرية",
+        "Organic compound - مركب عضوي",
+        "Liquid substance - مادة سائلة"
+      ],
+      "correctAnswer": "Naturally occurring inorganic solid with ordered structure - مادة صلبة غير عضوية طبيعية ذات تركيب منتظم",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_002",
+      "question": "What is the Mohs hardness scale? ما هو مقياس موس للصلادة؟",
+      "answers": [
+        "Scale measuring mineral hardness from 1-10 - مقياس لصلادة المعادن من 1-10",
+        "Scale measuring mineral color - مقياس للون المعدن",
+        "Scale measuring mineral weight - مقياس لوزن المعدن",
+        "Scale measuring mineral size - مقياس لحجم المعدن"
+      ],
+      "correctAnswer": "Scale measuring mineral hardness from 1-10 - مقياس لصلادة المعادن من 1-10",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_003",
+      "question": "What is the hardest mineral on Mohs scale? ما هو أصلب معدن في مقياس موس؟",
+      "answers": [
+        "Diamond - الماس",
+        "Quartz - الكوارتز",
+        "Talc - التلك",
+        "Calcite - الكالسيت"
+      ],
+      "correctAnswer": "Diamond - الماس",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_004",
+      "question": "What is cleavage in minerals? ما هو الانفصام في المعادن؟",
+      "answers": [
+        "Tendency to break along flat planes - ميل للكسر على أسطح مستوية",
+        "Mineral color - لون المعدن",
+        "Mineral weight - وزن المعدن",
+        "Mineral transparency - شفافية المعدن"
+      ],
+      "correctAnswer": "Tendency to break along flat planes - ميل للكسر على أسطح مستوية",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_005",
+      "question": "What is luster? ما هو البريق؟",
+      "answers": [
+        "How mineral reflects light - كيفية انعكاس الضوء عن المعدن",
+        "Mineral hardness - صلادة المعدن",
+        "Mineral shape - شكل المعدن",
+        "Mineral size - حجم المعدن"
+      ],
+      "correctAnswer": "How mineral reflects light - كيفية انعكاس الضوء عن المعدن",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_006",
+      "question": "What is streak in mineralogy? ما هو المخدش في علم المعادن؟",
+      "answers": [
+        "Color of mineral powder - لون مسحوق المعدن",
+        "Mineral's outer color - اللون الخارجي للمعدن",
+        "Mineral's shape - شكل المعدن",
+        "Mineral's weight - وزن المعدن"
+      ],
+      "correctAnswer": "Color of mineral powder - لون مسحوق المعدن",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_007",
+      "question": "What is quartz composed of? مم يتكون الكوارتز؟",
+      "answers": [
+        "Silicon dioxide (SiO2) - ثاني أكسيد السيليكون",
+        "Calcium carbonate - كربونات الكالسيوم",
+        "Iron oxide - أكسيد الحديد",
+        "Aluminum oxide - أكسيد الألومنيوم"
+      ],
+      "correctAnswer": "Silicon dioxide (SiO2) - ثاني أكسيد السيليكون",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_008",
+      "question": "What is calcite? ما هو الكالسيت؟",
+      "answers": [
+        "Calcium carbonate mineral - معدن كربونات الكالسيوم",
+        "Iron mineral - معدن حديدي",
+        "Copper mineral - معدن نحاسي",
+        "Silicon mineral - معدن سيليكوني"
+      ],
+      "correctAnswer": "Calcium carbonate mineral - معدن كربونات الكالسيوم",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_009",
+      "question": "What are silicate minerals? ما هي معادن السيليكات؟",
+      "answers": [
+        "Minerals containing silicon and oxygen - معادن تحتوي على السيليكون والأكسجين",
+        "Minerals containing only iron - معادن تحتوي على الحديد فقط",
+        "Minerals containing only carbon - معادن تحتوي على الكربون فقط",
+        "Minerals containing only calcium - معادن تحتوي على الكالسيوم فقط"
+      ],
+      "correctAnswer": "Minerals containing silicon and oxygen - معادن تحتوي على السيليكون والأكسجين",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_010",
+      "question": "What is feldspar? ما هو الفلسبار؟",
+      "answers": [
+        "Most abundant mineral group in Earth's crust - أكثر مجموعة معدنية في القشرة الأرضية",
+        "Rarest mineral on Earth - أندر معدن على الأرض",
+        "Type of metal - نوع من المعادن الفلزية",
+        "Organic compound - مركب عضوي"
+      ],
+      "correctAnswer": "Most abundant mineral group in Earth's crust - أكثر مجموعة معدنية في القشرة الأرضية",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_011",
+      "question": "What is mica? ما هو الميكا؟",
+      "answers": [
+        "Mineral that splits into thin flexible sheets - معدن ينفصم إلى صفائح رقيقة مرنة",
+        "Very hard mineral - معدن صلب جداً",
+        "Liquid mineral - معدن سائل",
+        "Gaseous mineral - معدن غازي"
+      ],
+      "correctAnswer": "Mineral that splits into thin flexible sheets - معدن ينفصم إلى صفائح رقيقة مرنة",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_012",
+      "question": "What is pyrite also known as? بماذا يُعرف البيريت أيضاً؟",
+      "answers": [
+        "Fool's gold - ذهب المغفلين",
+        "True gold - الذهب الحقيقي",
+        "Silver ore - خام الفضة",
+        "Copper ore - خام النحاس"
+      ],
+      "correctAnswer": "Fool's gold - ذهب المغفلين",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_013",
+      "question": "What is crystal habit? ما هو المظهر البلوري؟",
+      "answers": [
+        "External shape of mineral crystal - الشكل الخارجي للبلورة المعدنية",
+        "Internal structure only - التركيب الداخلي فقط",
+        "Mineral color - لون المعدن",
+        "Mineral hardness - صلادة المعدن"
+      ],
+      "correctAnswer": "External shape of mineral crystal - الشكل الخارجي للبلورة المعدنية",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_014",
+      "question": "What is specific gravity? ما هو الوزن النوعي؟",
+      "answers": [
+        "Density compared to water - الكثافة مقارنة بالماء",
+        "Absolute weight - الوزن المطلق",
+        "Hardness measure - قياس الصلادة",
+        "Color intensity - شدة اللون"
+      ],
+      "correctAnswer": "Density compared to water - الكثافة مقارنة بالماء",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_015",
+      "question": "What are polymorphs? ما هي المتماثلات الشكلية؟",
+      "answers": [
+        "Same composition, different crystal structure - نفس التركيب، تركيب بلوري مختلف",
+        "Different composition, same structure - تركيب مختلف، نفس البنية",
+        "Same in all properties - متماثلة في كل الخصائص",
+        "Completely different minerals - معادن مختلفة تماماً"
+      ],
+      "correctAnswer": "Same composition, different crystal structure - نفس التركيب، تركيب بلوري مختلف",
+      "difficulty": "hard"
+    },
+    {
+      "id": "min_016",
+      "question": "What is graphite used for? فيما يُستخدم الجرافيت؟",
+      "answers": [
+        "Pencils and lubricants - أقلام الرصاص والمواد المزلقة",
+        "Jewelry only - المجوهرات فقط",
+        "Construction material - مواد البناء",
+        "Food coloring - تلوين الطعام"
+      ],
+      "correctAnswer": "Pencils and lubricants - أقلام الرصاص والمواد المزلقة",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_017",
+      "question": "What is talc? ما هو التلك؟",
+      "answers": [
+        "Softest mineral on Mohs scale - أنعم معدن في مقياس موس",
+        "Hardest mineral - أصلب معدن",
+        "Medium hardness mineral - معدن متوسط الصلادة",
+        "Liquid mineral - معدن سائل"
+      ],
+      "correctAnswer": "Softest mineral on Mohs scale - أنعم معدن في مقياس موس",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_018",
+      "question": "What is halite? ما هو الهاليت؟",
+      "answers": [
+        "Rock salt (NaCl) - ملح الطعام الصخري",
+        "Quartz variety - نوع من الكوارتز",
+        "Iron ore - خام حديد",
+        "Copper mineral - معدن نحاسي"
+      ],
+      "correctAnswer": "Rock salt (NaCl) - ملح الطعام الصخري",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_019",
+      "question": "What is gypsum used for? فيما يُستخدم الجبس؟",
+      "answers": [
+        "Plaster and construction - الجص والبناء",
+        "Jewelry making - صناعة المجوهرات",
+        "Food production - إنتاج الطعام",
+        "Fuel source - مصدر وقود"
+      ],
+      "correctAnswer": "Plaster and construction - الجص والبناء",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min_020",
+      "question": "What is magnetite? ما هو الماجنتيت؟",
+      "answers": [
+        "Magnetic iron oxide mineral - معدن أكسيد الحديد المغناطيسي",
+        "Non-magnetic mineral - معدن غير مغناطيسي",
+        "Precious stone - حجر كريم",
+        "Organic material - مادة عضوية"
+      ],
+      "correctAnswer": "Magnetic iron oxide mineral - معدن أكسيد الحديد المغناطيسي",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_021",
+      "question": "What is the most common mineral in Earth's crust? ما هو أكثر معدن شيوعاً في القشرة الأرضية؟",
+      "answers": [
+        "Feldspar - الفلسبار",
+        "Quartz - الكوارتز",
+        "Mica - الميكا",
+        "Calcite - الكالسيت"
+      ],
+      "correctAnswer": "Feldspar - الفلسبار",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_022",
+      "question": "What is tenacity in mineralogy? ما هي المتانة في علم المعادن؟",
+      "answers": [
+        "Resistance to breaking or deformation - مقاومة الكسر أو التشوه",
+        "Mineral color - لون المعدن",
+        "Mineral weight - وزن المعدن",
+        "Mineral transparency - شفافية المعدن"
+      ],
+      "correctAnswer": "Resistance to breaking or deformation - مقاومة الكسر أو التشوه",
+      "difficulty": "hard"
+    },
+    {
+      "id": "min_023",
+      "question": "What are ore minerals? ما هي المعادن الخامية؟",
+      "answers": [
+        "Minerals from which metals can be extracted - معادن يمكن استخلاص المعادن الفلزية منها",
+        "Decorative minerals only - معادن زينة فقط",
+        "Worthless minerals - معادن عديمة القيمة",
+        "Synthetic minerals - معادن صناعية"
+      ],
+      "correctAnswer": "Minerals from which metals can be extracted - معادن يمكن استخلاص المعادن الفلزية منها",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_024",
+      "question": "What is olivine? ما هو الأوليفين؟",
+      "answers": [
+        "Green silicate mineral common in mantle - معدن سيليكات أخضر شائع في الوشاح",
+        "Blue carbonate mineral - معدن كربونات أزرق",
+        "Red oxide mineral - معدن أكسيد أحمر",
+        "White sulfate mineral - معدن كبريتات أبيض"
+      ],
+      "correctAnswer": "Green silicate mineral common in mantle - معدن سيليكات أخضر شائع في الوشاح",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_025",
+      "question": "What is corundum? ما هو الكوراندوم؟",
+      "answers": [
+        "Second hardest mineral (Al2O3) - ثاني أصلب معدن",
+        "Softest mineral - أنعم معدن",
+        "Most common mineral - أكثر معدن شيوعاً",
+        "Rarest mineral - أندر معدن"
+      ],
+      "correctAnswer": "Second hardest mineral (Al2O3) - ثاني أصلب معدن",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_026",
+      "question": "What are ruby and sapphire? ما هما الياقوت الأحمر والأزرق؟",
+      "answers": [
+        "Varieties of corundum - أنواع من الكوراندوم",
+        "Types of quartz - أنواع من الكوارتز",
+        "Forms of diamond - أشكال من الماس",
+        "Feldspar varieties - أنواع من الفلسبار"
+      ],
+      "correctAnswer": "Varieties of corundum - أنواع من الكوراندوم",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_027",
+      "question": "What is fluorescence in minerals? ما هو التألق الفلوري في المعادن؟",
+      "answers": [
+        "Emission of light under UV radiation - انبعاث الضوء تحت الأشعة فوق البنفسجية",
+        "Natural color of mineral - اللون الطبيعي للمعدن",
+        "Hardness property - خاصية الصلادة",
+        "Weight measurement - قياس الوزن"
+      ],
+      "correctAnswer": "Emission of light under UV radiation - انبعاث الضوء تحت الأشعة فوق البنفسجية",
+      "difficulty": "hard"
+    },
+    {
+      "id": "min_028",
+      "question": "What is galena? ما هو الجالينا؟",
+      "answers": [
+        "Lead sulfide ore (PbS) - خام كبريتيد الرصاص",
+        "Gold ore - خام ذهب",
+        "Silver ore - خام فضة",
+        "Copper ore - خام نحاس"
+      ],
+      "correctAnswer": "Lead sulfide ore (PbS) - خام كبريتيد الرصاص",
+      "difficulty": "medium"
+    },
+    {
+      "id": "min_029",
+      "question": "What is the crystal system of halite? ما هو النظام البلوري للهاليت؟",
+      "answers": [
+        "Cubic - مكعب",
+        "Hexagonal - سداسي",
+        "Monoclinic - أحادي الميل",
+        "Triclinic - ثلاثي الميل"
+      ],
+      "correctAnswer": "Cubic - مكعب",
+      "difficulty": "hard"
+    },
+    {
+      "id": "min_030",
+      "image": "assets/images/Amphibole.jpg",
+      "question": "What mineral group is shown? ما هي مجموعة المعادن الموضحة؟",
+      "answers": [
+        "Amphibole - الأمفيبول",
+        "Pyroxene - البيروكسين",
+        "Feldspar - الفلسبار",
+        "Mica - الميكا"
+      ],
+      "correctAnswer": "Amphibole - الأمفيبول",
+      "difficulty": "medium"
+    }
+  ]
 }
