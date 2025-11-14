@@ -30,5 +30,8 @@
   "section_mineralogy": "Минералогия",
   "section_petroleum_geology": "Нефтяная геология",
   "section_sedimentology": "Седиментология",
-  "section_structural_geology": "Структурная геология"
+  "section_structural_geology": "Структурная геология",
+  "quiz_start_title": "Тест для {section_name}",
+  "quiz_placeholder_message": "Здесь будут отображаться вопросы теста! Вопросы еще не загружены.",
+  "back_to_sections_button": "Назад к разделам"
 }
